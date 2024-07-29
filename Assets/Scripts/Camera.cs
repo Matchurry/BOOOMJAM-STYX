@@ -23,8 +23,6 @@ public class Camera : MonoBehaviour
     {
         Vector3 targetPosition = target.position + Vector3.up * height; // 计算目标位置
         Vector3 desiredPosition = targetPosition + Vector3.back * distance; // 计算摄像机期望位置
-
-        // 使用 Vector3.Lerp 进行平滑插值
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
 }
