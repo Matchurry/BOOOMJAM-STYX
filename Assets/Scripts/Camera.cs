@@ -4,25 +4,55 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    public Transform target; // 玩家物体
-    public float distance = 50f; // 摄像机与玩家的距离
-    public float height = 30f; // 摄像机的高度
-    public float smoothSpeed = 0.125f; // 平滑插值速度
-    void Start()
-    {
+    /// <summary>
+    /// 玩家物体
+    /// </summary>
+    public Transform target;
+    /// <summary>
+    /// 摄像机与玩家的距离
+    /// </summary>
+    public float distance = 50f;
+    /// <summary>
+    /// 摄像机的高度
+    /// </summary>
+    public float height = 30f;
+    /// <summary>
+    /// 平滑插值速度
+    /// </summary>
+    public float smoothSpeed = 0.125f;
+    /// <summary>
+    /// 摄像机抖动事件持续时间
+    /// </summary>
+    public float shakeDuration = 0.5f;
+    /// <summary>
+    /// 摄像机抖动事件强度
+    /// </summary>
+    public float shakeIntensity = 0.2f;
+    private float shakeStartTime;
+    void Start(){
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.P)){
+            StartShake();
+        }
+        if (Time.time < shakeStartTime + shakeDuration){
+            float t = (Time.time - shakeStartTime) / shakeDuration;
+            float shakeX = Random.Range(-1f, 1f) * shakeIntensity * (1 - t);
+            float shakeY = Random.Range(-1f, 1f) * shakeIntensity * (1 - t);
+            transform.position += new Vector3(shakeX, shakeY, 0);
+        }
     }
 
-    void LateUpdate()
-    {
-        Vector3 targetPosition = target.position + Vector3.up * height; // 计算目标位置
-        Vector3 desiredPosition = targetPosition + Vector3.back * distance; // 计算摄像机期望位置
+    void LateUpdate(){
+        //摄像机平滑跟踪
+        Vector3 targetPosition = target.position + Vector3.up * height;
+        Vector3 desiredPosition = targetPosition + Vector3.back * distance;
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+    }
+
+    public void StartShake(){
+        shakeStartTime = Time.time;
     }
 }

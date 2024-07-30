@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     private Vector3 movement;
     private int dir = 1;
-    public static int[,] map = new int[1024,1024];
+    public int[,] map = new int[1024,1024];
     public int[] pos = new int[2];
     public UnityEvent<int, int> OnCubePutOn;
     public UnityEvent<int, int> OnCubePutDown;
@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
     }
 
     void Start(){
-        map[0+512,0+512]=1;
         StartCoroutine(RunDelayedLoop());
+        StartCoroutine(RunBlockSummonLoop());
         stTime=0f;
     }
 
@@ -46,12 +46,19 @@ public class Player : MonoBehaviour
             }
     }
 
+    IEnumerator RunBlockSummonLoop(){
+        while(true){
+            SummonCube();
+            yield return new WaitForSeconds(UnityEngine.Random.Range(3f,6f));
+        }
+    }
+
     void Update(){
         //降落新的方块
-        if(Time.time-stTime>10f){
-            StartCoroutine(RunDelayedLoop());
-            stTime=Time.time;
-        }
+        // if(Time.time-stTime>10f){
+        //     StartCoroutine(RunDelayedLoop());
+        //     stTime=Time.time;
+        // }
 
         //更新玩家map位置
         pos[0]=TransToPos(transform.position.x);
@@ -71,7 +78,7 @@ public class Player : MonoBehaviour
             transform.position=tarpos;
 
         //抬起Cube
-        if (Input.GetKeyDown(KeyCode.Space) && !IsCubeOn){
+        if (Input.GetKeyDown(KeyCode.Space) && !IsCubeOn && Can_PutUp()){
             //PutCube();
             startTime = Time.time;
             int x = TransToPos(AimPosNow().x);
@@ -82,7 +89,7 @@ public class Player : MonoBehaviour
         }
 
         //放下Cube
-        if(Input.GetKeyDown(KeyCode.Space) && IsCubeOn && Can_PutDown(pos[0],pos[1],dir) && Time.time-startTime>=0.1f){
+        if(Input.GetKeyDown(KeyCode.Space) && IsCubeOn && Can_PutDown() && Time.time-startTime>=0.1f){
             int x = TransToPos(AimPosNow().x);
             int z = TransToPos(AimPosNow().z);
             OnCubePutDown.Invoke(x,z);
@@ -101,6 +108,7 @@ public class Player : MonoBehaviour
         cubeScript.pos[0] = TransToPos(cube.transform.position.x);
         cubeScript.pos[1] = TransToPos(cube.transform.position.z);
         cube.transform.localScale = new Vector3(1, 1, 1);
+        cubeScript.status = 1;
     }
     /// <summary>
     /// 生成一个新的方块，输入位置信息，直接生成。
@@ -113,7 +121,8 @@ public class Player : MonoBehaviour
         cubeScript.pos[0] = TransToPos(x);
         cubeScript.pos[1] = TransToPos(y);
         cube.transform.localScale = new Vector3(1, 1, 1);
-        map[cubeScript.pos[0],cubeScript.pos[1]] = 1;
+        map[x+512,y+512] = 1;
+        cubeScript.status = 1;
     }
     /// <summary>
     /// 从元素的位置信息转换到地图块的数组位置信息
@@ -123,13 +132,16 @@ public class Player : MonoBehaviour
         return (int)Math.Round(x+512);
     }
 
-    private bool Can_PutDown(int x, int z, int _dir){
-        if(_dir==2 && map[x+1,z]==0) return true;
-        else if(_dir==4 && map[x-1,z]==0) return true;
-        else if(_dir==1 && map[x,z+1]==0) return true;
-        else if(map[x,z-1]==0) return true;
-        else return false;
+    /// <summary>
+    /// 生成新的漂浮方块以供玩家使用
+    /// </summary>
+    private void SummonCube(){
+        GameObject cube = Instantiate(cubePrefab);
+        Cube cubeScript = cube.GetComponent<Cube>();
+        cube.transform.localScale = new Vector3(1, 1, 1);
+        cubeScript.status = 2;
     }
+
     /// <summary>
     /// 输入玩家位置信息和方向，返回目标方块位置的三维坐标
     /// 注意此函数还会直接操作地图数据
@@ -165,5 +177,15 @@ public class Player : MonoBehaviour
         else if(dir==4) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512);
         else if(dir==1) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1);
         else return new Vector3(pos[0]-512,CubeYValue,pos[1]-512-1);
+    }
+
+    private bool Can_PutDown(){
+        if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return false;
+        else return true;
+    }
+
+    private bool Can_PutUp(){
+        if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return true;
+        else return false;
     }
 }
