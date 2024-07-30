@@ -9,37 +9,40 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
-    public GameObject cubePrefab; // Cube 预制体
+    public GameObject cubePrefab;
+    public GameObject bombPrefab;
     private const float CubeYValue = 0.505f;
-    public float speed = 5f;
+    public float speed = 3f;
     private Vector3 movement;
     private int dir = 1;
     public int[,] map = new int[1024,1024];
     public int[] pos = new int[2];
-    public UnityEvent<int, int> OnCubePutOn;
-    public UnityEvent<int, int> OnCubePutDown;
+    public static UnityEvent<int, int> OnCubePutOn = new UnityEvent<int, int>();
+    public static UnityEvent<int, int> OnCubePutDown = new UnityEvent<int, int>();
     private bool IsCubeOn = false;
     private float startTime=0f;
-    private float stTime=0f;
+    public Scrollbar HP;
 
     void Awake(){
         instance = this;
     }
 
     void Start(){
+        Bomb.OnBombTriggered.AddListener(GetBomb);
         StartCoroutine(RunDelayedLoop());
         StartCoroutine(RunBlockSummonLoop());
-        stTime=0f;
+        StartCoroutine(RunBombSummonLoop());
     }
 
     IEnumerator RunDelayedLoop(){
         for(int i=-1; i<=1; i++)
             for(int j=-1; j<=1; j++){
                 if(map[i+512,j+512]==0){
+                    HP.size=1;
                     PutCube(i,j);
                     yield return new WaitForSeconds(0.1f);
                 }
@@ -53,12 +56,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator RunBombSummonLoop(){
+        while(true){
+            SummonBomb();
+            yield return new WaitForSeconds(UnityEngine.Random.Range(6f,10f));
+        }
+    }
+
     void Update(){
-        //降落新的方块
-        // if(Time.time-stTime>10f){
-        //     StartCoroutine(RunDelayedLoop());
-        //     stTime=Time.time;
-        // }
 
         //更新玩家map位置
         pos[0]=TransToPos(transform.position.x);
@@ -74,7 +79,7 @@ public class Player : MonoBehaviour
         if(verticalInput!=0) dir = verticalInput > 0 ? 1 : 3;
         else movement.z=0;
         var tarpos = transform.position + movement * speed * Time.deltaTime;
-        if(map[TransToPos(tarpos.x),TransToPos(tarpos.z)]==1)
+        if(map[TransToPos(tarpos.x),TransToPos(tarpos.z)]==1 || map[pos[0],pos[1]]!=1)
             transform.position=tarpos;
 
         //抬起Cube
@@ -95,6 +100,18 @@ public class Player : MonoBehaviour
             OnCubePutDown.Invoke(x,z);
             IsCubeOn=false;
             map[x,z]=1;
+        }
+
+        if(map[pos[0],pos[1]]!=1){
+            speed = 5f;
+            HP.size -= 0.0005f;
+            var rd = GetComponent<Renderer>();
+            rd.material.color=new Color(0.9811f,0.3656f,0.3878f);
+        }
+        else{
+            speed = 3f;
+            var rd = GetComponent<Renderer>();
+            rd.material.color=new Color(0.6745f,0.8747f,1);
         }
     }
     /// <summary>
@@ -141,6 +158,12 @@ public class Player : MonoBehaviour
         cube.transform.localScale = new Vector3(1, 1, 1);
         cubeScript.status = 2;
     }
+    /// <summary>
+    /// 生成炸弹
+    /// </summary>
+    private void SummonBomb(){
+        GameObject bomb = Instantiate(bombPrefab);
+    }
 
     /// <summary>
     /// 输入玩家位置信息和方向，返回目标方块位置的三维坐标
@@ -182,6 +205,12 @@ public class Player : MonoBehaviour
     private bool Can_PutDown(){
         if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return false;
         else return true;
+    }
+
+    private void GetBomb(int x,int z){
+        if(Math.Abs(pos[0]-x)+Math.Abs(pos[1]-z)<=2 && Math.Abs(pos[0]-x)<=1 && Math.Abs(pos[1]-z)<=1){
+            HP.size -= 0.2f;
+        }
     }
 
     private bool Can_PutUp(){

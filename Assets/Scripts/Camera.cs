@@ -11,11 +11,11 @@ public class Camera : MonoBehaviour
     /// <summary>
     /// 摄像机与玩家的距离
     /// </summary>
-    public float distance = 50f;
+    public float distance = 6f;
     /// <summary>
     /// 摄像机的高度
     /// </summary>
-    public float height = 30f;
+    public float height = 7f;
     /// <summary>
     /// 平滑插值速度
     /// </summary>
@@ -29,8 +29,9 @@ public class Camera : MonoBehaviour
     /// </summary>
     public float shakeIntensity = 0.2f;
     private float shakeStartTime;
+
     void Start(){
-        
+        Bomb.OnBombTriggered.AddListener(StartShake);
     }
 
     void Update(){
@@ -54,5 +55,8 @@ public class Camera : MonoBehaviour
 
     public void StartShake(){
         shakeStartTime = Time.time;
+    }
+    private void StartShake(int x, int z){
+        StartShake();
     }
 }

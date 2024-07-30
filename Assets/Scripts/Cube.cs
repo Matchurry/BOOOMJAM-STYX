@@ -25,15 +25,13 @@ public class Cube : MonoBehaviour
         ps = Player.instance;
         if(status==1){
             //为玩家阵营时
-            tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
-            ps.OnCubePutOn.AddListener(HandleOnCubePutOn);
-            ps.OnCubePutDown.AddListener(HandleOnCubePutDown);
+            ForPlayersNeceInit();
         }
         else{
             //为漂浮物体时
 
             //生成到顶端
-            transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,10f);
+            transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
         }
     }
 
@@ -56,13 +54,14 @@ public class Cube : MonoBehaviour
             transform.position -= Vector3.forward * 0.01f;
             UpdatePos();
             if(ps.map[pos[0],pos[1]-1]==1){
-                tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
-                ps.OnCubePutOn.AddListener(HandleOnCubePutOn);
-                ps.OnCubePutDown.AddListener(HandleOnCubePutDown);
+                ForPlayersNeceInit();
                 ps.map[pos[0],pos[1]]=1;
                 status=1;
-                Debug.Log("触碰!"+(pos[0]-512).ToString()+" "+(pos[1]-512).ToString());
             }
+        }
+
+        if(pos[1]<=-20){
+            Destroy(gameObject);
         }
     }
 
@@ -80,8 +79,17 @@ public class Cube : MonoBehaviour
             pos[0]=x;
             pos[1]=z;
             tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
-            //StartCoroutine(Wait(1.1f));
             is_moving=false;
+        }
+    }
+
+    void HandleOnBombTriggered(int x, int z){
+        if(status==1 && !is_moving){
+            //自身位于爆炸点3x3范围内
+            if(Math.Abs(pos[0]-x)+Math.Abs(pos[1]-z)<=2 && Math.Abs(pos[0]-x)<=1 && Math.Abs(pos[1]-z)<=1){
+                ps.map[pos[0],pos[1]]=0;
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -99,6 +107,16 @@ public class Cube : MonoBehaviour
     /// <param name="x">元素的某方向位置</param>
     private int TransToPos(float x){
         return (int)Math.Round(x+512);
+    }
+
+    /// <summary>
+    /// 作为玩家可支配的方块完成创建或身份转变时，需要使用此函数
+    /// </summary>
+    private void ForPlayersNeceInit(){
+        tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
+        Player.OnCubePutOn.AddListener(HandleOnCubePutOn);
+        Player.OnCubePutDown.AddListener(HandleOnCubePutDown);
+        Bomb.OnBombTriggered.AddListener(HandleOnBombTriggered);
     }
 
     IEnumerator Wait(float t){
