@@ -12,18 +12,18 @@ public class Bomb : MonoBehaviour{
 
     void Start(){
         ps = Player.instance;
-        transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
+        //transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
     }
 
     void Update(){
-        transform.position -= Vector3.forward * 0.01f;
+        transform.position -= Vector3.forward * 0.05f;
         UpdatePos();
         if(ps.map[pos[0],pos[1]-1]==1){
             OnBombTriggered.Invoke(pos[0],pos[1]-1);
             Destroy(gameObject);
         }
 
-        if(pos[1]<=-20){
+        if(pos[1]-512<=-20){
             Destroy(gameObject);
         }
     }

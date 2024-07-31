@@ -15,6 +15,7 @@ public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
     public GameObject cubePrefab;
     public GameObject bombPrefab;
+    public GameObject pickupPrefab;
     private const float CubeYValue = 0.505f;
     public float speed = 3f;
     private Vector3 movement;
@@ -26,6 +27,16 @@ public class Player : MonoBehaviour{
     private bool IsCubeOn = false;
     private float startTime=0f;
     public Scrollbar HP;
+    public int Score = 0;
+    /// <summary>
+    /// 当前属于玩家阵营的方块数
+    /// </summary>
+    public int CubeInHand = 0;
+    /// <summary>
+    /// 玩家可以持有的方块上限
+    /// 大于此上限时不会有新的方块加入
+    /// </summary>
+    public int CubeInHandLim = 9;
 
     void Awake(){
         instance = this;
@@ -33,9 +44,46 @@ public class Player : MonoBehaviour{
 
     void Start(){
         Bomb.OnBombTriggered.AddListener(GetBomb);
+        StartCoroutine(RunSummon(9,4,9,35));
         StartCoroutine(RunDelayedLoop());
-        StartCoroutine(RunBlockSummonLoop());
-        StartCoroutine(RunBombSummonLoop());
+        //StartCoroutine(RunBlockSummonLoop());
+        //StartCoroutine(RunBombSummonLoop());
+        //StartCoroutine(RunPickupsSummonLoop());
+    }
+    /// <summary>
+    /// 开始顶端物品生成协程
+    /// 请注意参数都是1-100的，四个之和不要大于100，第五个是留给空位的
+    /// </summary>
+    /// <param name="EnemyPosibility">障碍物生成的概率</param>
+    /// <param name="PlayerCubePosibility">玩家方块生成的概率</param>
+    /// <param name="PickupsPosibility">捡拾物生成的概率</param>
+    /// <param name="FloatThingsPosibility">漂浮动画的生成概率</param>
+    /// <returns></returns>
+    IEnumerator RunSummon(int EnemyPosibility, int PlayerCubePosibility, int PickupsPosibility, int FloatThingsPosibility){
+        PlayerCubePosibility+=EnemyPosibility;
+        PickupsPosibility+=PlayerCubePosibility;
+        FloatThingsPosibility+=PickupsPosibility;
+        while(true){
+            for(int i=-10; i<=10; i++){
+                var pos = UnityEngine.Random.Range(1,100+1);
+                if(pos<=EnemyPosibility){
+                    //生成障碍物
+                    SummonBomb(i);
+                }
+                else if(pos<=PlayerCubePosibility){
+                    //生成玩家方块
+                    SummonCube(i);
+                }
+                else if(pos<=PickupsPosibility){
+                    //生成捡拾物
+                    SummonPickups(i);
+                }
+                else if(pos<=FloatThingsPosibility){
+                    //生成漂浮物动画
+                }
+            }
+            yield return new WaitForSeconds(0.7f);
+        }
     }
 
     IEnumerator RunDelayedLoop(){
@@ -47,20 +95,6 @@ public class Player : MonoBehaviour{
                     yield return new WaitForSeconds(0.1f);
                 }
             }
-    }
-
-    IEnumerator RunBlockSummonLoop(){
-        while(true){
-            SummonCube();
-            yield return new WaitForSeconds(UnityEngine.Random.Range(3f,6f));
-        }
-    }
-
-    IEnumerator RunBombSummonLoop(){
-        while(true){
-            SummonBomb();
-            yield return new WaitForSeconds(UnityEngine.Random.Range(6f,10f));
-        }
     }
 
     void Update(){
@@ -115,19 +149,6 @@ public class Player : MonoBehaviour{
         }
     }
     /// <summary>
-    /// 生成一个新的方块，不需任何参数，取决于玩家的位置。
-    /// 请注意提前进行判断。
-    /// </summary>
-    private void PutCube(){
-        GameObject cube = Instantiate(cubePrefab);
-        Cube cubeScript = cube.GetComponent<Cube>();
-        cube.transform.position = PutDownPos(pos[0],pos[1],dir);
-        cubeScript.pos[0] = TransToPos(cube.transform.position.x);
-        cubeScript.pos[1] = TransToPos(cube.transform.position.z);
-        cube.transform.localScale = new Vector3(1, 1, 1);
-        cubeScript.status = 1;
-    }
-    /// <summary>
     /// 生成一个新的方块，输入位置信息，直接生成。
     /// 仅用于关卡开始的地图生成，请勿在游戏中使用此函数
     /// </summary>
@@ -140,6 +161,9 @@ public class Player : MonoBehaviour{
         cube.transform.localScale = new Vector3(1, 1, 1);
         map[x+512,y+512] = 1;
         cubeScript.status = 1;
+        if(x==0 && y==-1) cubeScript.type = 4;
+        else cubeScript.type = 2;
+        CubeInHand++;
     }
     /// <summary>
     /// 从元素的位置信息转换到地图块的数组位置信息
@@ -152,27 +176,46 @@ public class Player : MonoBehaviour{
     /// <summary>
     /// 生成新的漂浮方块以供玩家使用
     /// </summary>
-    private void SummonCube(){
+    private void SummonCube(int i){
         GameObject cube = Instantiate(cubePrefab);
         Cube cubeScript = cube.GetComponent<Cube>();
+        cube.transform.position = new Vector3(i,CubeYValue,30f);
         cube.transform.localScale = new Vector3(1, 1, 1);
         cubeScript.status = 2;
+        var pos = UnityEngine.Random.Range(1,100+1);
+        if(pos<= 13)
+            cubeScript.type = 2; //其实是3 炮塔
+        else if(pos <= 13+25)
+            cubeScript.type = 2;
+        else 
+            cubeScript.type = 1;
     }
     /// <summary>
     /// 生成炸弹
     /// </summary>
-    private void SummonBomb(){
+    private void SummonBomb(int i){
         GameObject bomb = Instantiate(bombPrefab);
+        bomb.transform.position = new Vector3(i,CubeYValue,30f);
+        //这里是炸弹类型的随机
+    }
+
+    private void SummonPickups(int i){
+        GameObject pickup = Instantiate(pickupPrefab);
+        Pickups puSc = pickup.GetComponent<Pickups>();
+        pickup.transform.position = new Vector3(i,CubeYValue,30f);
+        var pos = UnityEngine.Random.Range(1,100+1);
+        if(pos <= 13)
+            puSc.type = 3;
+        else if(pos <= 13+25)
+            puSc.type = 1;
+        else
+            puSc.type = 2;
     }
 
     /// <summary>
     /// 输入玩家位置信息和方向，返回目标方块位置的三维坐标
     /// 注意此函数还会直接操作地图数据
     /// </summary>
-    /// <param name="x"></param>
-    /// <param name="z"></param>
-    /// <param name="_dir"></param>
-    /// <returns></returns>
     private Vector3 PutDownPos(int x, int z, int _dir){
         if(_dir==2 && map[x+1,z]==0){
             map[x+1,z]=1;
@@ -206,9 +249,11 @@ public class Player : MonoBehaviour{
         if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return false;
         else return true;
     }
-
+    /// <summary>
+    /// 障碍物爆炸事件
+    /// </summary>
     private void GetBomb(int x,int z){
-        if(Math.Abs(pos[0]-x)+Math.Abs(pos[1]-z)<=2 && Math.Abs(pos[0]-x)<=1 && Math.Abs(pos[1]-z)<=1){
+        if(pos[0]==x && pos[1]==z){
             HP.size -= 0.2f;
         }
     }

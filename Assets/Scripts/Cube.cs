@@ -7,20 +7,37 @@ using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 
-public class Cube : MonoBehaviour
-{
+public class Cube : MonoBehaviour{
     public int[] pos = new int[2];
     /// <summary>
     /// 1代表玩家 2代表漂浮 -1为未初始化
     /// </summary>
     [Tooltip("1代表玩家 2代表漂浮 -1为未初始化")]
     public int status = -1;
+    [Tooltip("1普通 2加固 3炮台 -1未初始化")]
+    public int type = -1;
+    [Tooltip("血量")]
+    public int HPs = 999;
+    public int HPsLimit = 999;
+
     public Player ps;
     private const float CubeYValue = 0.505f;
     private bool is_moving = false;
     private Vector3 tarpos;
+    private Renderer rd;
+    
 
     void Start(){
+        rd = GetComponent<Renderer>();
+        switch(type){
+            case 1:
+                rd.material.color = Color.white;
+                break;
+            case 2:
+                rd.material.color = Color.gray;
+                break;
+        }
+
         while(status==-1){;}
         ps = Player.instance;
         if(status==1){
@@ -31,7 +48,7 @@ public class Cube : MonoBehaviour
             //为漂浮物体时
 
             //生成到顶端
-            transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
+            //transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
         }
     }
 
@@ -51,16 +68,22 @@ public class Cube : MonoBehaviour
             //为漂浮物体时
 
             //进行漂浮移动
-            transform.position -= Vector3.forward * 0.01f;
+            transform.position -= Vector3.forward * 0.05f;
             UpdatePos();
             if(ps.map[pos[0],pos[1]-1]==1){
-                ForPlayersNeceInit();
-                ps.map[pos[0],pos[1]]=1;
-                status=1;
+                if(ps.CubeInHand+1<=ps.CubeInHandLim){
+                    ForPlayersNeceInit();
+                    ps.map[pos[0],pos[1]]=1;
+                    status=1;
+                    ps.CubeInHand++;
+                }
+                else{
+                    Destroy(gameObject);
+                }
             }
         }
 
-        if(pos[1]<=-20){
+        if(pos[1]-512<=-20){
             Destroy(gameObject);
         }
     }
@@ -82,13 +105,32 @@ public class Cube : MonoBehaviour
             is_moving=false;
         }
     }
-
+    /// <summary>
+    /// 处理普通障碍物爆炸事件
+    /// 如果恰好位于爆炸点则血量-1 为0是自身摧毁
+    /// </summary>
     void HandleOnBombTriggered(int x, int z){
         if(status==1 && !is_moving){
-            //自身位于爆炸点3x3范围内
-            if(Math.Abs(pos[0]-x)+Math.Abs(pos[1]-z)<=2 && Math.Abs(pos[0]-x)<=1 && Math.Abs(pos[1]-z)<=1){
-                ps.map[pos[0],pos[1]]=0;
-                Destroy(gameObject);
+            if(pos[0]==x && pos[1]==z){
+                HPs--;
+                if(type==2 && HPs==HPsLimit-1){
+                    rd.material.color=Color.white;
+                }
+                if(HPs<=0){
+                    ps.map[pos[0],pos[1]]=0;
+                    ps.CubeInHand--;
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
+
+    private void HandheldOnCubeHpPickup(int x, int z){
+        if(pos[0]==x && pos[1]==z){
+            if(HPs+1>=HPsLimit) HPs=HPsLimit;
+            else HPs+=1;
+            if(type==2 && HPs==HPsLimit){
+                rd.material.color=Color.gray;
             }
         }
     }
@@ -116,7 +158,23 @@ public class Cube : MonoBehaviour
         tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
         Player.OnCubePutOn.AddListener(HandleOnCubePutOn);
         Player.OnCubePutDown.AddListener(HandleOnCubePutDown);
+        Pickups.OnCubeHpPickup.AddListener(HandheldOnCubeHpPickup);
         Bomb.OnBombTriggered.AddListener(HandleOnBombTriggered);
+        switch(type){
+            case 1 :
+                HPs = 1;
+                HPsLimit = 1;
+                break;
+            case 2 : 
+                HPs = 2;
+                HPsLimit = 2;
+                break;
+            case 4 :
+                HPs = 1;
+                HPsLimit = 1;
+                rd.material.color = new Color(1f,0.7673f,0f);
+                break;
+        }
     }
 
     IEnumerator Wait(float t){

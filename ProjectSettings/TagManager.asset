@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cube
   - Bomb
+  - Pickups
   layers:
   - Default
   - TransparentFX
