@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Camera : MonoBehaviour
@@ -32,6 +33,8 @@ public class Camera : MonoBehaviour
 
     void Start(){
         Bomb.OnBombTriggered.AddListener(StartShake);
+        Cube.CubeSelfDes.AddListener(StartShake);
+        Cube.OnCubeGet.AddListener(StartPushIn);
     }
 
     void Update(){
@@ -56,6 +59,24 @@ public class Camera : MonoBehaviour
     public void StartShake(){
         shakeStartTime = Time.time;
     }
+
+    private void StartPushIn(){
+        StartCoroutine(PushIn());
+    }
+
+    private bool is_in = false;
+    IEnumerator PushIn(){
+        if(is_in==false){
+            is_in = true;
+            distance = 6-3;
+            height = 7-4;
+            yield return new WaitForSeconds(0.5f);
+            distance = 6;
+            height = 7;
+            is_in = false;
+        }
+    }
+
     private void StartShake(int x, int z){
         StartShake();
     }

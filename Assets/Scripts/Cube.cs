@@ -6,6 +6,7 @@ using System.Threading;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 
 public class Cube : MonoBehaviour{
     public int[] pos = new int[2];
@@ -17,23 +18,28 @@ public class Cube : MonoBehaviour{
     [Tooltip("1普通 2加固 3炮台 -1未初始化")]
     public int type = -1;
     [Tooltip("血量")]
-    public int HPs = 999;
-    public int HPsLimit = 999;
+    public int HPs = 1;
+    public int HPsLimit = 2;
 
     public Player ps;
     private const float CubeYValue = 0.505f;
     private bool is_moving = false;
     private Vector3 tarpos;
     private Renderer rd;
+    public static UnityEvent<int,int> CubeSelfDes = new UnityEvent<int,int>();
+    public static UnityEvent OnCubeGet = new UnityEvent();
     
-
     void Start(){
         rd = GetComponent<Renderer>();
         switch(type){
             case 1:
+                HPs = 1;
+                HPsLimit = 2;
                 rd.material.color = Color.white;
                 break;
             case 2:
+                HPs = 1;
+                HPsLimit = 2;
                 rd.material.color = Color.gray;
                 break;
         }
@@ -74,10 +80,12 @@ public class Cube : MonoBehaviour{
                 if(ps.CubeInHand+1<=ps.CubeInHandLim){
                     ForPlayersNeceInit();
                     ps.map[pos[0],pos[1]]=1;
+                    OnCubeGet.Invoke();
                     status=1;
                     ps.CubeInHand++;
                 }
                 else{
+                    CubeSelfDes.Invoke(pos[0],pos[1]-1);
                     Destroy(gameObject);
                 }
             }
@@ -112,27 +120,42 @@ public class Cube : MonoBehaviour{
     void HandleOnBombTriggered(int x, int z){
         if(status==1 && !is_moving){
             if(pos[0]==x && pos[1]==z){
-                HPs--;
-                if(type==2 && HPs==HPsLimit-1){
-                    rd.material.color=Color.white;
-                }
-                if(HPs<=0){
-                    ps.map[pos[0],pos[1]]=0;
-                    ps.CubeInHand--;
-                    Destroy(gameObject);
-                }
+                CubeHpsMinus();
             }
         }
     }
-
+    /// <summary>
+    /// 方块血量减少一
+    /// 自动判断是否会变色与销毁
+    /// </summary>
+    private void CubeHpsMinus(){
+        HPs--;
+        if(HPs==HPsLimit-1)
+            rd.material.color=Color.white;
+        if(HPs<=0){
+            ps.map[pos[0],pos[1]]=0;
+            ps.CubeInHand--;
+            Destroy(gameObject);
+        }
+    }
+    /// <summary>
+    /// 方块加血
+    /// 自动处理是否变色
+    /// </summary>
     private void HandheldOnCubeHpPickup(int x, int z){
-        if(pos[0]==x && pos[1]==z){
+        if(pos[0]==x && pos[1]==z && type!=4){
             if(HPs+1>=HPsLimit) HPs=HPsLimit;
             else HPs+=1;
-            if(type==2 && HPs==HPsLimit){
+            if(HPs==HPsLimit)
                 rd.material.color=Color.gray;
-            }
+            else
+                rd.material.color=Color.white;
         }
+    }
+
+    private void HandleCubeSelfDes(int x, int z){
+        if(pos[0]==x && pos[1]==z)
+            CubeHpsMinus();
     }
 
     /// <summary>
@@ -160,14 +183,17 @@ public class Cube : MonoBehaviour{
         Player.OnCubePutDown.AddListener(HandleOnCubePutDown);
         Pickups.OnCubeHpPickup.AddListener(HandheldOnCubeHpPickup);
         Bomb.OnBombTriggered.AddListener(HandleOnBombTriggered);
+        Cube.CubeSelfDes.AddListener(HandleCubeSelfDes);
         switch(type){
             case 1 :
                 HPs = 1;
-                HPsLimit = 1;
+                HPsLimit = 2;
+                rd.material.color = Color.white;
                 break;
             case 2 : 
                 HPs = 2;
                 HPsLimit = 2;
+                rd.material.color = Color.gray;
                 break;
             case 4 :
                 HPs = 1;
