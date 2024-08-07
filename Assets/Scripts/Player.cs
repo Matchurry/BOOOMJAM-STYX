@@ -10,6 +10,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Debug = System.Diagnostics.Debug;
 
 public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
@@ -19,7 +20,6 @@ public class Player : MonoBehaviour{
     private const float CubeYValue = 0.505f;
     public float speed = 3f;
     private Vector3 movement;
-    private int dir = 1;
     public int[,] map = new int[1024,1024];
     public int[] pos = new int[2];
     public static UnityEvent<int, int> OnCubePutOn = new UnityEvent<int, int>();
@@ -106,16 +106,14 @@ public class Player : MonoBehaviour{
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 movement = new Vector3(horizontalInput>0?1:-1, 0f, verticalInput>0?1:-1);
         
-        if(horizontalInput!=0) dir = horizontalInput < 0 ? 4 : 2; //1up 2right 3down 4left
-        else movement.x=0;
-        if(verticalInput!=0) dir = verticalInput > 0 ? 1 : 3;
-        else movement.z=0;
-        var tarpos = transform.position + movement * speed * Time.deltaTime;
+        if(horizontalInput==0) movement.x=0; 
+        if(verticalInput==0) movement.z=0;
+        var tarpos = transform.position + movement * (speed * Time.deltaTime);
         if(map[TransToPos(tarpos.x),TransToPos(tarpos.z)]==1 || map[pos[0],pos[1]]!=1)
             transform.position=tarpos;
 
         //抬起Cube
-        if (Input.GetKeyDown(KeyCode.Space) && !IsCubeOn && Can_PutUp()){
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsCubeOn && Can_PutUp()){
             //PutCube();
             startTime = Time.time;
             int x = TransToPos(AimPosNow().x);
@@ -126,7 +124,7 @@ public class Player : MonoBehaviour{
         }
 
         //放下Cube
-        if(Input.GetKeyDown(KeyCode.Space) && IsCubeOn && Can_PutDown() && Time.time-startTime>=0.1f){
+        if(Input.GetKeyDown(KeyCode.Mouse0) && IsCubeOn && Can_PutDown() && Time.time-startTime>=0.1f){
             int x = TransToPos(AimPosNow().x);
             int z = TransToPos(AimPosNow().z);
             OnCubePutDown.Invoke(x,z);
@@ -215,15 +213,19 @@ public class Player : MonoBehaviour{
     /// 注意此函数还会直接操作地图数据
     /// </summary>
     private Vector3 PutDownPos(int x, int z, int _dir){
-        if(_dir==2 && map[x+1,z]==0){
+        var playerPos = (Vector2)UnityEngine.Camera.main.WorldToScreenPoint(transform.position);
+        var direction = (Vector2)Input.mousePosition - playerPos;
+        var angleRadians = Mathf.Atan2(direction.y, direction.x); 
+        var angleDegrees = angleRadians * Mathf.Rad2Deg;
+        if(angleDegrees is <= 45 and >= -45 && map[x+1,z]==0){
             map[x+1,z]=1;
             return new Vector3(x+1-512,CubeYValue,z-512);
         }
-        else if(_dir==4 && map[x-1,z]==0){
+        else if(angleDegrees is <= -135 or >= 135 && map[x-1,z]==0){
             map[x-1,z]=1;
             return new Vector3(x-1-512,CubeYValue,z-512);
         }
-        else if(_dir==1 && map[x,z+1]==0) {
+        else if(angleDegrees is <= 135 and >= 45 && map[x,z+1]==0) {
             map[x,z+1]=1;
             return new Vector3(x-512,CubeYValue,z+1-512);
         }
@@ -237,15 +239,19 @@ public class Player : MonoBehaviour{
     /// </summary>
     /// <returns></returns>
     public Vector3 AimPosNow(){
-        if(Input.mousePosition.x >= Screen.width/2f) return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512); //右
-        else if(Input.mousePosition.x < Screen.width/2f) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512); //左
-        else if(Input.mousePosition.y >= Screen.height/3f) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1); //上
+        var playerPos = (Vector2)UnityEngine.Camera.main.WorldToScreenPoint(transform.position);
+        var direction = (Vector2)Input.mousePosition - playerPos;
+        var angleRadians = Mathf.Atan2(direction.y, direction.x); 
+        var angleDegrees = angleRadians * Mathf.Rad2Deg;
+        if(angleDegrees is <= 45 and >= -45) return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512); //右
+        else if(angleDegrees is <= -135 or >= 135) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512); //左
+        else if(angleDegrees is <= 135 and >= 45) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1); //上
         else return new Vector3(pos[0]-512,CubeYValue,pos[1]-512-1); //下
     }
 
-    private bool Can_PutDown(){
-        if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return false;
-        else return true;
+    private bool Can_PutDown()
+    {
+        return map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)] != 1;
     }
     /// <summary>
     /// 障碍物爆炸事件
