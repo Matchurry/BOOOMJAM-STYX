@@ -65,7 +65,7 @@ public class Pickups : MonoBehaviour{
         pos[0]=TransToPos(transform.position.x);
         pos[1]=TransToPos(transform.position.z);
     }
-
+            
     private int TransToPos(float x){
         return (int)Math.Round(x+512);
     }

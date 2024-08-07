@@ -68,8 +68,8 @@ public class Camera : MonoBehaviour
     IEnumerator PushIn(){
         if(is_in==false){
             is_in = true;
-            distance = 6-3;
-            height = 7-4;
+            distance = 6-1;
+            height = 7-2;
             yield return new WaitForSeconds(0.5f);
             distance = 6;
             height = 7;

@@ -43,12 +43,10 @@ public class Player : MonoBehaviour{
     }
 
     void Start(){
+        Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
         StartCoroutine(RunSummon(9,4,9,35));
         StartCoroutine(RunDelayedLoop());
-        //StartCoroutine(RunBlockSummonLoop());
-        //StartCoroutine(RunBombSummonLoop());
-        //StartCoroutine(RunPickupsSummonLoop());
     }
     /// <summary>
     /// 开始顶端物品生成协程
@@ -239,10 +237,10 @@ public class Player : MonoBehaviour{
     /// </summary>
     /// <returns></returns>
     public Vector3 AimPosNow(){
-        if(dir==2) return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512);
-        else if(dir==4) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512);
-        else if(dir==1) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1);
-        else return new Vector3(pos[0]-512,CubeYValue,pos[1]-512-1);
+        if(Input.mousePosition.x >= Screen.width/2f) return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512); //右
+        else if(Input.mousePosition.x < Screen.width/2f) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512); //左
+        else if(Input.mousePosition.y >= Screen.height/3f) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1); //上
+        else return new Vector3(pos[0]-512,CubeYValue,pos[1]-512-1); //下
     }
 
     private bool Can_PutDown(){

@@ -165,7 +165,6 @@ public class Cube : MonoBehaviour{
         pos[0]=TransToPos(transform.position.x);
         pos[1]=TransToPos(transform.position.z);
     }
-
     /// <summary>
     /// 从元素的位置信息转换到地图块的数组位置信息
     /// </summary>
