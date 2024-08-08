@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
+using Unity.Mathematics;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
@@ -26,8 +27,18 @@ public class Cube : MonoBehaviour{
     private bool is_moving = false;
     private Vector3 tarpos;
     private Renderer rd;
+    /// <summary>
+    /// 有方块飘来但是已经达到上限时触发
+    /// </summary>
     public static UnityEvent<int,int> CubeSelfDes = new UnityEvent<int,int>();
+    /// <summary>
+    /// 有方块成功加入玩家阵营时触发
+    /// </summary>
     public static UnityEvent OnCubeGet = new UnityEvent();
+    /// <summary>
+    /// 有方块死亡时触发，引发周围四格血量变为1
+    /// </summary>
+    private static UnityEvent<int,int> OnCubeDied = new UnityEvent<int,int>();
     
     void Start(){
         rd = GetComponent<Renderer>();
@@ -135,16 +146,32 @@ public class Cube : MonoBehaviour{
         if(HPs<=0){
             ps.map[pos[0],pos[1]]=0;
             ps.CubeInHand--;
+            OnCubeDied.Invoke(pos[0],pos[1]);
             Destroy(gameObject);
         }
     }
+    /// <summary>
+    /// 带条件的方块血量减少 x是几都无所谓 不会减到0
+    /// 重载函数
+    /// </summary>
+    private void CubeHpsMinus(int x)
+    {
+        if (HPs == 1) return;
+        else
+        {
+            CubeHpsMinus();
+        }
+    }
+    
     /// <summary>
     /// 方块加血
     /// 自动处理是否变色
     /// </summary>
     private void HandheldOnCubeHpPickup(int x, int z){
-        if(pos[0]==x && pos[1]==z && type!=4){
-            if(HPs+1>=HPsLimit) HPs=HPsLimit;
+        if(pos[0]==x && pos[1]==z && type!=4)
+        {
+            if (type == 1) HPsLimit = 2;
+            if (HPs + 1 >= HPsLimit) HPs = HPsLimit;
             else HPs+=1;
             if(HPs==HPsLimit)
                 rd.material.color=Color.gray;
@@ -158,6 +185,12 @@ public class Cube : MonoBehaviour{
             CubeHpsMinus();
     }
 
+    private void HandleOnCubeDied(int x, int z)
+    {
+        if(Math.Abs(pos[0]-x)+Math.Abs(pos[1]-z)==1)
+            CubeHpsMinus(1);
+    }
+    
     /// <summary>
     /// 由地图位置更新到pos数组位置
     /// </summary>
@@ -183,6 +216,7 @@ public class Cube : MonoBehaviour{
         Pickups.OnCubeHpPickup.AddListener(HandheldOnCubeHpPickup);
         Bomb.OnBombTriggered.AddListener(HandleOnBombTriggered);
         Cube.CubeSelfDes.AddListener(HandleCubeSelfDes);
+        Cube.OnCubeDied.AddListener(HandleOnCubeDied);
         switch(type){
             case 1 :
                 HPs = 1;
