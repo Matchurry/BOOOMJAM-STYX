@@ -45,7 +45,7 @@ public class Player : MonoBehaviour{
     void Start(){
         Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
-        StartCoroutine(RunSummon(5,5,8,35));
+        StartCoroutine(RunSummon(9,4,9,35));
         StartCoroutine(RunDelayedLoop());
     }
     /// <summary>
