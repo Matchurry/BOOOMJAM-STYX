@@ -21,7 +21,7 @@ public class Cube : MonoBehaviour{
     public int HPs = 1;
     public int HPsLimit = 2;
 
-    public Player ps;
+    private Player ps;
     private const float CubeYValue = 0.505f;
     private bool is_moving = false;
     private Vector3 tarpos;

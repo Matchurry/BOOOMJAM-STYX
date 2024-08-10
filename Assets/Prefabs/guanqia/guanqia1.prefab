@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6910345857014478743}
   - component: {fileID: 1215572818902278930}
+  - component: {fileID: -5338669698932163746}
   m_Layer: 0
   m_Name: guanqia1
   m_TagString: Untagged
@@ -298,6 +299,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 11, z: 16.7}
   m_Center: {x: 0, y: 4.78, z: 0}
+--- !u!114 &-5338669698932163746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910345857014478742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09afda0ee93574a42b1a4cde5d7b860d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6910345857509898660
 GameObject:
   m_ObjectHideFlags: 0

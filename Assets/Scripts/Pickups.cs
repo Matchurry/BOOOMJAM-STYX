@@ -42,14 +42,14 @@ public class Pickups : MonoBehaviour{
                     if(ps.HP.size+0.1f>1f)
                         ps.HP.size = 1f;
                     else ps.HP.size += 0.1f;
-                    Debug.Log("Hp Recovered");
+                    //Debug.Log("Hp Recovered");
                     break;
                 case 2:
                     OnCubeHpPickup.Invoke(pos[0],pos[1]-1);
-                    Debug.Log("CubeHp Recoered");
+                    //Debug.Log("CubeHp Recovered");
                     break;
                 case 3:
-                    Debug.Log("Score Get");
+                    //Debug.Log("Score Get");
                     ps.Score++;
                     break;
             }

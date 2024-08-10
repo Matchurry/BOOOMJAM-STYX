@@ -5,18 +5,19 @@ using System.Data;
 using System.Diagnostics;
 using System.IO.Compression;
 using System.Threading;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Debug = System.Diagnostics.Debug;
 
 public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
     public GameObject cubePrefab;
     public GameObject bombPrefab;
     public GameObject pickupPrefab;
+    public GameObject backGroundPrefab;
     private const float CubeYValue = 0.505f;
     public float speed = 3f;
     private Vector3 movement;
@@ -45,8 +46,10 @@ public class Player : MonoBehaviour{
     void Start(){
         Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
-        StartCoroutine(RunSummon(9,4,9,35));
+        Ballet.OnBalletHit.AddListener(GetBallet);
+        StartCoroutine(RunSummon(2,3,8,35));
         StartCoroutine(RunDelayedLoop());
+        StartCoroutine(RunBackGroundSummon());
     }
     /// <summary>
     /// 开始顶端物品生成协程
@@ -95,6 +98,19 @@ public class Player : MonoBehaviour{
             }
     }
 
+    IEnumerator RunBackGroundSummon()
+    {
+        while (true)
+        {
+            GameObject bg1 = Instantiate(backGroundPrefab);
+            GameObject bg2 = Instantiate(backGroundPrefab);
+            bg1.transform.position = new Vector3(8, 0, 50);
+            bg2.transform.position = new Vector3(-8, 0, 50);
+            bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+            yield return new WaitForSeconds(3.8f);
+        }
+    }
+    
     void Update(){
 
         //更新玩家map位置
@@ -186,13 +202,20 @@ public class Player : MonoBehaviour{
         else 
             cubeScript.type = 1;
     }
+    // ReSharper disable Unity.PerformanceAnalysis
     /// <summary>
     /// 生成炸弹
     /// </summary>
     private void SummonBomb(int i){
         GameObject bomb = Instantiate(bombPrefab);
+        Bomb bbSc = bomb.GetComponent<Bomb>();
         bomb.transform.position = new Vector3(i,CubeYValue,30f);
-        //这里是炸弹类型的随机
+        //这里是炸弹类型的随机 10%攻击型吧
+        var pos = UnityEngine.Random.Range(1, 100 + 1);
+        if (pos <= 100)
+            bbSc.type = 2; //攻击型
+        else
+            bbSc.type = 1; //冲撞型
     }
 
     private void SummonPickups(int i){
@@ -261,7 +284,18 @@ public class Player : MonoBehaviour{
             HP.size -= 0.2f;
         }
     }
-
+    /// <summary>
+    /// 障碍物射击的子弹
+    /// </summary>
+    private void GetBallet(int x, int z)
+    {
+        UnityEngine.Debug.Log((math.abs(pos[0] - x) + math.abs(pos[1] - z)).ToString());
+        if (math.abs(pos[0] - x) + math.abs(pos[1] - z) <= 1)
+        {
+            HP.size -= 0.2f;
+        }
+    }
+    
     private bool Can_PutUp(){
         if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return true;
         else return false;

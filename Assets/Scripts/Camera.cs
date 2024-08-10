@@ -35,6 +35,7 @@ public class Camera : MonoBehaviour
         Bomb.OnBombTriggered.AddListener(StartShake);
         Cube.CubeSelfDes.AddListener(StartShake);
         Cube.OnCubeGet.AddListener(StartPushIn);
+        Ballet.OnBalletHit.AddListener(StartShake);
     }
 
     void Update(){
