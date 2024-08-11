@@ -234,7 +234,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ce228e90c2f9a4eba356f6a3678990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 5074539932343228205, guid: 2c8a16f365d216c42a2f9cf85c1ac5bc,
+  stardCubePrefab: {fileID: 9147580087200717769, guid: 10861acc718641e41881bf70aa9ac10b,
+    type: 3}
+  coreCubePrefab: {fileID: 5188793981297193742, guid: 670fa80290e91f44ba5a7ad1e0d0b0a7,
+    type: 3}
+  reinforcedCubePrefab: {fileID: 161549714123308728, guid: cf126cc097cb2b148af9454e44d99cfe,
     type: 3}
   bombPrefab: {fileID: 1564352523601989559, guid: 1133292b9fe41fe44bd69e33cc6334a1,
     type: 3}
@@ -658,7 +662,7 @@ MonoBehaviour:
   target: {fileID: 211006981}
   distance: 6
   height: 7
-  smoothSpeed: 0.125
+  smoothSpeed: 0.02
   shakeDuration: 0.5
   shakeIntensity: 0.2
 --- !u!114 &725847416

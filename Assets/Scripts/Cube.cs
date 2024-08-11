@@ -15,7 +15,7 @@ public class Cube : MonoBehaviour{
     /// </summary>
     [Tooltip("1代表玩家 2代表漂浮 -1为未初始化")]
     public int status = -1;
-    [Tooltip("1普通 2加固 3炮台 -1未初始化")]
+    [Tooltip("1普通 2加固 3炮台 4核心 -1未初始化")]
     public int type = -1;
     [Tooltip("血量")]
     public int HPs = 1;
@@ -25,22 +25,22 @@ public class Cube : MonoBehaviour{
     private const float CubeYValue = 0.505f;
     private bool is_moving = false;
     private Vector3 tarpos;
-    private Renderer rd;
+    
     public static UnityEvent<int,int> CubeSelfDes = new UnityEvent<int,int>();
     public static UnityEvent OnCubeGet = new UnityEvent();
+    public GameObject stardCubePrefab;
+    public GameObject coreCubePrefab;
+    public GameObject reinforcedCubePrefab;
     
     void Start(){
-        rd = GetComponent<Renderer>();
         switch(type){
             case 1:
                 HPs = 1;
                 HPsLimit = 2;
-                rd.material.color = Color.white;
                 break;
             case 2:
                 HPs = 1;
                 HPsLimit = 2;
-                rd.material.color = Color.gray;
                 break;
         }
 
@@ -67,7 +67,7 @@ public class Cube : MonoBehaviour{
             else{
                 if(is_moving)
                     tarpos = ps.transform.position + Vector3.up*1.25f;
-                transform.position = Vector3.Lerp(transform.position, tarpos, 0.1f);
+                transform.position = Vector3.Lerp(transform.position, tarpos, 0.15f);
             }
         }
         else{
@@ -131,7 +131,7 @@ public class Cube : MonoBehaviour{
     private void CubeHpsMinus(){
         HPs--;
         if(HPs==HPsLimit-1)
-            rd.material.color=Color.white;
+            SwitchToType(1);
         if(HPs<=0){
             ps.map[pos[0],pos[1]]=0;
             ps.CubeInHand--;
@@ -147,9 +147,9 @@ public class Cube : MonoBehaviour{
             if(HPs+1>=HPsLimit) HPs=HPsLimit;
             else HPs+=1;
             if(HPs==HPsLimit)
-                rd.material.color=Color.gray;
+                SwitchToType(2);
             else
-                rd.material.color=Color.white;
+                SwitchToType(1);
         }
     }
 
@@ -187,21 +187,50 @@ public class Cube : MonoBehaviour{
             case 1 :
                 HPs = 1;
                 HPsLimit = 2;
-                rd.material.color = Color.white;
                 break;
             case 2 : 
                 HPs = 2;
                 HPsLimit = 2;
-                rd.material.color = Color.gray;
                 break;
             case 4 :
                 HPs = 1;
                 HPsLimit = 1;
-                rd.material.color = new Color(1f,0.7673f,0f);
                 break;
         }
     }
-
+    /// <summary>
+    /// 重要*
+    /// 方块改变自身模型时调用（例如因血量变更导致的模型变化
+    /// 调试中
+    /// </summary>
+    /// <param name="x">1标准 2加固 3炮台 4核心</param>
+    private void SwitchToType(int x)
+    {
+        //生成一个新的方块 替换自身 只改变type 随后自身删除
+        switch (x)
+        {
+            case 1:
+                GameObject standardCube = Instantiate(stardCubePrefab);
+                Cube standSc = standardCube.GetComponent<Cube>();
+                standardCube.transform.position = transform.position;
+                standSc.pos = pos;
+                standSc.status = status;
+                standSc.type = 1;
+                break;
+            case 2:
+                GameObject reinCube = Instantiate(reinforcedCubePrefab);
+                Cube reinSc = reinCube.GetComponent<Cube>();
+                reinCube.transform.position = transform.position;
+                reinSc.pos = pos;
+                reinSc.status = status;
+                reinSc.type = 2;
+                break;
+            default:
+                break;
+        }
+        Destroy(gameObject);
+    }
+    
     IEnumerator Wait(float t){
         yield return new WaitForSeconds(t);
     }

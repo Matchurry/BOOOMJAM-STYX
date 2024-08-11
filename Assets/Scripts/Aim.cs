@@ -12,6 +12,6 @@ public class Aim : MonoBehaviour
 
     void Update(){
         tarpos = playerscript.AimPosNow();
-        transform.position = Vector3.Lerp(transform.position, tarpos, 0.1f);
+        transform.position = Vector3.Lerp(transform.position, tarpos, 0.2f);
     }
 }

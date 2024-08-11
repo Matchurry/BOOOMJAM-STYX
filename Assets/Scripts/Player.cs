@@ -14,7 +14,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
-    public GameObject cubePrefab;
+    public GameObject stardCubePrefab;
+    public GameObject coreCubePrefab;
+    public GameObject reinforcedCubePrefab;
     public GameObject bombPrefab;
     public GameObject pickupPrefab;
     public GameObject backGroundPrefab;
@@ -104,10 +106,10 @@ public class Player : MonoBehaviour{
         {
             GameObject bg1 = Instantiate(backGroundPrefab);
             GameObject bg2 = Instantiate(backGroundPrefab);
-            bg1.transform.position = new Vector3(8, 0, 50);
-            bg2.transform.position = new Vector3(-8, 0, 50);
+            bg1.transform.position = new Vector3(8, 0.3f, 50);
+            bg2.transform.position = new Vector3(-8, 0.3f, 50);
             bg2.transform.rotation = new Quaternion(0, 1, 0,0);
-            yield return new WaitForSeconds(3.8f);
+            yield return new WaitForSeconds(3.7f);
         }
     }
     
@@ -165,16 +167,27 @@ public class Player : MonoBehaviour{
     /// 仅用于关卡开始的地图生成，请勿在游戏中使用此函数
     /// </summary>
     private void PutCube(int x, int y){
-        GameObject cube = Instantiate(cubePrefab);
-        Cube cubeScript = cube.GetComponent<Cube>();
-        cube.transform.position = new Vector3(x,CubeYValue+10,y);
-        cubeScript.pos[0] = TransToPos(x);
-        cubeScript.pos[1] = TransToPos(y);
-        cube.transform.localScale = new Vector3(1, 1, 1);
+        if (x == 0 && y == -1)
+        {
+            GameObject cube = Instantiate(coreCubePrefab);
+            Cube cubeSc = cube.GetComponent<Cube>();
+            cube.transform.position = new Vector3(x,CubeYValue+10,y);
+            cubeSc.pos[0] = TransToPos(x);
+            cubeSc.pos[1] = TransToPos(y);
+            cubeSc.status = 1;
+            cubeSc.type = 4;
+        }
+        else
+        {
+           GameObject cube = Instantiate(reinforcedCubePrefab);
+           Cube cubeScript = cube.GetComponent<Cube>();
+           cube.transform.position = new Vector3(x,CubeYValue+10,y);
+           cubeScript.pos[0] = TransToPos(x);
+           cubeScript.pos[1] = TransToPos(y);
+           cubeScript.status = 1;
+           cubeScript.type = 2; 
+        }
         map[x+512,y+512] = 1;
-        cubeScript.status = 1;
-        if(x==0 && y==-1) cubeScript.type = 4;
-        else cubeScript.type = 2;
         CubeInHand++;
     }
     /// <summary>
@@ -189,18 +202,24 @@ public class Player : MonoBehaviour{
     /// 生成新的漂浮方块以供玩家使用
     /// </summary>
     private void SummonCube(int i){
-        GameObject cube = Instantiate(cubePrefab);
-        Cube cubeScript = cube.GetComponent<Cube>();
-        cube.transform.position = new Vector3(i,CubeYValue,30f);
-        cube.transform.localScale = new Vector3(1, 1, 1);
-        cubeScript.status = 2;
         var pos = UnityEngine.Random.Range(1,100+1);
-        if(pos<= 13)
-            cubeScript.type = 2; //其实是3 炮塔
-        else if(pos <= 13+25)
-            cubeScript.type = 2;
-        else 
-            cubeScript.type = 1;
+        //if(pos<= 13)
+        //cubeScript.type = 2; //其实是3 炮塔 炮塔已经是主动技能
+        if (pos <= 13 + 25) {
+            GameObject reinforcedCube = Instantiate(reinforcedCubePrefab);
+            Cube cubeSc = reinforcedCube.GetComponent<Cube>();
+            reinforcedCube.transform.position = new Vector3(i,CubeYValue,30f);
+            cubeSc.type = 2;
+            cubeSc.status = 2;
+        }
+        else
+        {
+            GameObject standardCube = Instantiate(stardCubePrefab);
+            Cube cubeSc = standardCube.GetComponent<Cube>();
+            standardCube.transform.position = new Vector3(i,CubeYValue,30f);
+            cubeSc.type = 1;
+            cubeSc.status = 2;
+        }
     }
     // ReSharper disable Unity.PerformanceAnalysis
     /// <summary>
@@ -261,8 +280,9 @@ public class Player : MonoBehaviour{
     /// 返回指示表所指向的方块位置
     /// </summary>
     /// <returns></returns>
-    public Vector3 AimPosNow(){
-        var playerPos = (Vector2)UnityEngine.Camera.main.WorldToScreenPoint(transform.position);
+    public Vector3 AimPosNow()
+    {
+        var playerPos = (Vector2)UnityEngine.Camera.main.WorldToScreenPoint(transform.position) - Vector2.up * 100;
         var direction = (Vector2)Input.mousePosition - playerPos;
         var angleRadians = Mathf.Atan2(direction.y, direction.x); 
         var angleDegrees = angleRadians * Mathf.Rad2Deg;
