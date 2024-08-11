@@ -27,7 +27,7 @@ public class Player : MonoBehaviour{
     public int[] pos = new int[2];
     public static UnityEvent<int, int> OnCubePutOn = new UnityEvent<int, int>();
     public static UnityEvent<int, int> OnCubePutDown = new UnityEvent<int, int>();
-    private bool IsCubeOn = false;
+    public bool IsCubeOn = false;
     private float startTime=0f;
     public Scrollbar HP;
     public int Score = 0;
@@ -309,7 +309,6 @@ public class Player : MonoBehaviour{
     /// </summary>
     private void GetBallet(int x, int z)
     {
-        UnityEngine.Debug.Log((math.abs(pos[0] - x) + math.abs(pos[1] - z)).ToString());
         if (math.abs(pos[0] - x) + math.abs(pos[1] - z) <= 1)
         {
             HP.size -= 0.2f;

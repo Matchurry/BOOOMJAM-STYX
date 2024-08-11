@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5074539932343228200}
   - component: {fileID: 5074539932343228203}
   - component: {fileID: 5074539932343228202}
+  - component: {fileID: 5446492386167511661}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Shooter
   m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,3 +98,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5446492386167511661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074539932343228205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9e462ce68fb444582b2fcbe0bed724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: 0000000000000000
+  status: -1
+  type: -1
+  HPs: 1
+  HPsLimit: 2
+  is_moving: 0
+  stardCubePrefab: {fileID: 9147580087200717769, guid: 10861acc718641e41881bf70aa9ac10b,
+    type: 3}
+  coreCubePrefab: {fileID: 5188793981297193742, guid: 670fa80290e91f44ba5a7ad1e0d0b0a7,
+    type: 3}
+  reinforcedCubePrefab: {fileID: 161549714123308728, guid: cf126cc097cb2b148af9454e44d99cfe,
+    type: 3}
+  shooterBalletPrefab: {fileID: 1250812535429182264, guid: f31aa0488dc21124398293f342d8c43c,
+    type: 3}

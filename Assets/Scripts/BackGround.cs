@@ -14,5 +14,7 @@ public class BackGround : MonoBehaviour
     void Update()
     {
         transform.position -= Vector3.forward * 0.05f;
+        if(transform.position.z<=-50f)
+            Destroy(gameObject);
     }
 }

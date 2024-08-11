@@ -23,7 +23,7 @@ public class Cube : MonoBehaviour{
 
     private Player ps;
     private const float CubeYValue = 0.505f;
-    private bool is_moving = false;
+    public bool is_moving = false;
     private Vector3 tarpos;
     
     public static UnityEvent<int,int> CubeSelfDes = new UnityEvent<int,int>();
@@ -31,20 +31,14 @@ public class Cube : MonoBehaviour{
     public GameObject stardCubePrefab;
     public GameObject coreCubePrefab;
     public GameObject reinforcedCubePrefab;
+    public GameObject shooterBalletPrefab;
+
+    public static UnityEvent OnShooterDes = new UnityEvent();
     
     void Start(){
-        switch(type){
-            case 1:
-                HPs = 1;
-                HPsLimit = 2;
-                break;
-            case 2:
-                HPs = 1;
-                HPsLimit = 2;
-                break;
-        }
-
+        
         while(status==-1){;}
+        
         ps = Player.instance;
         if(status==1){
             //为玩家阵营时
@@ -94,6 +88,15 @@ public class Cube : MonoBehaviour{
         if(pos[1]-512<=-20){
             Destroy(gameObject);
         }
+
+        if (type == 3 && Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject bt = Instantiate(shooterBalletPrefab);
+            ShooterBalletSc sc = bt.GetComponent<ShooterBalletSc>();
+            //召唤后给予初始位置即可 索敌在其脚本中
+            bt.transform.position = transform.position;
+            sc.pos = pos;
+        }
     }
 
     void HandleOnCubePutOn(int x, int z){
@@ -135,6 +138,8 @@ public class Cube : MonoBehaviour{
         if(HPs<=0){
             ps.map[pos[0],pos[1]]=0;
             ps.CubeInHand--;
+            if (type == 3)
+                OnShooterDes.Invoke();
             Destroy(gameObject);
         }
     }
@@ -191,6 +196,10 @@ public class Cube : MonoBehaviour{
             case 2 : 
                 HPs = 2;
                 HPsLimit = 2;
+                break;
+            case 3:
+                HPs = 1;
+                HPsLimit = 1;
                 break;
             case 4 :
                 HPs = 1;
