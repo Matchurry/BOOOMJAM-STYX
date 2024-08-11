@@ -244,7 +244,9 @@ MonoBehaviour:
     type: 3}
   pickupPrefab: {fileID: 9223184313135692347, guid: cd10fea3d647bce45aace53fd4aca918,
     type: 3}
-  backGroundPrefab: {fileID: 6910345857014478742, guid: 87e4e608a42e4154fbdf3053d5b10eda,
+  backGround1Prefab: {fileID: 6910345857014478742, guid: 87e4e608a42e4154fbdf3053d5b10eda,
+    type: 3}
+  backGround2Prefab: {fileID: 843784077816454103, guid: 72ed6cafb21dbf84a873daf05489164a,
     type: 3}
   speed: 3
   pos: 0000000000000000

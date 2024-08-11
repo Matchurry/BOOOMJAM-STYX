@@ -19,7 +19,10 @@ public class Player : MonoBehaviour{
     public GameObject reinforcedCubePrefab;
     public GameObject bombPrefab;
     public GameObject pickupPrefab;
-    public GameObject backGroundPrefab;
+    public GameObject backGround1Prefab;
+    public GameObject backGround2Prefab;
+    private int[] bgpos = new int[2]; //地图场景常数数据 位置初始化
+    private GameObject[] bgPrefabs = new GameObject[2];
     private const float CubeYValue = 0.505f;
     public float speed = 3f;
     private Vector3 movement;
@@ -43,6 +46,8 @@ public class Player : MonoBehaviour{
 
     void Awake(){
         instance = this;
+        bgpos[0] = 8; bgPrefabs[0] = backGround1Prefab;
+        bgpos[1] = 16; bgPrefabs[1] = backGround2Prefab;
     }
 
     void Start(){
@@ -51,7 +56,7 @@ public class Player : MonoBehaviour{
         Ballet.OnBalletHit.AddListener(GetBallet);
         StartCoroutine(RunSummon(2,3,8,35));
         StartCoroutine(RunDelayedLoop());
-        StartCoroutine(RunBackGroundSummon());
+        StartCoroutine(RunBackGroundSummon(2));
     }
     /// <summary>
     /// 开始顶端物品生成协程
@@ -99,15 +104,30 @@ public class Player : MonoBehaviour{
                 }
             }
     }
-
-    IEnumerator RunBackGroundSummon()
+    /// <summary>
+    /// 生成关卡地图场景
+    /// </summary>
+    /// <param name="x">当前关卡</param>
+    /// <returns></returns>
+    IEnumerator RunBackGroundSummon(int x)
     {
+        x--;
+        //16.7
+        //提前召唤一些加载
+        for (int i = 1; i <= 5; i++)
+        {
+            GameObject bg1 = Instantiate(bgPrefabs[x]);
+            GameObject bg2 = Instantiate(bgPrefabs[x]);
+            bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50-16.7f*i);
+            bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50-16.7f*i);
+            bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+        }
         while (true)
         {
-            GameObject bg1 = Instantiate(backGroundPrefab);
-            GameObject bg2 = Instantiate(backGroundPrefab);
-            bg1.transform.position = new Vector3(8, 0.3f, 50);
-            bg2.transform.position = new Vector3(-8, 0.3f, 50);
+            GameObject bg1 = Instantiate(bgPrefabs[x]);
+            GameObject bg2 = Instantiate(bgPrefabs[x]);
+            bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50);
+            bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50);
             bg2.transform.rotation = new Quaternion(0, 1, 0,0);
             yield return new WaitForSeconds(3.7f);
         }

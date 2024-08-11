@@ -133,7 +133,7 @@ public class Cube : MonoBehaviour{
     /// </summary>
     private void CubeHpsMinus(){
         HPs--;
-        if(HPs==HPsLimit-1)
+        if(HPs==HPsLimit-1 && type!=3)
             SwitchToType(1);
         if(HPs<=0){
             ps.map[pos[0],pos[1]]=0;
@@ -148,7 +148,7 @@ public class Cube : MonoBehaviour{
     /// 自动处理是否变色
     /// </summary>
     private void HandheldOnCubeHpPickup(int x, int z){
-        if(pos[0]==x && pos[1]==z && type!=4){
+        if(pos[0]==x && pos[1]==z && type!=4 && type!=3){
             if(HPs+1>=HPsLimit) HPs=HPsLimit;
             else HPs+=1;
             if(HPs==HPsLimit)

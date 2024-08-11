@@ -24,7 +24,7 @@ public class ShooterIcon : MonoBehaviour
         rd.color = new Color(1-coolDown / 10f, 1-coolDown / 10f, 1-coolDown / 10f);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (coolDown < 0.1f && !is_using && !ps.IsCubeOn)
+            if (coolDown < 0.1f && !is_using && !ps.IsCubeOn && ps.CubeInHand<ps.CubeInHandLim)
             {
                 ps.IsCubeOn = true;
                 is_using = true;
@@ -38,6 +38,7 @@ public class ShooterIcon : MonoBehaviour
                 shotSc.type = 3;
                 shotSc.status = 1;
                 shotSc.is_moving = true;
+                ps.CubeInHand++;
                 //等待销毁事件
             }
             else
