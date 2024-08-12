@@ -14,7 +14,7 @@ public class Cube : MonoBehaviour{
     /// </summary>
     [Tooltip("1代表玩家 2代表漂浮 -1为未初始化")]
     public int status = -1;
-    [Tooltip("1普通 2加固 3炮台 4核心 -1未初始化")]
+    [Tooltip("1普通 2加固 3炮台 4核心 5加速 -1未初始化")]
     public int type = -1;
     [Tooltip("血量")]
     public int HPs = 1;
@@ -33,6 +33,7 @@ public class Cube : MonoBehaviour{
     public GameObject shooterBalletPrefab;
 
     public static UnityEvent OnShooterDes = new UnityEvent();
+    public static UnityEvent OnSpeedDes = new UnityEvent();
     
     void Start(){
         
@@ -67,7 +68,8 @@ public class Cube : MonoBehaviour{
             //为漂浮物体时
 
             //进行漂浮移动
-            transform.position -= Vector3.forward * 0.05f;
+            if(!ps.is_resumed)
+                transform.position -= Vector3.forward * (0.05f * ps.gameSpeed); // 乘上游戏速率以平衡`
             UpdatePos();
             if(ps.map[pos[0],pos[1]-1]==1){
                 if(ps.CubeInHand+1<=ps.CubeInHandLim){
@@ -132,13 +134,15 @@ public class Cube : MonoBehaviour{
     /// </summary>
     private void CubeHpsMinus(){
         HPs--;
-        if(HPs==HPsLimit-1 && type!=3)
+        if(HPs==HPsLimit-1 && type!=3 && type!=5)
             SwitchToType(1);
         if(HPs<=0){
             ps.map[pos[0],pos[1]]=0;
             ps.CubeInHand--;
             if (type == 3)
                 OnShooterDes.Invoke();
+            if (type == 5) 
+                OnSpeedDes.Invoke();
             Destroy(gameObject);
         }
     }
@@ -203,6 +207,10 @@ public class Cube : MonoBehaviour{
             case 4 :
                 HPs = 1;
                 HPsLimit = 1;
+                break;
+            case 5 :
+                HPs = 3;
+                HPsLimit = 3;
                 break;
         }
     }
