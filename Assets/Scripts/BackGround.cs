@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class BackGround : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Player ps;
     void Start()
     {
-        
+        ps = Player.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position -= Vector3.forward * 0.05f;
+        if(!ps.is_resumed)
+            transform.position -= Vector3.forward * (0.05f * ps.gameSpeed);
         if(transform.position.z<=-50f)
             Destroy(gameObject);
     }

@@ -41,10 +41,6 @@ public class ShooterIcon : MonoBehaviour
                 ps.CubeInHand++;
                 //等待销毁事件
             }
-            else
-            {
-                Debug.Log(coolDown.ToString()+" "+is_using.ToString()+" "+ps.IsCubeOn.ToString());
-            }
         }
     }
 
@@ -63,8 +59,8 @@ public class ShooterIcon : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
                 coolDown -= 0.1f;
             }
-
-            yield return new WaitUntil(() => coolDown >= 0.1f && !is_using);
+            else
+                yield return null;
         }
     }
 }

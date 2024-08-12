@@ -40,7 +40,7 @@ public class ShooterBalletSc : MonoBehaviour
     
     void Update()
     {
-        if (bombWithSmallestValue != null)
+        if (bombWithSmallestValue is not null)
         {
             tarpos = bombWithSmallestValue.transform.position;
         }
