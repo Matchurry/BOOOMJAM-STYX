@@ -71,10 +71,10 @@ public class Cube : MonoBehaviour{
             if(!ps.is_resumed)
                 transform.position -= Vector3.forward * (0.05f * ps.gameSpeed); // 乘上游戏速率以平衡`
             UpdatePos();
-            if(ps.map[pos[0],pos[1]-1]==1){
+            if(ps.map[pos[0],pos[1]-1,0]==1){
                 if(ps.CubeInHand+1<=ps.CubeInHandLim){
                     ForPlayersNeceInit();
-                    ps.map[pos[0],pos[1]]=1;
+                    ps.map[pos[0],pos[1],0]=1;
                     OnCubeGet.Invoke();
                     status=1;
                     ps.CubeInHand++;
@@ -101,8 +101,10 @@ public class Cube : MonoBehaviour{
     }
 
     void HandleOnCubePutOn(int x, int z){
-        if(status==1 && x==pos[0] && z==pos[1]){
+        if(status==1 && x==pos[0] && z==pos[1] && ps.map[x,z,1]!=1){
             //被抬起
+            ps.what_is_moving = 0;
+            ps.map[x,z,0]=0;
             tarpos = ps.transform.position + Vector3.up*1.25f;
             is_moving=true;
         }
@@ -111,8 +113,10 @@ public class Cube : MonoBehaviour{
     void HandleOnCubePutDown(int x, int z){
         if(status==1 && is_moving){
             //被放下
+            ps.what_is_moving = -1;
             pos[0]=x;
             pos[1]=z;
+            ps.map[x,z,0]=1;
             tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
             is_moving=false;
         }
@@ -137,7 +141,7 @@ public class Cube : MonoBehaviour{
         if(HPs==HPsLimit-1 && type!=3 && type!=5)
             SwitchToType(1);
         if(HPs<=0){
-            ps.map[pos[0],pos[1]]=0;
+            ps.map[pos[0],pos[1],0]=0;
             ps.CubeInHand--;
             if (type == 3)
                 OnShooterDes.Invoke();

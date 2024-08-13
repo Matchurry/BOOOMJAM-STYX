@@ -37,6 +37,7 @@ public class SpeedUpIcon : MonoBehaviour
                 shotSc.type = 5; //加速方块
                 shotSc.status = 1;
                 shotSc.is_moving = true;
+                ps.what_is_moving = 0;
                 ps.CubeInHand++;
                 //等待销毁事件
             }

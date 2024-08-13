@@ -19,7 +19,7 @@ public class ShooterBalletSc : MonoBehaviour
         foreach (GameObject bomb in bombs)
         {
             Bomb Sc = bomb.GetComponent<Bomb>();
-            if(Sc.pos[1]<=ps.pos[1] || Sc.pos[1]>=25) continue; //在玩家背后的不会被索敌 太远的不会被索敌
+            if(Sc.pos[1]<=ps.pos[1] || Sc.pos[1]>=25+512) continue; //在玩家背后的不会被索敌 太远的不会被索敌
             if (math.abs(Sc.pos[0]-pos[0])+math.abs(Sc.pos[1]-pos[1]) < smallestValue)
             {
                 smallestValue = math.abs(Sc.pos[0] - pos[0]) + math.abs(Sc.pos[1] - pos[1]);
@@ -50,7 +50,15 @@ public class ShooterBalletSc : MonoBehaviour
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.25f);
-        Destroy(bombWithSmallestValue);
+        try
+        {
+            Destroy(bombWithSmallestValue);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log(ex.ToString());
+        }
+        
         Destroy(gameObject);
     }
 }

@@ -26,9 +26,10 @@ public class Player : MonoBehaviour{
     public float speed = 3f;
     public float gameSpeed = 1f; //游戏速度 影响物品生成速度和场景移动速度
     public bool is_resumed = false; //加速方块的时停触发效果
+    public int what_is_moving = -1; //-1未指定 0方块 1装置
     
     private Vector3 movement;
-    public int[,] map = new int[1024,1024];
+    public int[,,] map = new int[1024,1024,2];
     public int[] pos = new int[2];
     public static UnityEvent<int, int> OnCubePutOn = new UnityEvent<int, int>();
     public static UnityEvent<int, int> OnCubePutDown = new UnityEvent<int, int>();
@@ -100,7 +101,7 @@ public class Player : MonoBehaviour{
     IEnumerator RunDelayedLoop(){
         for(int i=-1; i<=1; i++)
             for(int j=-1; j<=1; j++){
-                if(map[i+512,j+512]==0){
+                if(map[i+512,j+512,0]==0){
                     HP.size=1;
                     PutCube(i,j);
                     yield return new WaitForSeconds(0.1f);
@@ -150,7 +151,7 @@ public class Player : MonoBehaviour{
         if(horizontalInput==0) movement.x=0; 
         if(verticalInput==0) movement.z=0;
         var tarpos = transform.position + movement * (speed * Time.deltaTime);
-        if(map[TransToPos(tarpos.x),TransToPos(tarpos.z)]==1 || map[pos[0],pos[1]]!=1)
+        if(map[TransToPos(tarpos.x),TransToPos(tarpos.z),0]==1 || map[pos[0],pos[1],0]!=1)
             transform.position=tarpos;
 
         //抬起Cube
@@ -159,9 +160,9 @@ public class Player : MonoBehaviour{
             startTime = Time.time;
             int x = TransToPos(AimPosNow().x);
             int z = TransToPos(AimPosNow().z);
-            if(map[x,z]==1) OnCubePutOn.Invoke(x,z);
+            OnCubePutOn.Invoke(x,z);
             IsCubeOn = true;
-            map[x,z]=0;
+            
         }
 
         //放下Cube
@@ -170,10 +171,9 @@ public class Player : MonoBehaviour{
             int z = TransToPos(AimPosNow().z);
             OnCubePutDown.Invoke(x,z);
             IsCubeOn=false;
-            map[x,z]=1;
         }
 
-        if(map[pos[0],pos[1]]!=1){
+        if(map[pos[0],pos[1],0]!=1){
             speed = 5f;
             HP.size -= 0.0005f;
             var rd = GetComponent<Renderer>();
@@ -210,7 +210,7 @@ public class Player : MonoBehaviour{
            cubeScript.status = 1;
            cubeScript.type = 2; 
         }
-        map[x+512,y+512] = 1;
+        map[x+512,y+512,0] = 1;
         CubeInHand++;
     }
     /// <summary>
@@ -282,20 +282,20 @@ public class Player : MonoBehaviour{
         var direction = (Vector2)Input.mousePosition - playerPos;
         var angleRadians = Mathf.Atan2(direction.y, direction.x); 
         var angleDegrees = angleRadians * Mathf.Rad2Deg;
-        if(angleDegrees is <= 45 and >= -45 && map[x+1,z]==0){
-            map[x+1,z]=1;
+        if(angleDegrees is <= 45 and >= -45 && map[x+1,z,0]==0){
+            map[x+1,z,0]=1;
             return new Vector3(x+1-512,CubeYValue,z-512);
         }
-        else if(angleDegrees is <= -135 or >= 135 && map[x-1,z]==0){
-            map[x-1,z]=1;
+        else if(angleDegrees is <= -135 or >= 135 && map[x-1,z,0]==0){
+            map[x-1,z,0]=1;
             return new Vector3(x-1-512,CubeYValue,z-512);
         }
-        else if(angleDegrees is <= 135 and >= 45 && map[x,z+1]==0) {
-            map[x,z+1]=1;
+        else if(angleDegrees is <= 135 and >= 45 && map[x,z+1,0]==0) {
+            map[x,z+1,0]=1;
             return new Vector3(x-512,CubeYValue,z+1-512);
         }
         else{
-            map[x,z-1]=1;
+            map[x,z-1,0]=1;
             return new Vector3(x-512,CubeYValue,z-1-512);
         }
     }
@@ -317,7 +317,12 @@ public class Player : MonoBehaviour{
 
     private bool Can_PutDown()
     {
-        return map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)] != 1;
+        if(what_is_moving==0)
+            return map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z),0] != 1;
+        else if (what_is_moving == 1)
+            return map[TransToPos(AimPosNow().x), TransToPos(AimPosNow().z), 1] != 1
+                && map[TransToPos(AimPosNow().x), TransToPos(AimPosNow().z), 0] == 1;
+        else return false;
     }
     /// <summary>
     /// 障碍物爆炸事件
@@ -339,7 +344,7 @@ public class Player : MonoBehaviour{
     }
     
     private bool Can_PutUp(){
-        if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z)]==1) return true;
+        if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z),0]==1) return true;
         else return false;
     }
 }

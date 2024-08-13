@@ -3,49 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShooterIcon : MonoBehaviour
+public class SheldIcon : MonoBehaviour
 {
-    public float coolDown = 1f;
+public float coolDown = 1f;
     public bool is_using = false;
-    public GameObject shooterPrefab;
+    public GameObject sheldPrefab;
     private Image rd;
     private Player ps;
     void Start()
     {
-        Cube.OnShooterDes.AddListener(HandleShooterDes);//订阅销毁事件
+        Cube.OnSpeedDes.AddListener(HandleSheldDes);//订阅销毁事件
         ps = Player.instance;
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
     }
-
     
     void Update()
     {
         rd.color = new Color(1-coolDown / 10f, 1-coolDown / 10f, 1-coolDown / 10f);
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (coolDown < 0.1f && !is_using && !ps.IsCubeOn && ps.CubeInHand<ps.CubeInHandLim)
+            if (coolDown < 0.1f && !is_using && !ps.IsCubeOn)
             {
                 ps.IsCubeOn = true;
                 is_using = true;
-                coolDown = 10f;
-                //生成新的炮塔
-                GameObject shotCube = Instantiate(shooterPrefab);
-                shotCube.transform.position = new Vector3(ps.pos[0] - 512, 10f, ps.pos[1] - 512);
-                Cube shotSc = shotCube.GetComponent<Cube>();
-                shotSc.pos[0] = 512;
-                shotSc.pos[1] = 512;
-                shotSc.type = 3;
-                shotSc.status = 1;
-                shotSc.is_moving = true;
-                ps.what_is_moving = 0;
-                ps.CubeInHand++;
+                //生成新的加速方块
+                GameObject sheldCube = Instantiate(sheldPrefab);
+                sheldCube.transform.position = new Vector3(ps.pos[0] - 512, 10f, ps.pos[1] - 512);
+                SheldCube shedSc = sheldCube.GetComponent<SheldCube>();
+                shedSc.pos[0] = 512;
+                shedSc.pos[1] = 512;
+                shedSc.is_moving = true;
                 //等待销毁事件
             }
         }
     }
-
-    private void HandleShooterDes()
+    
+    private void HandleSheldDes()
     {
         coolDown = 10f;
         is_using = false;
@@ -64,4 +58,5 @@ public class ShooterIcon : MonoBehaviour
                 yield return null;
         }
     }
+
 }
