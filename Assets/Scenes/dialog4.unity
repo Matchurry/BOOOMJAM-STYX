@@ -639,8 +639,8 @@ MonoBehaviour:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: 398.91028, y: -836.0881}
-    _zoomFactor: 1
+    _translation: {x: 390, y: -172}
+    _zoomFactor: 0.25009722
   _firstActivation: 1
   _enableAction: 0
   _disableAction: 0

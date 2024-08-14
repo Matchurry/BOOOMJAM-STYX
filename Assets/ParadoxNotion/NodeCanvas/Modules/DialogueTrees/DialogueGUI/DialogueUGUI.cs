@@ -250,7 +250,7 @@ namespace NodeCanvas.DialogueTrees.UI.Examples
             if ( info.showLastStatement ) {
                 subtitlesGroup.gameObject.SetActive(true);
                 var newY = optionsGroup.position.y + optionsGroup.sizeDelta.y + 1;
-                subtitlesGroup.position = new Vector3(subtitlesGroup.position.x, newY, subtitlesGroup.position.z);
+                //subtitlesGroup.position = new Vector3(subtitlesGroup.position.x, newY, subtitlesGroup.position.z);
             }
 
             if ( info.availableTime > 0 ) {
