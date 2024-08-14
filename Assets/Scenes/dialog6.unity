@@ -420,6 +420,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 544930179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &544930181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4186637412414313548, guid: f2a70a31039f59a48a34e97bd9bcb71e,
+    type: 3}
+  m_PrefabInstance: {fileID: 544930179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830971774
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +626,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1809668178}
   - {fileID: 251342070}
-  - {fileID: 0}
+  - {fileID: 544930181}
   - {fileID: 443400939}
   - {fileID: 1360881943}
   _boundGraphSource:
