@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour{
@@ -156,7 +157,8 @@ public class Player : MonoBehaviour{
         if(horizontalInput==0) movement.x=0; 
         if(verticalInput==0) movement.z=0;
         var tarpos = transform.position + movement * (speed * Time.deltaTime);
-        if(map[TransToPos(tarpos.x),TransToPos(tarpos.z),0]==1 || map[pos[0],pos[1],0]!=1)
+        if((map[TransToPos(tarpos.x),TransToPos(tarpos.z),0]==1 || map[pos[0],pos[1],0]!=1)
+           && (map[TransToPos(tarpos.x),TransToPos(tarpos.z),1]!=1))
             transform.position=tarpos;
 
         //抬起Cube
@@ -318,21 +320,50 @@ public class Player : MonoBehaviour{
         var direction = (Vector2)Input.mousePosition - playerPos;
         var angleRadians = Mathf.Atan2(direction.y, direction.x); 
         var angleDegrees = angleRadians * Mathf.Rad2Deg;
-        if(angleDegrees is <= 45 and >= -45 && map[x+1,z,0]==0){
+        if (angleDegrees is <= 22.5f and >= -22.5f && map[x + 1, z, 0]==0) //右
+        {
             map[x+1,z,0]=1;
             return new Vector3(x+1-512,CubeYValue,z-512);
         }
-        else if(angleDegrees is <= -135 or >= 135 && map[x-1,z,0]==0){
+        else if (angleDegrees is <= 67.5f and >= 22.5f && map[x + 1, z + 1, 0]==0)//右上
+        {
+            map[x+1,z+1,0]=1;
+            return new Vector3(x+1-512,CubeYValue,z-512+1);
+        } 
+        else if (angleDegrees is <= 112.5f and >= 67.5f && map[x, z + 1, 0]==0)//上
+        {
+            map[x,z+1,0]=1;
+            return new Vector3(x-512,CubeYValue,z-512+1);
+        }
+        else if (angleDegrees is <= 157.5f and >= 112.5f && map[x - 1, z + 1, 0]==0)//左上
+        {
+            map[x-1,z+1,0]=1;
+            return new Vector3(x-1-512,CubeYValue,z-512+1);
+        }
+        else if (angleDegrees is <= -157.5f or >= 157.5f && map[x - 1, z, 0]==0)//左
+        {
             map[x-1,z,0]=1;
             return new Vector3(x-1-512,CubeYValue,z-512);
         }
-        else if(angleDegrees is <= 135 and >= 45 && map[x,z+1,0]==0) {
-            map[x,z+1,0]=1;
-            return new Vector3(x-512,CubeYValue,z+1-512);
+        else if (angleDegrees is <= -112.5f and >= -157.5f && map[x - 1, z - 1, 0]==0)//左下
+        {
+            map[x-1,z-1,0]=1;
+            return new Vector3(x-1-512,CubeYValue,z-512-1);
         }
-        else{
+        else if (angleDegrees is <= -67.5f and >= -112.5f && map[x , z - 1, 0]==0)//下
+        {
             map[x,z-1,0]=1;
-            return new Vector3(x-512,CubeYValue,z-1-512);
+            return new Vector3(x-512,CubeYValue,z-512-1);
+        }
+        else if(map[x + 1, z - 1, 0]==0)//右下
+        {
+            map[x+1,z-1,0]=1;
+            return new Vector3(x+1-512,CubeYValue,z-512-1);
+        }
+        else
+        {
+            Debug.Log("不应该运行到这里");
+            return new Vector3(x-512,CubeYValue,z-512);
         }
     }
     /// <summary>
@@ -345,10 +376,14 @@ public class Player : MonoBehaviour{
         var direction = (Vector2)Input.mousePosition - playerPos;
         var angleRadians = Mathf.Atan2(direction.y, direction.x); 
         var angleDegrees = angleRadians * Mathf.Rad2Deg;
-        if(angleDegrees is <= 45 and >= -45) return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512); //右
-        else if(angleDegrees is <= -135 or >= 135) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512); //左
-        else if(angleDegrees is <= 135 and >= 45) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1); //上
-        else return new Vector3(pos[0]-512,CubeYValue,pos[1]-512-1); //下
+        if(angleDegrees is <= 22.5f and >= -22.5f) return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512); //右
+        else if (angleDegrees is <= 67.5f and >= 22.5f) return new Vector3(pos[0]-512+1, CubeYValue, pos[1]-512+1); //右上
+        else if(angleDegrees is <= 112.5f and >= 67.5f) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512+1); //上
+        else if (angleDegrees is <= 157.5f and >= 112.5f) return new Vector3(pos[0]-512-1, CubeYValue, pos[1] - 512 + 1); //左上
+        else if(angleDegrees is <= -157.5f or >= 157.5f) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512); //左
+        else if(angleDegrees is <= -112.5f and >= -157.5f) return new Vector3(pos[0]-512-1,CubeYValue,pos[1]-512-1); //左下
+        else if(angleDegrees is <= -67.5f and >= -112.5f) return new Vector3(pos[0]-512,CubeYValue,pos[1]-512-1); //下
+        else return new Vector3(pos[0]-512+1,CubeYValue,pos[1]-512-1); //右下
     }
 
     private bool Can_PutDown()
