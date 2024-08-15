@@ -10,18 +10,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
     public GameObject stardCubePrefab;
     public GameObject coreCubePrefab;
     public GameObject reinforcedCubePrefab;
-    public GameObject bombPrefab;
     public GameObject pickupCrossPrefab;
     public GameObject pickupHeartPrefab;
     public GameObject pickupPointPrefab;
     public GameObject backGround1Prefab;
     public GameObject backGround2Prefab;
+    public GameObject rock1Prefab;
+    public GameObject rock2Prefab;
+    public GameObject rockCubePrefab;
     private int[] bgpos = new int[2]; //地图场景常数数据 位置初始化
     private GameObject[] bgPrefabs = new GameObject[2];
     private const float CubeYValue = 0.505f;
@@ -59,7 +62,7 @@ public class Player : MonoBehaviour{
         Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
         Ballet.OnBalletHit.AddListener(GetBallet);
-        StartCoroutine(RunSummon(2,3,3,35));
+        StartCoroutine(RunSummon(4,2,3,35));
         StartCoroutine(RunDelayedLoop());
         StartCoroutine(RunBackGroundSummon(2));
     }
@@ -250,13 +253,28 @@ public class Player : MonoBehaviour{
     /// <summary>
     /// 生成炸弹
     /// </summary>
-    private void SummonBomb(int i){
-        GameObject bomb = Instantiate(bombPrefab);
+    private void SummonBomb(int i)
+    {
+        var pos = UnityEngine.Random.Range(1, 3 + 1);
+        GameObject bomb = null;
+        switch (pos)
+        {
+            case 1:
+                bomb = Instantiate(rock1Prefab);
+                break;
+            case 2:
+                bomb = Instantiate(rock2Prefab);
+                break;
+            case 3:
+                bomb = Instantiate(rockCubePrefab);
+                break;
+        }
         Bomb bbSc = bomb.GetComponent<Bomb>();
         bomb.transform.position = new Vector3(i,CubeYValue,45f);
-        //这里是炸弹类型的随机 10%攻击型吧
-        var pos = UnityEngine.Random.Range(1, 100 + 1);
-        if (pos <= 100)
+        bomb.transform.Rotate(Vector3.forward, Random.Range(0,360));
+        //这里是炸弹类型的随机 30%攻击型吧?
+        pos = UnityEngine.Random.Range(1, 100 + 1);
+        if (pos <= 30)
             bbSc.type = 2; //攻击型
         else
             bbSc.type = 1; //冲撞型

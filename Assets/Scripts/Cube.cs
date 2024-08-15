@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.Events;
@@ -138,7 +139,7 @@ public class Cube : MonoBehaviour{
     /// </summary>
     private void CubeHpsMinus(){
         HPs--;
-        if(HPs==HPsLimit-1 && type!=3 && type!=5)
+        if(HPs==HPsLimit-1 && type!=3 && type!=4 && type!=5)
             SwitchToType(1);
         if(HPs<=0){
             ps.map[pos[0],pos[1],0]=0;
@@ -147,6 +148,8 @@ public class Cube : MonoBehaviour{
                 OnShooterDes.Invoke();
             if (type == 5) 
                 OnSpeedDes.Invoke();
+            //if (type == 4)
+            //触发游戏结束
             Destroy(gameObject);
         }
     }

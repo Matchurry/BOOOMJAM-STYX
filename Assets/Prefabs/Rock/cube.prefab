@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1096555379283574810}
   - component: {fileID: 1096555379283574821}
   - component: {fileID: 1096555379283574820}
+  - component: {fileID: -7512515472241160888}
   m_Layer: 0
   m_Name: cube
   m_TagString: Untagged
@@ -97,3 +98,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7512515472241160888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096555379283574823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04092f34545de6943a4475655f383f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: 0000000000000000
+  type: -1
+  warnSignPrefab: {fileID: 1310172362336954188, guid: b25d92129a7d4e4409493c011869f3c7,
+    type: 3}
+  balletPrefab: {fileID: 7158958647815440409, guid: 7f0a6f171788aa7499b254f77dbfd8ac,
+    type: 3}

@@ -382,8 +382,6 @@ MonoBehaviour:
     type: 3}
   reinforcedCubePrefab: {fileID: 161549714123308728, guid: cf126cc097cb2b148af9454e44d99cfe,
     type: 3}
-  bombPrefab: {fileID: 1564352523601989559, guid: 1133292b9fe41fe44bd69e33cc6334a1,
-    type: 3}
   pickupCrossPrefab: {fileID: 5049553195925391085, guid: 71f70de1a9b2ee24786c964c156f60c2,
     type: 3}
   pickupHeartPrefab: {fileID: 2715836673546952160, guid: b990086cca1212a44bdcd1f82db33126,
@@ -393,6 +391,12 @@ MonoBehaviour:
   backGround1Prefab: {fileID: 6910345857014478742, guid: 87e4e608a42e4154fbdf3053d5b10eda,
     type: 3}
   backGround2Prefab: {fileID: 843784077816454103, guid: 72ed6cafb21dbf84a873daf05489164a,
+    type: 3}
+  rock1Prefab: {fileID: 4731802724028891819, guid: 96c2c89a65f876345a45f0a80918bd15,
+    type: 3}
+  rock2Prefab: {fileID: 4860911706268459608, guid: f1d3834a1bd70fc4c809ab1a00c85c34,
+    type: 3}
+  rockCubePrefab: {fileID: 1096555379283574823, guid: 2c8a16f365d216c42a2f9cf85c1ac5bc,
     type: 3}
   speed: 3
   gameSpeed: 1

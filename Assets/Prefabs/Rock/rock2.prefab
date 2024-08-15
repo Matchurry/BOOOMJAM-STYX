@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4860911706268459613}
   - component: {fileID: 4860911706268459614}
   - component: {fileID: 4860911706268459615}
+  - component: {fileID: -7147184988329834909}
   m_Layer: 0
   m_Name: rock2
   m_TagString: Untagged
@@ -97,3 +98,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.64, y: 1.22, z: 2.87}
   m_Center: {x: 0.15, y: 0.01, z: 1.02}
+--- !u!114 &-7147184988329834909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860911706268459608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04092f34545de6943a4475655f383f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: 0000000000000000
+  type: -1
+  warnSignPrefab: {fileID: 1310172362336954188, guid: b25d92129a7d4e4409493c011869f3c7,
+    type: 3}
+  balletPrefab: {fileID: 7158958647815440409, guid: 7f0a6f171788aa7499b254f77dbfd8ac,
+    type: 3}
