@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a3c32682b8b43bb4693c9467b39cdbb4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20fe3f46466c4564d8ce2d904b777d69, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -653,7 +653,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634149387}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4493585093827132993, guid: 730f23c43c3a45e4ca522dabb656773b, type: 3}
 --- !u!4 &634149392
 Transform:
   m_ObjectHideFlags: 0
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: baea2a314f3163c4791daf0d82e2bfc4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 422d8397e43f59c498e655e2bfd96e07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1573,7 +1573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0e0361b4c27c46742849a3bb499615bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4466b408874a6df42badbf15857949ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
