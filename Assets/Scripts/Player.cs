@@ -17,7 +17,9 @@ public class Player : MonoBehaviour{
     public GameObject coreCubePrefab;
     public GameObject reinforcedCubePrefab;
     public GameObject bombPrefab;
-    public GameObject pickupPrefab;
+    public GameObject pickupCrossPrefab;
+    public GameObject pickupHeartPrefab;
+    public GameObject pickupPointPrefab;
     public GameObject backGround1Prefab;
     public GameObject backGround2Prefab;
     private int[] bgpos = new int[2]; //地图场景常数数据 位置初始化
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour{
         Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
         Ballet.OnBalletHit.AddListener(GetBallet);
-        StartCoroutine(RunSummon(2,3,8,35));
+        StartCoroutine(RunSummon(2,3,3,35));
         StartCoroutine(RunDelayedLoop());
         StartCoroutine(RunBackGroundSummon(2));
     }
@@ -202,13 +204,13 @@ public class Player : MonoBehaviour{
         }
         else
         {
-           GameObject cube = Instantiate(reinforcedCubePrefab);
+           GameObject cube = Instantiate(stardCubePrefab);
            Cube cubeScript = cube.GetComponent<Cube>();
            cube.transform.position = new Vector3(x,CubeYValue+10,y);
            cubeScript.pos[0] = TransToPos(x);
            cubeScript.pos[1] = TransToPos(y);
            cubeScript.status = 1;
-           cubeScript.type = 2; 
+           cubeScript.type = 1; //开局生成普通方块
         }
         map[x+512,y+512,0] = 1;
         CubeInHand++;
@@ -231,7 +233,7 @@ public class Player : MonoBehaviour{
         if (pos <= 13 + 25) {
             GameObject reinforcedCube = Instantiate(reinforcedCubePrefab);
             Cube cubeSc = reinforcedCube.GetComponent<Cube>();
-            reinforcedCube.transform.position = new Vector3(i,CubeYValue,30f);
+            reinforcedCube.transform.position = new Vector3(i,CubeYValue,45f);
             cubeSc.type = 2;
             cubeSc.status = 2;
         }
@@ -239,7 +241,7 @@ public class Player : MonoBehaviour{
         {
             GameObject standardCube = Instantiate(stardCubePrefab);
             Cube cubeSc = standardCube.GetComponent<Cube>();
-            standardCube.transform.position = new Vector3(i,CubeYValue,30f);
+            standardCube.transform.position = new Vector3(i,CubeYValue,45f);
             cubeSc.type = 1;
             cubeSc.status = 2;
         }
@@ -251,7 +253,7 @@ public class Player : MonoBehaviour{
     private void SummonBomb(int i){
         GameObject bomb = Instantiate(bombPrefab);
         Bomb bbSc = bomb.GetComponent<Bomb>();
-        bomb.transform.position = new Vector3(i,CubeYValue,30f);
+        bomb.transform.position = new Vector3(i,CubeYValue,45f);
         //这里是炸弹类型的随机 10%攻击型吧
         var pos = UnityEngine.Random.Range(1, 100 + 1);
         if (pos <= 100)
@@ -260,17 +262,33 @@ public class Player : MonoBehaviour{
             bbSc.type = 1; //冲撞型
     }
 
-    private void SummonPickups(int i){
-        GameObject pickup = Instantiate(pickupPrefab);
-        Pickups puSc = pickup.GetComponent<Pickups>();
-        pickup.transform.position = new Vector3(i,CubeYValue,30f);
+    private void SummonPickups(int i)
+    {
+        GameObject pickup = null;
+        Pickups puSc = null;
         var pos = UnityEngine.Random.Range(1,100+1);
-        if(pos <= 13)
+        if (pos <= 13)
+        {
+            pickup = Instantiate(pickupPointPrefab);
+            puSc = pickup.GetComponent<Pickups>();
+            pickup.transform.position = new Vector3(i,CubeYValue,45f);
             puSc.type = 3;
-        else if(pos <= 13+25)
+        }
+        else if (pos <= 13 + 25)
+        {
+            pickup = Instantiate(pickupHeartPrefab);
+            puSc = pickup.GetComponent<Pickups>();
+            pickup.transform.position = new Vector3(i,CubeYValue,45f);
             puSc.type = 1;
+        }
         else
+        {
+            pickup = Instantiate(pickupCrossPrefab);
+            puSc = pickup.GetComponent<Pickups>();
+            pickup.transform.position = new Vector3(i,CubeYValue,45f);
             puSc.type = 2;
+        }
+            
     }
 
     /// <summary>

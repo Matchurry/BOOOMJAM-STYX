@@ -33,8 +33,13 @@ public class Pickups : MonoBehaviour{
     }
 
     void Update(){
-        if(!ps.is_resumed)
+        if (!ps.is_resumed)
+        {
             transform.position -= Vector3.forward * (0.05f * ps.gameSpeed);
+            if(type == 1) transform.Rotate(Vector3.up, 90 * Time.deltaTime);
+            else transform.Rotate(Vector3.forward, 90 * Time.deltaTime);
+        }
+            
         UpdatePos();
         if(ps.map[pos[0],pos[1]-1,0]==1){
             //触发效果

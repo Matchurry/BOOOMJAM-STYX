@@ -56,7 +56,11 @@ public class Bomb : MonoBehaviour{
     IEnumerator Attack() {
         while(true){
            //等待约10-15秒攻击一次
-           yield return new WaitForSeconds(UnityEngine.Random.Range(5, 8));
+           yield return new WaitForSeconds(UnityEngine.Random.Range(5, 10));
+           if (pos[1] <= ps.pos[1]) //在玩家后方时不再攻击
+               yield break;
+           if(pos[1] >= ps.pos[1]+20) //在玩家太前面不攻击
+               continue;
            //发动攻击 
            GameObject warn = Instantiate(warnSignPrefab);
            warn.transform.position = new Vector3(ps.pos[0]-512, 10.00f, ps.pos[1]-512);

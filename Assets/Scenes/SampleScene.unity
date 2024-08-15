@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 53e432c6654cf3e4886f18f9ecb42424, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3c32682b8b43bb4693c9467b39cdbb4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -384,7 +384,11 @@ MonoBehaviour:
     type: 3}
   bombPrefab: {fileID: 1564352523601989559, guid: 1133292b9fe41fe44bd69e33cc6334a1,
     type: 3}
-  pickupPrefab: {fileID: 9223184313135692347, guid: cd10fea3d647bce45aace53fd4aca918,
+  pickupCrossPrefab: {fileID: 5049553195925391085, guid: 71f70de1a9b2ee24786c964c156f60c2,
+    type: 3}
+  pickupHeartPrefab: {fileID: 2715836673546952160, guid: b990086cca1212a44bdcd1f82db33126,
+    type: 3}
+  pickupPointPrefab: {fileID: 1269243361253591174, guid: a63ea180cfae81343bbe5da414539761,
     type: 3}
   backGround1Prefab: {fileID: 6910345857014478742, guid: 87e4e608a42e4154fbdf3053d5b10eda,
     type: 3}
@@ -418,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &555681150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1067,7 +1071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32380750902b8c549855c61af7ab71f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: baea2a314f3163c4791daf0d82e2bfc4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1247,7 +1251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1654195868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1565,7 +1569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 519e42816ffcc76478cb8ca7d83e44fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e0361b4c27c46742849a3bb499615bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
