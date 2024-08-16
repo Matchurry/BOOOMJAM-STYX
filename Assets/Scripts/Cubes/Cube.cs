@@ -29,6 +29,7 @@ public class Cube : MonoBehaviour{
     
     public static UnityEvent<int,int> CubeSelfDes = new UnityEvent<int,int>();
     public static UnityEvent OnCubeGet = new UnityEvent();
+    public static UnityEvent OnCoreDes = new UnityEvent();
     public GameObject stardCubePrefab;
     public GameObject coreCubePrefab;
     public GameObject reinforcedCubePrefab;
@@ -155,8 +156,8 @@ public class Cube : MonoBehaviour{
                 OnShooterDes.Invoke();
             if (type == 5) 
                 OnSpeedDes.Invoke();
-            //if (type == 4)
-            //触发游戏结束
+            if (type == 4)
+                OnCoreDes.Invoke();
             Destroy(gameObject);
         }
     }

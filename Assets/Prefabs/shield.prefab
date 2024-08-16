@@ -380,3 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a697be56b6718d4ba2022314ba7e819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: 0000000000000000
+  is_moving: 0
+  sheld: {fileID: 4280412024999121373, guid: d99c4c3fed2c86548af5ebe5d525c694, type: 3}

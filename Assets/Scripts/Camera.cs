@@ -50,6 +50,7 @@ public class Camera : MonoBehaviour
         Bomb.OnBombTriggered.AddListener(StartShake);
         Cube.CubeSelfDes.AddListener(StartShake);
         Cube.OnCubeGet.AddListener(StartPushIn);
+        Cube.OnCoreDes.AddListener(PlayerDead);
         Ballet.OnBalletHit.AddListener(StartShake);
         Level1Turto.AddListener(StartLevel1);
         
@@ -70,10 +71,7 @@ public class Camera : MonoBehaviour
         
         if (!_isdead && ps.HP.size <= 0.1f) //玩家血量归零
         {
-            _isdead = true;
-            GameObject fail = Instantiate(failedUI);
-            RectTransform failUIRect = fail.GetComponent<RectTransform>();
-            failUIRect.SetParent(_canvasRectTransform);
+            PlayerDead();
         }
     }
 
@@ -92,6 +90,14 @@ public class Camera : MonoBehaviour
         StartCoroutine(PushIn());
     }
 
+    private void PlayerDead()
+    {
+        _isdead = true;
+        GameObject fail = Instantiate(failedUI);
+        RectTransform failUIRect = fail.GetComponent<RectTransform>();
+        failUIRect.SetParent(_canvasRectTransform);
+    }
+    
     private bool is_in = false;
     IEnumerator PushIn(){
         if(is_in==false){

@@ -12,12 +12,18 @@ public class SheldCube : MonoBehaviour
     private const float CubeYValue = 1.505f;
     public bool is_moving = false;
     private Vector3 tarpos;
+    public GameObject sheld; //护盾特效
+    private Sheld sheldSc;
 
     public static UnityEvent<int, int> OnSheldDes = new UnityEvent<int, int>();
     void Start()
     {
         ps = Player.instance;
         ForPlayersNeceInit();
+        
+        sheld = Instantiate(sheld); //生成护盾特效
+        sheld.transform.position = transform.position;
+        sheldSc = sheld.GetComponent<Sheld>();
     }
     
     void Update()
@@ -30,6 +36,7 @@ public class SheldCube : MonoBehaviour
                 tarpos = ps.transform.position + Vector3.up*1.25f;
             transform.position = Vector3.Lerp(transform.position, tarpos, 0.15f);
         }
+        sheldSc.tarpos = transform.position + Vector3.forward * 1f;
     }
     
     private void ForPlayersNeceInit()
