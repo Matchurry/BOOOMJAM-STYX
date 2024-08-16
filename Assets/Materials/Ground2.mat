@@ -108,12 +108,12 @@ Material:
     - _FadeDistance: 0.5
     - _FoamAmount: 0.25
     - _FoamDepth: 0.5
-    - _FoamDirection: 0.87
+    - _FoamDirection: 0.85
     - _FoamMode: 2
     - _FoamNoiseAmount: 1
     - _FoamScale: 1
     - _FoamSharpness: 0.5
-    - _FoamSpeed: 3.34
+    - _FoamSpeed: 1.79
     - _FoamStretchX: 1
     - _FoamStretchY: 1
     - _GlossMapScale: 0
@@ -129,7 +129,7 @@ Material:
     - _RefractionAmplitude: 0.01
     - _RefractionFrequency: 35
     - _RefractionScale: 1
-    - _RefractionSpeed: 0.1
+    - _RefractionSpeed: 7.72
     - _ShadowStrength: 0.35
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -149,7 +149,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDeep: {r: 0.62311614, g: 0.7788062, b: 0.8396226, a: 1}
+    - _ColorDeep: {r: 0.65, g: 0.9, b: 1, a: 1}
     - _ColorShallow: {r: 0.34999996, g: 0.6, b: 0.75, a: 0.8}
     - _CrestColor: {r: 1, g: 1, b: 1, a: 0.9}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
