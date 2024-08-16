@@ -35,7 +35,9 @@ public class Player : MonoBehaviour{
     public float gameSpeed = 1f; //游戏速度 影响物品生成速度和场景移动速度
     public bool is_resumed = false; //加速方块的时停触发效果
     public int what_is_moving = -1; //-1未指定 0方块 1装置
-    
+    public Animator animator;
+    public Vector3 move;
+
     // 用于平衡游戏速率
     public bool next_bg = false;
     public bool next_summon = false;
@@ -76,6 +78,8 @@ public class Player : MonoBehaviour{
         StartCoroutine(RunSummon(1,1,1,35));
         StartCoroutine(RunDelayedLoop());
         StartCoroutine(RunBackGroundSummon(level));
+        animator = GetComponent<Animator>();
+
     }
     /// <summary>
     /// 开始顶端物品生成协程
@@ -183,8 +187,12 @@ public class Player : MonoBehaviour{
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 movement = new Vector3(horizontalInput>0?1:-1, 0f, verticalInput>0?1:-1);
-        
-        if(horizontalInput==0) movement.x=0; 
+
+        move = new Vector3(horizontalInput, 0, verticalInput);
+        transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput));
+
+
+        if (horizontalInput==0) movement.x=0; 
         if(verticalInput==0) movement.z=0;
         var tarpos = transform.position + movement * (speed * Time.deltaTime);
         if((map[TransToPos(tarpos.x),TransToPos(tarpos.z),0]==1 || map[pos[0],pos[1],0]!=1)
@@ -210,7 +218,10 @@ public class Player : MonoBehaviour{
             IsCubeOn=false;
         }
 
-        if(map[pos[0],pos[1],0]!=1){
+        UpdateAnimator();
+
+
+        if (map[pos[0],pos[1],0]!=1){
             speed = 5f;
             HP.size -= 0.0005f;
             var rd = GetComponent<Renderer>();
@@ -448,4 +459,10 @@ public class Player : MonoBehaviour{
         if(map[TransToPos(AimPosNow().x),TransToPos(AimPosNow().z),0]==1) return true;
         else return false;
     }
+
+    void UpdateAnimator()
+    {
+        animator.SetFloat("speed", move.magnitude);
+    }
+
 }
