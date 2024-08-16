@@ -30,6 +30,8 @@ public class Cube : MonoBehaviour{
     public static UnityEvent<int,int> CubeSelfDes = new UnityEvent<int,int>();
     public static UnityEvent OnCubeGet = new UnityEvent();
     public static UnityEvent OnCoreDes = new UnityEvent();
+    public static UnityEvent OnSheldTri = new UnityEvent();
+    
     public GameObject stardCubePrefab;
     public GameObject coreCubePrefab;
     public GameObject reinforcedCubePrefab;
@@ -137,6 +139,11 @@ public class Cube : MonoBehaviour{
     void HandleOnBombTriggered(int x, int z){
         if(status==1 && !is_moving){
             if(ps.map[x,z,1]!=1 && pos[0]==x && pos[1]==z){
+                if (ps._protectedCol == x)
+                {
+                    OnSheldTri.Invoke();
+                    return;
+                }
                 CubeHpsMinus();
             }
         }

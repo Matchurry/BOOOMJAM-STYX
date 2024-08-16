@@ -14,20 +14,35 @@ public class SheldCube : MonoBehaviour
     private Vector3 tarpos;
     public GameObject sheld; //护盾特效
     private Sheld sheldSc;
-
+    public static UnityEvent<int,int> sheldCubePutDown = new UnityEvent<int,int>();
+    public static UnityEvent sheldCubePutUp = new UnityEvent();
     public static UnityEvent<int, int> OnSheldDes = new UnityEvent<int, int>();
+    public static UnityEvent OnSheldTri = Cube.OnSheldTri;
+    
+    
     void Start()
     {
         ps = Player.instance;
         ForPlayersNeceInit();
+        SheldIcon.sheldRefresh.AddListener(SummonSheld);
         
-        sheld = Instantiate(sheld); //生成护盾特效
-        sheld.transform.position = transform.position;
-        sheldSc = sheld.GetComponent<Sheld>();
+        GameObject she = Instantiate(sheld); //生成护盾特效
+        she.transform.position = transform.position;
+        sheldSc = she.GetComponent<Sheld>();
     }
     
     void Update()
     {
+        if (sheldSc is not null)
+        {
+            try
+            {
+                sheldSc.tarpos = transform.position + Vector3.forward * 1f;
+            }
+            catch(MissingComponentException){}
+        }
+            
+        
         if(ps.pos[0]==pos[0] && ps.pos[1]==pos[1] && !is_moving){
             transform.position = new Vector3(transform.position.x,CubeYValue-0.2f,transform.position.z);
         }
@@ -36,7 +51,15 @@ public class SheldCube : MonoBehaviour
                 tarpos = ps.transform.position + Vector3.up*1.25f;
             transform.position = Vector3.Lerp(transform.position, tarpos, 0.15f);
         }
-        sheldSc.tarpos = transform.position + Vector3.forward * 1f;
+    }
+
+    private void SummonSheld()
+    {
+        GameObject she = Instantiate(sheld); //生成护盾特效
+        she.transform.position = transform.position;
+        sheldSc = she.GetComponent<Sheld>();
+        sheldCubePutDown.Invoke(pos[0],pos[1]);
+        ps._protectedCol = pos[0];
     }
     
     private void ForPlayersNeceInit()
@@ -51,6 +74,7 @@ public class SheldCube : MonoBehaviour
     void HandleOnCubePutOn(int x, int z){
         if(x==pos[0] && z==pos[1] && ps.map[x,z,1]==1){
             //被抬起
+            sheldCubePutUp.Invoke();
             ps.what_is_moving = 1;
             tarpos = ps.transform.position + Vector3.up*1.25f;
             is_moving=true;
@@ -61,6 +85,7 @@ public class SheldCube : MonoBehaviour
     void HandleOnCubePutDown(int x, int z){
         if(is_moving){
             //被放下
+            sheldCubePutDown.Invoke(x,z);
             ps.what_is_moving = -1;
             pos[0]=x;
             pos[1]=z;
@@ -76,6 +101,11 @@ public class SheldCube : MonoBehaviour
     void HandleOnBombTriggered(int x, int z){
         if(!is_moving){
             if(pos[0]==x && pos[1]==z){
+                if (ps._protectedCol == x)
+                {
+                    OnSheldTri.Invoke();
+                    return;
+                }
                 OnSheldDes.Invoke(pos[0],pos[1]); //触发护盾装置消失事件
                 ps.map[x, z, 1] = 0;
                 Destroy(gameObject);

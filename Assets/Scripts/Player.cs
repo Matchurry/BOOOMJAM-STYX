@@ -38,6 +38,7 @@ public class Player : MonoBehaviour{
     public float gameSpeed = 1f; //游戏速度 影响物品生成速度和场景移动速度
     public bool is_resumed = false; //加速方块的时停触发效果
     public int what_is_moving = -1; //-1未指定 0方块 1装置
+    public int _protectedCol = 999;
     
     // 用于平衡游戏速率
     public bool next_bg = false;
