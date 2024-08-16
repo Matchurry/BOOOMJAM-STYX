@@ -1921,6 +1921,7 @@ MonoBehaviour:
   smoothSpeed: 0.01
   shakeDuration: 0.5
   shakeIntensity: 0.2
+  turtoUI: {fileID: 215459445733579857, guid: c94304252018bb8439a34c3173e7706f, type: 3}
 --- !u!1 &2088583964
 GameObject:
   m_ObjectHideFlags: 0

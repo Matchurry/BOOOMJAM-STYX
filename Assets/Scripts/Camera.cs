@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Camera : MonoBehaviour
 {
@@ -30,12 +32,22 @@ public class Camera : MonoBehaviour
     /// </summary>
     public float shakeIntensity = 0.2f;
     private float shakeStartTime;
+    private GameObject _canvasUI;
+    private RectTransform _canvasRectTransform;
+        
+    public static UnityEvent Level1Turto = new UnityEvent();
+    public GameObject turtoUI;
+    
 
     void Start(){
+        _canvasUI = GameObject.Find("Canvas");
+        _canvasRectTransform = _canvasUI.GetComponent<RectTransform>();
         Bomb.OnBombTriggered.AddListener(StartShake);
         Cube.CubeSelfDes.AddListener(StartShake);
         Cube.OnCubeGet.AddListener(StartPushIn);
         Ballet.OnBalletHit.AddListener(StartShake);
+        Level1Turto.AddListener(StartLevel1);
+        Level1Turto.Invoke();
     }
 
     void Update(){
@@ -80,5 +92,12 @@ public class Camera : MonoBehaviour
 
     private void StartShake(int x, int z){
         StartShake();
+    }
+
+    private void StartLevel1()
+    {
+        GameObject turUI = Instantiate(turtoUI);
+        RectTransform turUIRect = turUI.GetComponent<RectTransform>();
+        turUIRect.SetParent(_canvasRectTransform);
     }
 }
