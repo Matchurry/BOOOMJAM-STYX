@@ -29,7 +29,7 @@ namespace NodeCanvas.DialogueTrees
 
 
         ///----------------------------------------------------------------------------------------------
-        ///---------------------------------------UNITY EDITOR-------------------------------------------
+        ///---------------------------------------UNITY EDITOR------------------------------------------
 #if UNITY_EDITOR
         protected override void OnNodeGUI() {
             GUILayout.Label(string.Format("<b>{0}</b>", target != null ? target.ToString() : "NONE"));
