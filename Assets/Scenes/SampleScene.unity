@@ -392,6 +392,8 @@ MonoBehaviour:
     type: 3}
   backGround2Prefab: {fileID: 843784077816454103, guid: 72ed6cafb21dbf84a873daf05489164a,
     type: 3}
+  backGround3Prefab: {fileID: 2128424942098984899, guid: ec3387c2c3c84624280a004ab129dd2b,
+    type: 3}
   rock1Prefab: {fileID: 4731802724028891819, guid: 96c2c89a65f876345a45f0a80918bd15,
     type: 3}
   rock2Prefab: {fileID: 4860911706268459608, guid: f1d3834a1bd70fc4c809ab1a00c85c34,
@@ -402,12 +404,15 @@ MonoBehaviour:
   gameSpeed: 1
   is_resumed: 0
   what_is_moving: -1
+  next_bg: 0
+  next_summon: 0
   pos: 0000000000000000
   IsCubeOn: 0
   HP: {fileID: 1665936108}
   Score: 0
   CubeInHand: 0
   CubeInHandLim: 11
+  level: 3
 --- !u!1 &555681149
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
+using WaitUntil = UnityEngine.WaitUntil;
 
 public class Player : MonoBehaviour{
     public static Player instance; // 静态实例变量
@@ -23,16 +24,21 @@ public class Player : MonoBehaviour{
     public GameObject pickupPointPrefab;
     public GameObject backGround1Prefab;
     public GameObject backGround2Prefab;
+    public GameObject backGround3Prefab;
     public GameObject rock1Prefab;
     public GameObject rock2Prefab;
     public GameObject rockCubePrefab;
-    private int[] bgpos = new int[2]; //地图场景常数数据 位置初始化
-    private GameObject[] bgPrefabs = new GameObject[2];
+    private int[] bgpos = new int[3]; //地图场景常数数据 位置初始化 代表y向间距
+    private GameObject[] bgPrefabs = new GameObject[3]; //地图场景预制体集合
     private const float CubeYValue = 0.505f;
     public float speed = 3f;
     public float gameSpeed = 1f; //游戏速度 影响物品生成速度和场景移动速度
     public bool is_resumed = false; //加速方块的时停触发效果
     public int what_is_moving = -1; //-1未指定 0方块 1装置
+    
+    // 用于平衡游戏速率
+    public bool next_bg = false;
+    public bool next_summon = false;
     
     private Vector3 movement;
     public int[,,] map = new int[1024,1024,2];
@@ -53,19 +59,23 @@ public class Player : MonoBehaviour{
     /// </summary>
     public int CubeInHandLim = 9;
 
+    public int level = 1;
+
     void Awake(){
         instance = this;
+        level = 3;
         bgpos[0] = 8; bgPrefabs[0] = backGround1Prefab;
         bgpos[1] = 16; bgPrefabs[1] = backGround2Prefab;
+        bgpos[2] = 28; bgPrefabs[2] = backGround3Prefab;
     }
 
     void Start(){
         Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
         Ballet.OnBalletHit.AddListener(GetBallet);
-        StartCoroutine(RunSummon(4,2,3,35));
+        StartCoroutine(RunSummon(1,1,1,35));
         StartCoroutine(RunDelayedLoop());
-        StartCoroutine(RunBackGroundSummon(2));
+        StartCoroutine(RunBackGroundSummon(level));
     }
     /// <summary>
     /// 开始顶端物品生成协程
@@ -80,28 +90,47 @@ public class Player : MonoBehaviour{
         PlayerCubePosibility+=EnemyPosibility;
         PickupsPosibility+=PlayerCubePosibility;
         FloatThingsPosibility+=PickupsPosibility;
-        while(true){
+        bool _forthefirstsummon = true;
+        while(true)
+        {
+            bool _summoned = false;
             for(int i=-10; i<=10; i++){
                 var pos = UnityEngine.Random.Range(1,100+1);
                 yield return new WaitUntil(() => !is_resumed);
                 if(pos<=EnemyPosibility){
                     //生成障碍物
                     SummonBomb(i);
+                    _summoned = true;
                 }
                 else if(pos<=PlayerCubePosibility){
                     //生成玩家方块
                     SummonCube(i);
+                    _summoned = true;
                 }
                 else if(pos<=PickupsPosibility){
                     //生成捡拾物
                     SummonPickups(i);
+                    _summoned = true;
                 }
                 else if(pos<=FloatThingsPosibility){
                     //生成漂浮物动画
                 }
             }
-            yield return new WaitForSeconds(0.7f / gameSpeed); // 不适应差速 等待修复
-        }
+
+            if (_forthefirstsummon && !_summoned) //避免首次不生成导致后续不生成
+            {
+                //Debug.Log("find the none summon");
+                next_summon = true;
+            }
+
+            if (_forthefirstsummon && _summoned)
+            {
+                //Debug.Log("Success");
+                _forthefirstsummon = false;
+            }
+            
+            yield return new WaitUntil(() => next_summon);
+;        }
     }
 
     IEnumerator RunDelayedLoop(){
@@ -134,12 +163,13 @@ public class Player : MonoBehaviour{
         }
         while (true)
         {
+            next_bg = false;
             GameObject bg1 = Instantiate(bgPrefabs[x]);
             GameObject bg2 = Instantiate(bgPrefabs[x]);
             bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50);
             bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50);
             bg2.transform.rotation = new Quaternion(0, 1, 0,0);
-            yield return new WaitForSeconds(3.7f);
+            yield return new WaitUntil(() => next_bg);
         }
     }
     

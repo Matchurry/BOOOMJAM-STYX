@@ -11,12 +11,15 @@ public class Bomb : MonoBehaviour{
     private Player ps;
     public static UnityEvent<int, int> OnBombTriggered = new UnityEvent<int, int>();
     private Renderer rd;
+    private bool _veryFirst = true; //用于平衡游戏速率生成
+    private Vector3 _birthPos;
     public GameObject warnSignPrefab;
     public GameObject balletPrefab;
 
     void Start(){
         rd = GetComponent<Renderer>();
         ps = Player.instance;
+        _birthPos = transform.position;
         if (type == 2) 
             StartCoroutine(Attack()); //启动攻击型障碍物攻击携程
     }
@@ -32,6 +35,12 @@ public class Bomb : MonoBehaviour{
 
         if(pos[1]-512<=-20){
             Destroy(gameObject);
+        }
+        
+        if (_veryFirst && _birthPos.z - transform.position.z >= 1)
+        {
+            _veryFirst = false;
+            ps.next_summon = true;
         }
     }
 

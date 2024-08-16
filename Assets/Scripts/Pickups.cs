@@ -12,12 +12,15 @@ public class Pickups : MonoBehaviour{
     public Player ps;
     private const float CubeYValue = 0.505f;
     private Renderer rd;
+    private bool _veryFirst = true; //用于平衡游戏速率生成
+    private Vector3 _birthPos;
 
     public static UnityEvent<int,int> OnCubeHpPickup = new UnityEvent<int, int>();
 
     void Start(){
         ps = Player.instance;
         rd = GetComponent<Renderer>();
+        _birthPos = transform.position;
         //transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
         switch(type){
             case 1:
@@ -64,6 +67,12 @@ public class Pickups : MonoBehaviour{
 
         if(pos[1]-512<=-20){
             Destroy(gameObject);
+        }
+        
+        if (_veryFirst && _birthPos.z - transform.position.z >= 1)
+        {
+            _veryFirst = false;
+            ps.next_summon = true;
         }
     }
 

@@ -20,7 +20,8 @@ public class Cube : MonoBehaviour{
     [Tooltip("血量")]
     public int HPs = 1;
     public int HPsLimit = 2;
-
+    private bool _veryFirst; //用于平衡游戏速率生成
+    private Vector3 _birthPos;
     private Player ps;
     private const float CubeYValue = 0.505f;
     public bool is_moving = false;
@@ -47,9 +48,9 @@ public class Cube : MonoBehaviour{
         }
         else{
             //为漂浮物体时
-
             //生成到顶端
-            //transform.position = new Vector3((float)Math.Round(UnityEngine.Random.Range(-5f,5f)),CubeYValue,30f);
+            _veryFirst = true;
+            _birthPos = transform.position;
         }
     }
 
@@ -98,6 +99,12 @@ public class Cube : MonoBehaviour{
             //召唤后给予初始位置即可 索敌在其脚本中
             bt.transform.position = transform.position;
             sc.pos = pos;
+        }
+
+        if (_veryFirst && _birthPos.z - transform.position.z >= 1)
+        {
+            _veryFirst = false;
+            ps.next_summon = true;
         }
     }
 
@@ -191,7 +198,9 @@ public class Cube : MonoBehaviour{
     /// <summary>
     /// 作为玩家可支配的方块完成创建或身份转变时，需要使用此函数
     /// </summary>
-    private void ForPlayersNeceInit(){
+    private void ForPlayersNeceInit()
+    {
+        _veryFirst = false;
         tarpos = new Vector3(pos[0]-512,CubeYValue,pos[1]-512);
         Player.OnCubePutOn.AddListener(HandleOnCubePutOn);
         Player.OnCubePutDown.AddListener(HandleOnCubePutDown);
