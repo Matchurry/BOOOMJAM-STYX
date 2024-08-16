@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SpeedUpIcon : MonoBehaviour
 {
-    public float coolDown = 1f;
+    public float coolDown = 15f;
     public bool is_using = false;
     public GameObject speedupPrefab;
     private Image rd;

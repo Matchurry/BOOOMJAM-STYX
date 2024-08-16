@@ -135,7 +135,7 @@ public class Cube : MonoBehaviour{
     /// </summary>
     void HandleOnBombTriggered(int x, int z){
         if(status==1 && !is_moving){
-            if(pos[0]==x && pos[1]==z){
+            if(ps.map[x,z,1]!=1 && pos[0]==x && pos[1]==z){
                 CubeHpsMinus();
             }
         }
@@ -175,10 +175,10 @@ public class Cube : MonoBehaviour{
         }
     }
 
-    private void HandleCubeSelfDes(int x, int z){
-        if(pos[0]==x && pos[1]==z)
+    /*private void HandleCubeSelfDes(int x, int z){
+        if(ps.map[x,z,1]!=1 && pos[0]==x && pos[1]==z)
             CubeHpsMinus();
-    }
+    }*/
 
     /// <summary>
     /// 由地图位置更新到pos数组位置
@@ -206,7 +206,7 @@ public class Cube : MonoBehaviour{
         Player.OnCubePutDown.AddListener(HandleOnCubePutDown);
         Pickups.OnCubeHpPickup.AddListener(HandheldOnCubeHpPickup);
         Bomb.OnBombTriggered.AddListener(HandleOnBombTriggered);
-        Cube.CubeSelfDes.AddListener(HandleCubeSelfDes);
+        Cube.CubeSelfDes.AddListener(HandleOnBombTriggered);
         switch(type){
             case 1 :
                 HPs = 1;

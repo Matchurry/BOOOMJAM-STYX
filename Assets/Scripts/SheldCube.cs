@@ -39,6 +39,7 @@ public class SheldCube : MonoBehaviour
         Player.OnCubePutOn.AddListener(HandleOnCubePutOn);
         Player.OnCubePutDown.AddListener(HandleOnCubePutDown);
         Bomb.OnBombTriggered.AddListener(HandleOnBombTriggered);
+        Cube.CubeSelfDes.AddListener(HandleOnBombTriggered);
     }
     void HandleOnCubePutOn(int x, int z){
         if(x==pos[0] && z==pos[1] && ps.map[x,z,1]==1){
@@ -68,7 +69,9 @@ public class SheldCube : MonoBehaviour
     void HandleOnBombTriggered(int x, int z){
         if(!is_moving){
             if(pos[0]==x && pos[1]==z){
-                OnSheldDes.Invoke(pos[0],pos[1]);
+                OnSheldDes.Invoke(pos[0],pos[1]); //触发护盾装置消失事件
+                ps.map[x, z, 1] = 0;
+                Destroy(gameObject);
             }
         }
     }

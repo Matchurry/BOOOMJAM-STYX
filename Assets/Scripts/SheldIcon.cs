@@ -12,7 +12,7 @@ public float coolDown = 1f;
     private Player ps;
     void Start()
     {
-        Cube.OnSpeedDes.AddListener(HandleSheldDes);//订阅销毁事件
+        SheldCube.OnSheldDes.AddListener(HandleSheldDes);//订阅销毁事件
         ps = Player.instance;
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
@@ -27,6 +27,7 @@ public float coolDown = 1f;
             {
                 ps.IsCubeOn = true;
                 is_using = true;
+                coolDown = 10f;
                 //生成新的加速方块
                 GameObject sheldCube = Instantiate(sheldPrefab);
                 sheldCube.transform.position = new Vector3(ps.pos[0] - 512, 10f, ps.pos[1] - 512);
@@ -39,7 +40,7 @@ public float coolDown = 1f;
         }
     }
     
-    private void HandleSheldDes()
+    private void HandleSheldDes(int x, int z)
     {
         coolDown = 10f;
         is_using = false;
@@ -49,7 +50,7 @@ public float coolDown = 1f;
     {
         while (true)
         {
-            if (coolDown >= 0.1f)
+            if (!is_using && coolDown >= 0.1f)
             {
                 yield return new WaitForSeconds(0.1f);
                 coolDown -= 0.1f;

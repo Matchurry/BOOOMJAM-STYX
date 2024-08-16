@@ -42,7 +42,16 @@ public class ShooterBalletSc : MonoBehaviour
     {
         if (bombWithSmallestValue is not null)
         {
-            tarpos = bombWithSmallestValue.transform.position;
+            try
+            {
+                tarpos = bombWithSmallestValue.transform.position;
+            }
+            catch(MissingReferenceException) // 若在攻击到之前已经销毁 则无视本次攻击
+            {
+                bombWithSmallestValue = null;
+                Destroy(gameObject);
+            }
+            
         }
         transform.position = Vector3.Lerp(transform.position, tarpos, 0.1f);
     }

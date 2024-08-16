@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShooterIcon : MonoBehaviour
 {
-    public float coolDown = 1f;
+    public float coolDown = 10f;
     public bool is_using = false;
     public GameObject shooterPrefab;
     private Image rd;
@@ -55,7 +55,7 @@ public class ShooterIcon : MonoBehaviour
     {
         while (true)
         {
-            if (coolDown >= 0.1f)
+            if (!is_using && coolDown >= 0.1f)
             {
                 yield return new WaitForSeconds(0.1f);
                 coolDown -= 0.1f;
