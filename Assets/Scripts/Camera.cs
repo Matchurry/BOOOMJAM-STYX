@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Camera : MonoBehaviour
 {
@@ -30,11 +32,29 @@ public class Camera : MonoBehaviour
     /// </summary>
     public float shakeIntensity = 0.2f;
     private float shakeStartTime;
+    private GameObject _canvasUI;
+    private RectTransform _canvasRectTransform;
+    private Player ps;
+    private bool _isdead = false;
+    public GameObject failedUI;
+    public static UnityEvent Level1Turto = new UnityEvent();
+    public GameObject turtoUI;
+    
+    
 
-    void Start(){
+    void Start()
+    {
+        ps = Player.instance;
+        _canvasUI = GameObject.Find("Canvas");
+        _canvasRectTransform = _canvasUI.GetComponent<RectTransform>();
         Bomb.OnBombTriggered.AddListener(StartShake);
         Cube.CubeSelfDes.AddListener(StartShake);
         Cube.OnCubeGet.AddListener(StartPushIn);
+        Cube.OnCoreDes.AddListener(PlayerDead);
+        Ballet.OnBalletHit.AddListener(StartShake);
+        Level1Turto.AddListener(StartLevel1);
+        
+        Level1Turto.Invoke();
     }
 
     void Update(){
@@ -46,6 +66,12 @@ public class Camera : MonoBehaviour
             float shakeX = Random.Range(-1f, 1f) * shakeIntensity * (1 - t);
             float shakeY = Random.Range(-1f, 1f) * shakeIntensity * (1 - t);
             transform.position += new Vector3(shakeX, shakeY, 0);
+        }
+        
+        
+        if (!_isdead && ps.HP.size <= 0.1f) //玩家血量归零
+        {
+            PlayerDead();
         }
     }
 
@@ -64,6 +90,14 @@ public class Camera : MonoBehaviour
         StartCoroutine(PushIn());
     }
 
+    private void PlayerDead()
+    {
+        _isdead = true;
+        GameObject fail = Instantiate(failedUI);
+        RectTransform failUIRect = fail.GetComponent<RectTransform>();
+        failUIRect.SetParent(_canvasRectTransform);
+    }
+    
     private bool is_in = false;
     IEnumerator PushIn(){
         if(is_in==false){
@@ -79,5 +113,12 @@ public class Camera : MonoBehaviour
 
     private void StartShake(int x, int z){
         StartShake();
+    }
+
+    private void StartLevel1()
+    {
+        GameObject turUI = Instantiate(turtoUI);
+        RectTransform turUIRect = turUI.GetComponent<RectTransform>();
+        turUIRect.SetParent(_canvasRectTransform);
     }
 }
