@@ -581,32 +581,32 @@ PrefabInstance:
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -633
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 21
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
@@ -616,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
@@ -699,8 +699,8 @@ MonoBehaviour:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: 291, y: 55}
-    _zoomFactor: 0.3491517
+    _translation: {x: 262, y: -476}
+    _zoomFactor: 0.7773167
   _firstActivation: 1
   _enableAction: 0
   _disableAction: 0

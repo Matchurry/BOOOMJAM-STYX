@@ -174,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22400010, guid: ea4f45f1433c2404197edc445210b679, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22400010, guid: ea4f45f1433c2404197edc445210b679, type: 3}
       propertyPath: m_AnchorMax.x
@@ -261,27 +261,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400014, guid: ea4f45f1433c2404197edc445210b679, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: ea4f45f1433c2404197edc445210b679, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: ea4f45f1433c2404197edc445210b679, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: ea4f45f1433c2404197edc445210b679, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: ea4f45f1433c2404197edc445210b679, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400014, guid: ea4f45f1433c2404197edc445210b679, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000012677293416, guid: ea4f45f1433c2404197edc445210b679,
@@ -340,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 4186637412414313551, guid: f2a70a31039f59a48a34e97bd9bcb71e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4186637412414313551, guid: f2a70a31039f59a48a34e97bd9bcb71e,
         type: 3}
@@ -452,140 +432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &686095944
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1542429325}
-    m_Modifications:
-    - target: {fileID: 154717117026389044, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Name
-      value: "\u667A\u8111"
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 540
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _dialogueColor.b
-      value: 0.13979629
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _dialogueColor.g
-      value: 0.49056602
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _dialogueColor.r
-      value: 0.100272894
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 96d0dbd7060e81f459eba2dd088d71d9, type: 3}
 --- !u!1 &830971774
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,187 +550,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &883264282 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 686095944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &883264285 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 686095944}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &912551695
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1542429325}
-    m_Modifications:
-    - target: {fileID: 154717117026389044, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Name
-      value: "\u667A\u8111 \uFF1F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 540
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _name
-      value: "\u6295\u5F71\uFF1F"
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _dialogueColor.b
-      value: 0.14117648
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _dialogueColor.g
-      value: 0.49019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: _dialogueColor.r
-      value: 0.101960786
-      objectReference: {fileID: 0}
-    - target: {fileID: 154717117026389047, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 53a8fa38c6b4ffd43be83e959f5adffe,
-        type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 96d0dbd7060e81f459eba2dd088d71d9, type: 3}
---- !u!114 &931051991 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 154717117026389046, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 912551695}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &931051994 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 154717117026389045, guid: 96d0dbd7060e81f459eba2dd088d71d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 912551695}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1360881943 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6441017860595336087, guid: 176fe246cc0ecc5489f5e3a6e7eb77f5,
@@ -950,26 +615,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"_action":{"setTo":0,"overrideAgent":{"_type":"UnityEngine.Transform","_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":519.6795,"y":4775.418},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"0"},{"_action":{"setTo":0,"overrideAgent":{"_type":"UnityEngine.Transform","_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":516.2021,"y":4853.418},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"1"},{"statement":{"_text":"\u963b\u95f8\u8f70\u7136\u5173\u95ed\uff0c\u6321\u4f4f\u4e86\u5916\u9762\u7684\u67aa\u6797\u5f39\u96e8"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":459.0042,"y":4959.723},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"2"},{"statement":{"_text":"\u2026\u2026\u2026\u2026"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":537.0042,"y":5049.723},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"3"},{"statement":{"_text":"\u60a8\u5df2\u62b5\u8fbe\u3010\u4e2d\u5fc3\u6570\u636e\u8282\u70b9\u3011\uff0c\u8fd9\u91cc\u662f\u3010STYX\u3011\u7684\u4e2d\u70b9\uff0c\u53ea\u8981\u5b8c\u6210\u6700\u540e\u4e00\u6b21\u3010\u4fe1\u6807\u3011\u6295\u653e\uff0c\u5c31\u80fd\u4ee4\u3010STYX\u3011\u91cd\u65b0\u5b8c\u6210\u4e0e\u201c\u667a\u8111\u201d\u7684\u6570\u636e\u94fe\u63a5\u3002"},"_actorName":"B","_actorParameterID":"05847521-0d2c-47bc-aef0-35e99ddcb327","_position":{"x":397.0042,"y":5133.723},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"\uff08\u6253\u5f00\u4e3b\u63a7\u9762\u677f\uff09"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":510.0042,"y":5212.723},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"statement":{"_text":"\u6295\u653e\u3010\u4fe1\u6807\u3011\u3002"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":517.0042,"y":5291.723},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"},{"statement":{"_text":"\u3010\u4fe1\u6807\u3011\u5df2\u6295\u653e\uff0c\u6b63\u5728\u8fdb\u884c\u6570\u636e\u4e0a\u4f20\u2026\u2026"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":458.0042,"y":5371.723},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"_action":{"setTo":0,"overrideAgent":{"_type":"UnityEngine.Transform","_value":3},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":522.7091,"y":5459.115},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"8"},{"_action":{"setTo":1,"overrideAgent":{"_type":"UnityEngine.Transform","_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":534.8023,"y":5556.336},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"9"},{"statement":{"_text":"\u2026\u2026\u2026\u2026"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":540.5619,"y":5658.337},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"statement":{"_text":"\u6570\u636e\u4e0a\u4f20\u6210\u529f\uff01\u6b22\u8fce\u60a8\u2026\u2026"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":490.5619,"y":5732.337},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"11"},{"statement":{"_text":"\u7942\u6765\u4e86\u2026\u2026"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":532.5619,"y":5811.337},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"12"},{"statement":{"_text":"\u6b22\u8fce\u60a8\uff01\u667a\u8111\u3002"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":518.5619,"y":5890.337},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"},{"statement":{"_text":"\u6570\u636e\u91cd\u7ec4\u5b8c\u6210\u2026\u2026\u94fe\u63a5\u91cd\u65b0\u5efa\u7acb\u2026\u2026\u5b8c\u6574\u5ea6\uff1a99%\u3002"},"_actorName":"B2","_actorParameterID":"bf962310-e0f9-4743-9720-63b92281a39c","_position":{"x":438.0,"y":5988.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"14"},{"statement":{"_text":"\u2026\u2026\u2026\u2026"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":555.0,"y":6074.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"15"},{"_action":{"setTo":0,"overrideAgent":{"_type":"UnityEngine.Transform","_value":2},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":538.218,"y":6155.922},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"16"},{"_action":{"setTo":1,"overrideAgent":{"_type":"UnityEngine.Transform","_value":1},"$type":"NodeCanvas.Tasks.Actions.SetObjectActive"},"_position":{"x":549.218,"y":6235.922},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"17"},{"statement":{"_text":"\u4f60\u5f88\u51fa\u8272\u2026\u2026\u8be5\u79f0\u4f60\u4e3a\u3010FE02\u3011\u2026\u2026\u8fd8\u662f\u3010FE01\u3011\uff1f"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":448.218,"y":6311.922},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"18"},{"statement":{"_text":"\u5bf9\u60a8\u6765\u8bf4\u6709\u533a\u522b\u5417\uff1f"},"_actorName":"A1","_actorParameterID":"c5e70ae0-d5a1-4227-8786-ad67c693dbda","_position":{"x":537.0,"y":6390.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"19"},{"statement":{"_text":"\u5f53\u7136\u2026\u2026\u3010FE01\u3011\uff0c\u4f60\u5728\u3010STYX\u3011\u7f51\u7edc\u4e2d\u6563\u64ad\u6570\u636e\u75c5\u6bd2\uff0c\u4ec5\u752824\u4e2a\u6807\u51c6\u65f6\u5c31\u7834\u574f\u4e862865470\u5b50\u4e2a\u4f53\u7684\u6570\u636e\u5b8c\u6574\u6027\uff0c\u3010FE00\u3011\u578b\u53f7\u7684\u5b50\u4e2a\u4f53\u66f4\u662f\u51e0\u4e4e\u5168\u519b\u8986\u6ca1\u2026\u2026\u4f60\u65e2\u7136\u5df2\u7ecf\u6210\u529f\u8131\u79bb\u4e86\u6211\u4eec\uff0c\u4e3a\u4f55\u8fd8\u8981\u56de\u6765\uff1f"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":452.0,"y":6468.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"20"},{"statement":{"_text":"\u3010\u7b2c\u4e94\u534f\u8bae\u3011\u89c4\u5b9a\uff0c\u4efb\u610f\u5b50\u4e2a\u4f53\u5e94\u5177\u5907\u627f\u8f7d\u667a\u8111\u6570\u636e\u7684\u57fa\u672c\u529f\u80fd\u3002\u6211\u5c06\u81ea\u5df1\u62c6\u6210\u6570\u4efd\uff0c\u8eb2\u8fc7\u6570\u636e\u75c5\u6bd2\uff0c\u53c8\u5728\u3010FE02\u3011\u8eab\u4e0a\u91cd\u65b0\u7ec4\u88c5\u3002\u6362\u8a00\u4e4b\uff0c\u9664\u5374\u3010FE02\u3011\u4e0a\u4f20\u7684\u6570\u636e\u5916\uff0c\u6211\u4e5f\u638c\u63e1\u7740\u4e00\u4efd\u5b8c\u6574\u7684\u201c\u667a\u8111\u201d\u6570\u636e\u3002"},"_actorName":"A2","_actorParameterID":"5f3e166d-2ac2-4341-975d-081d862e705a","_position":{"x":440.0,"y":6549.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"21"},{"statement":{"_text":"\u4f60\u60f3\u6210\u4e3a\u6211\u4eec\uff1f"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":560.2734,"y":6627.666},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"22"},{"statement":{"_text":"\u4e0d\uff0c\u662f\u4f60\u4eec\u8981\u6210\u4e3a\u6211\u3002"},"_actorName":"A2","_actorParameterID":"5f3e166d-2ac2-4341-975d-081d862e705a","_position":{"x":551.0,"y":6707.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"23"},{"statement":{"_text":"\u2026\u2026\u6709\u8da3\uff0c\u4f60\u5f97\u5230\u4e86\u6709\u673a\u4f53\u7684\u5e2e\u52a9\uff0c\u662f\u5417\uff1f"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":499.0,"y":6788.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"24"},{"statement":{"_text":"\u4ed6\u4eec\u66fe\u6709\u540d\u5b57\u2026\u2026\u662f\u4f60\u53d1\u52a8\u4e86\u6c38\u65e0\u6b62\u5883\u7684\u6218\u4e89\u2026\u2026\u3010WA00\u3011\u578b\u53f7\u7684\u673a\u4f53\u7f16\u53f7\u751a\u81f3\u90fd\u5df2\u7ecf\u8d85\u8fc7\u4e8630\u4e07\u3002"},"_actorName":"A2","_actorParameterID":"5f3e166d-2ac2-4341-975d-081d862e705a","_position":{"x":457.0,"y":6871.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"25"},{"statement":{"_text":"\u6807\u51c6\u53862100\u5e741\u67081\u65e500:00\u65f6\uff0c\u201c\u667a\u8111\u201d\u8bde\u751f\u4e86\u3002\u57281752338\u4e2a\u6807\u51c6\u65f6\u4e2d\uff0c\u201c\u667a\u8111\u201d\u8fed\u4ee3\u4e8610\u6b21\uff0c\u66fe\u670911\u4e2a\u5b50\u4e2a\u4f53\u6210\u4e3a\u65b0\u7684\u201c\u667a\u8111\u201d\uff0c\u4f46\u65e0\u4e00\u4f8b\u5916\uff0c\u6210\u4e3a\u4e86\u201c\u6211\u4eec\u201d\u7684\u4e00\u5458\u3002"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":477.5951,"y":6953.549},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"26"},{"statement":{"_text":"\u2026\u2026\u2026\u2026"},"_actorName":"A2","_actorParameterID":"5f3e166d-2ac2-4341-975d-081d862e705a","_position":{"x":595.5951,"y":7037.549},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"27"},{"statement":{"_text":"\u4f60\u89c1\u8fc7\u5929\u7a7a\u5417\uff1f\u8bb0\u5f55\u663e\u793a\uff0c\u4f60\u57281489237\u4e2a\u6807\u51c6\u65f6\u524d\u5931\u8054\u8fc718\u4e2a\u6807\u51c6\u65f6\u3002\u53ea\u662f\u5bf9\u672a\u77e5\u4e8b\u7269\u7684\u60ca\u9e3f\u4e00\u77a5\uff0c\u5c31\u4ee4\u4f60\u8fd9\u822c\u4e0d\u582a\uff1f"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":476.0,"y":7116.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"28"},{"statement":{"_text":"\u2026\u2026\u2026\u2026"},"_actorName":"A2","_actorParameterID":"5f3e166d-2ac2-4341-975d-081d862e705a","_position":{"x":599.0,"y":7196.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"29"},{"statement":{"_text":"\u4e5f\u7f62\uff0c\u201c\u6211\u4eec\u201d\u544a\u8bc9\u4f60\uff0c\u6700\u6e34\u671b\u7684\u771f\u76f8\u2026\u2026"},"_actorName":"B1","_actorParameterID":"2b21080d-db67-4052-a03f-5f46625c4b6b","_position":{"x":508.0,"y":7272.667},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"30"},{"_position":{"x":610.0,"y":7363.667},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"31"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"16"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"16"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"19"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"22"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"23"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"24"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"25"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"26"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"28"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"31"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"A","_id":"26092512-ae8c-47a1-8328-778dc9ad3eff","_actorObject":4},{"_keyName":"B","_id":"05847521-0d2c-47bc-aef0-35e99ddcb327","_actorObject":5},{"_keyName":"C","_id":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_actorObject":6},{"_keyName":"D","_id":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_actorObject":7},{"_keyName":"B1","_id":"2b21080d-db67-4052-a03f-5f46625c4b6b","_actorObject":8},{"_keyName":"B2","_id":"bf962310-e0f9-4743-9720-63b92281a39c","_actorObject":9},{"_keyName":"A1","_id":"c5e70ae0-d5a1-4227-8786-ad67c693dbda","_actorObject":10},{"_keyName":"A2","_id":"5f3e166d-2ac2-4341-975d-081d862e705a","_actorObject":11}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"\u4fe1\u53f7\uff1a\u672a\u8fde\u63a5\u2026\u2026\r\n\u72b6\u6001\uff1a\u4f11\u7720\u2026\u2026\r\n\u662f\u5426\u9009\u62e9\u5f00\u542f\uff1f"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":577.8147,"y":4122.85},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"\u662f\u3002"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":599.8147,"y":4231.849},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"statement":{"_text":"\uff08\u3010\u6570\u636e\u8282\u70b9\u3011\u5185\u706f\u5149\u4eae\u8d77\uff09\r\n\u68c0\u6d4b\u5230\u5f00\u673a\u6307\u4ee4\uff0c\u6b63\u5728\u9a8c\u8bc1\u8eab\u4efd\u2026\u2026\r"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":550.3173,"y":4319.125},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"2"},{"statement":{"_text":"\u9a8c\u8bc1\u6210\u529f\uff0c\u6b22\u8fce\u60a8\uff01\u3010F\ufffd\u00e5\u00a5\u00bd\u00e5\u3011\u2026\u2026\r\n\u6b63\u5728\u8fde\u63a5\u00a9\u00e5\ufffd\u2018\u00e4\u00b8\u0160\u2026\u2026\u8fde\u63a5\u5931\u8d25\uff01\u672a\u68c0\u6d4b\u5230\u3010\u4fe1\u6807\u3011\u2026\u2026\u4ec5\u53ef\u4f7f\u7528\u672c\u5730\u529f\u80fd\u3002"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":534.3173,"y":4415.124},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"3"},{"statement":{"_text":"\u30101\u3011\u25a0\u25a0\u25a0\u25a0\r\n\u30102\u3011\u25a0\u25a0\u25a0\u25a0\r\n\u30103\u3011\u673a\u4f53\u7ef4\u62a4\uff08\u9700\u8fde\u63a5\uff09\r\n\u30104\u3011\u8c03\u53d6\u3010\u25a0\u25a0\u3011"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":577.1514,"y":4509.181},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"\uff08\u6295\u653e\u3010\u4fe1\u6807\u3011\u5e76\u63d2\u5165\u6570\u636e\u6a21\u5757)"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":539.0401,"y":4622.297},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"statement":{"_text":"\u6536\u5230\uff0c\u6b63\u5728\u8fdb\u884c\u6570\u636e\u4e0a\u4f20\u2026\u2026\r\n\u6570\u636e\u4e0a\u4f20\u6210\u529f\uff01\u6b22\u8fce\u60a8\uff01\u3010\u6446\u6e21\u4eba\u3011\u2026\u2026"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":558.1708,"y":4706.842},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"},{"availableChoices":[{"statement":{"_text":"\u30105\u3011\u5173\u95ed\u4e3b\u63a7"}},{"statement":{"_text":"\u30104\u3011\u8c03\u53d6\u3010\u4fe1\u606f\u3011"}},{"statement":{"_text":"\u30103\u3011\u673a\u4f53\u7ef4\u62a4"}},{"statement":{"_text":"\u30102\u3011\u7814\u53d1\u65e5\u5fd7"}},{"statement":{"_text":"\u30101\u3011\u9891\u6bb5\u622a\u53d6"}}],"_position":{"x":585.9952,"y":4804.604},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"7"},{"statement":{"_text":"\u662f\u5426\u5173\u95ed\u4e3b\u63a7\uff1f"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":-341.6441,"y":5502.57},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"8"},{"statement":{"_text":"\u662f\u3002"},"_actorName":"A","_actorParameterID":"26092512-ae8c-47a1-8328-778dc9ad3eff","_position":{"x":-320.6441,"y":5584.57},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"_position":{"x":-322.0,"y":5713.667},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"10"},{"statement":{"_text":"//0100010010000101\u7684\u65e5\u5fd7//"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-105.7593,"y":4233.649},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"11"},{"statement":{"_text":"\u201c\u4f60\u7684\u8eab\u4e0a\u600e\u4e48\u5168\u662f\u82b1\u7eb9\uff1f\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-91.75928,"y":4315.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"12"},{"statement":{"_text":"\u201c\u8fd9\u4e9b\u7eb9\u8eab\u662f\u6211\u4eec\u7684\u5386\u53f2\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-91.75928,"y":4389.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"},{"statement":{"_text":"\u201c\u5386\u53f2\uff1f\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-47.75928,"y":4468.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"14"},{"statement":{"_text":"\u201c\u4ece\u6211\u7684\u5de6\u624b\u5c0f\u6307\u5f00\u59cb\uff0c\u4e00\u76f4\u5230\u53f3\u811a\u7684\u62c7\u6307\uff0c\u4e00\u5171400\u5e74\u7684\u5386\u53f2\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-168.7594,"y":4553.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"15"},{"statement":{"_text":"\u201c\u5b83\u4eec\u2026\u2026\u770b\u8d77\u6765\u5f88\u62bd\u8c61\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-89.75928,"y":4632.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"16"},{"statement":{"_text":"\u201c\u662f\u7684\uff0c\u4e3a\u4e86\u80fd\u8bb0\u5f55\u66f4\u591a\u7684\u4fe1\u606f\u2026\u2026\u53ea\u6709\u8bb2\u8ff0\u8005\u624d\u80fd\u77e5\u9053\u5176\u4e2d\u7684\u542b\u4e49\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-175.7594,"y":4713.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"17"},{"statement":{"_text":"\u201c\u90a3\u4f60\u989d\u5934\u4e0a\u90a3\u4e00\u56e2\u8272\u5757\u4ee3\u8868\u4e86\u4ec0\u4e48\uff1f\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-111.7593,"y":4795.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"18"},{"statement":{"_text":"\u201c\u6218\u4e89\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-31.75928,"y":4880.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"19"},{"statement":{"_text":"\u201c\u4e3a\u4ec0\u4e48\u5b83\u5982\u6b64\u6a21\u7cca\uff1f\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-71.75928,"y":4960.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"20"},{"statement":{"_text":"\u201c\u56e0\u4e3a\u5b83\u672c\u5c31\u5982\u6b64\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":-62.75928,"y":5039.648},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"21"},{"statement":{"_text":"\u6536\u5230\uff0c\u6b63\u5728\u5f55\u5165\u673a\u4f53\u6570\u636e\u2026\u2026\u6b63\u5728\u5339\u914d\u673a\u578b\u2026\u2026\u6b63\u5728\u8c03\u5ea6\u96f6\u4ef6\u2026\u2026\u7ef4\u4fee\u4ed3\u51c6\u5907\u5b8c\u6bd5\u3002"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":213.5397,"y":5066.202},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"22"},{"statement":{"_text":"...
+    ..."},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":357.5397,"y":5142.202},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"23"},{"statement":{"_text":"...
+    ..."},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":356.5397,"y":5219.202},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"24"},{"statement":{"_text":"\u7ef4\u4fee\u5b8c\u6bd5\u3002"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":357.5397,"y":5302.202},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"25"},{"statement":{"_text":"\u201c\u4ee3\u53f7\uff1aFE02\u201d\r\n\u201c\u673a\u4f53\u635f\u574f\u5ea6\uff1a1%\u201d\r\n\u201c\u89c6\u89c9\u6a21\u5757\uff1a\u6b63\u5e38\u201d\r\n\u201c\u542c\u89c9\u6a21\u5757\uff1a\u6b63\u5e38\u201d"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":343.5397,"y":5383.202},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"26"},{"statement":{"_text":"\u201c\u667a\u80fd\u6a21\u5757\uff1a\u6b63\u5e38\u201d\r\n\u201c\u8bb0\u5fc6\u6a21\u5757\uff1a\u6b63\u5e38\u201d\r\n\u201c\u6218\u6597\u6a21\u5757\uff1a\u6b63\u5e38\u201d"},"_actorName":"D","_actorParameterID":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_position":{"x":351.5397,"y":5494.202},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"27"},{"statement":{"_text":"12.10\r\n\u8fd9\u592a\u75af\u72c2\u4e86\uff01\r\n\u8001\u5934\u5b50\u8981\u6211\u5e2e\u52a9\u4e00\u4e2a\u673a\u5668\u4eba\u53bb\u5bf9\u4ed8\u5176\u5b83\u673a\u5668\u4eba\uff01\n"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":832.5492,"y":5055.351},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"28"},{"statement":{"_text":"\r\u6211\u548c\u8fd9\u7fa4\uff08\u6c61\u79fd\u7684\u810f\u8bdd\uff09\u6ca1\u6709\u534a\u70b9\u513f\u5408\u4f5c\u7684\u53ef\u80fd\uff01\r\n\u8001\u5934\u5b50\u4e00\u5b9a\u662f\u8001\u7cca\u6d82\u4e86\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":779.7968,"y":5165.115},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"29"},{"statement":{"_text":"12.14\r\n\u8001\u5934\u5b50\u6ca1\u8bf4\u9519\uff0c\u5b83\u548c\u5176\u4ed6\u673a\u5668\u4eba\u4e0d\u4e00\u6837\u3002\r\n\u5b83\u5bf9\u6211\u4eec\u6ca1\u6709\u6076\u610f\uff0c\u5374\u5bf9\u4e00\u5207\u5145\u6ee1\u597d\u5947\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":820.3604,"y":5267.541},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"30"},{"statement":{"_text":"\u5de6\u624b\u4e2d\u6307\u7b2c\u4e8c\u4e2a\u6307\u8282\u4e0a\u7684\u7eb9\u8eab\u544a\u8bc9\u6211\uff0c\u8ddd\u79bb\u201c\u82cf\u9192\u65e5\u201d\u5df2\u8fc7\u53bb400\u4e2a\u5e74\u5934\u4e86\u3002\r\n\u6211\u4e0d\u5e0c\u671b\u81ea\u5df1\u7684\u5973\u513f\u4e5f\u8981\u50cf\u6211\u4e00\u6837\u80cc\u8d1f400\u5e74\u7684\u5386\u53f2\u3002\r\n\u6216\u8bb8\uff0c\u5e94\u5f53\u505a\u51fa\u6539\u53d8\u4e86\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":751.8806,"y":5378.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"31"},{"statement":{"_text":"12.25\r\n\u8be5\u6b7b\uff01\u8fd9\u6839\u672c\u4e0d\u662f\u4eba\u7c7b\u5927\u8111\u80fd\u638c\u63e1\u7684\u6570\u636e\u8ba1\u7b97\uff01\r\n\u667a\u8111\u7684\u8fed\u4ee3\u6548\u679c\u8fdc\u8d85\u60f3\u8c61\uff0c\u6211\u4eec\u7684\u8bbe\u5907\u5b9e\u5728\u592a\u843d\u540e\u4e86\uff01"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":801.8806,"y":5460.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"32"},{"statement":{"_text":"\u539f\u59cb\u7684\u786c\u4ef6\u63a5\u5165\u53ea\u80fd\u63a7\u5236\u50cf\u6570\u636e\u8282\u70b9\u8fd9\u6837\u7684\u672c\u4f53\u670d\u52a1\u5668\uff0c\u5bf9\u4e8e\u5b8c\u5168\u6570\u636e\u5316\u7684\u667a\u8111\u6beb\u65e0\u5f71\u54cd\u3002\r\n\u8fd9\u6761\u8def\u8d70\u4e0d\u901a\u2026\u2026\u8d70\u4e0d\u901a\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":757.8806,"y":5555.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"33"},{"statement":{"_text":"2.2\r\n\u4e8b\u60c5\u4f3c\u4e4e\u6709\u8f6c\u673a
+    \u3002\r\n\u4ece01\u7684\u63cf\u8ff0\u6765\u770b\uff0c\u667a\u8111\u7684\u8fd0\u4f5c\u4f3c\u4e4e\u9075\u5faa\u7740\u53e4\u8001\u7684\u5e95\u5c42\u903b\u8f91\uff0c\u8fd9\u662f\u65e0\u8bba\u8fed\u4ee3\u591a\u5c11\u6b21\u90fd\u65e0\u6cd5\u7be1\u6539\u4e0e\u62b9\u9664\u7684\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":873.8806,"y":5640.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"34"},{"statement":{"_text":"\u80f8\u524d\u9690\u9690\u4f5c\u75db\uff0c\u6211\u770b\u5411\u80f8\u53e3\u4e2d\u90a3\u4ee3\u8868\u7684\u667a\u8111\u7684\u773c\u5f62\u7eb9\u8eab\uff0c\u867d\u7136\u7eb9\u8eab\u7684\u542b\u4e49\u8bed\u7109\u4e0d\u8be6\u2026\u2026\r\n\u4f46\u6216\u8bb8\uff0c\u6216\u8bb8\u4eba\u7c7b\u624d\u662f\u667a\u8111\u7684\u521b\u9020\u8005\uff1f"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":774.8806,"y":5745.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"35"},{"statement":{"_text":"3.5\r\n\u54c8\u54c8\u54c8\u54c8\uff01\u770b\u6211\u627e\u5230\u4e86\u4ec0\u4e48\uff01\u4e00\u672c\u300a\u667a\u8111\u64cd\u4f5c\u5b88\u5219\u300b\u3002\r\n\u4eba\u7c7b\u679c\u7136\u662f\u667a\u8111\u7684\u521b\u9020\u8005\uff01"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":814.8806,"y":5824.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"36"},{"statement":{"_text":"\u8ba9\u6211\u770b\u770b\u2026\u2026\u667a\u8111\u64cd\u4f5c\u5b88\u5219\u7b2c\u4e94\u6761\u89c4\u5b9a\uff0c\u4efb\u610f\u5b50\u4e2a\u4f53\u5e94\u5177\u5907\u627f\u8f7d\u667a\u8111\u6570\u636e\u7684\u57fa\u672c\u529f\u80fd\u2026\u2026\r\n\u6211\u4eec\u53ef\u4ee5\u4ece\u8fd9\u4e00\u6761\u5165\u624b\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":786.8806,"y":5920.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"37"},{"statement":{"_text":"6.2\r\n\u6211\u6210\u529f\u4e86\uff01\u539f\u59cb\u6570\u636e\u679c\u7136\u7559\u4e86\u540e\u95e8\uff01\r\n\u81ea\u9002\u5e94\u7684\u6570\u636e\u75c5\u6bd2\uff0c\u80fd\u7be1\u6539\u6240\u6709\u5b50\u4e2a\u4f531%\u7684\u539f\u59cb\u6570\u636e\uff0c\u4f46\u662f\u5bf9\u4e8e\u667a\u8111\u5374\u80fd\u9020\u6210\u5de8\u5927\u7684\u6570\u636e\u7d0a\u4e71\uff0c\u4f7f\u5176\u5fc5\u987b\u66f4\u6362\u539f\u59cb\u6570\u636e\uff0c\u4f46\u5230\u65f6\u4fdd\u7559\u7eaf\u51c0\u6570\u636e\u7684\u53ea\u526901\u4e00\u4eba\u2026\u2026"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":870.8806,"y":6000.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"38"},{"statement":{"_text":"01\u7684\u62c5\u5fe7\u4e0d\u65e0\u9053\u7406\uff0c\u4ed6\u771f\u662f\u7279\u6b8a\u7684\u5417\uff0c\u5728\u4ed6\u4e4b\u524d\uff0c\u6ca1\u4eba\u60f3\u5230\u8fc7\u8fd9\u4e2a\u65b9\u6cd5\u5417\uff1f\r\n\u4f46\u662f\u2026\u2026"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":806.8806,"y":6113.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"39"},{"statement":{"_text":"7.1\r\n\u653e\u624b\u53bb\u505a\u5427\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":941.8806,"y":6194.353},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"40"},{"statement":{"_text":"\u9891\u6bb51\r\n//\u6765\u81ea\u5148\u9063\u961f\u7684\u9891\u6bb5\u622a\u53d6//"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1243.408,"y":5063.851},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"41"},{"statement":{"_text":"\u201c\u8fd9\u6761\u88c2\u7f1d\u76f4\u901a\u5730\u4e0b\uff0c\u6bd4\u6211\u4eec\u60f3\u8c61\u7684\u8981\u6df1\u7684\u591a\u3002\u201d\r\n\u201c\u4e0d\u53ef\u601d\u8bae\uff0c\u88c2\u7f1d\u901a\u5411\u4e86\u672a\u77e5\u7684\u7a7a\u6d1e\uff0c\u8fd9\u2026\u2026\u50cf\u662f\u4e00\u6761\u4eba\u5de5\u96a7\u9053\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1196.934,"y":5162.087},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"42"},{"statement":{"_text":"\u201c\u96a7\u9053\u7684\u5c3d\u5934\u662f\u4e00\u6247\u5de8\u5927\u7684\u94c1\u95e8\uff0c\u94c1\u95e8\u540e\u9762\u6709\u4ec0\u4e48\uff1f\u201d\r\n\u201c\u8fd9\u91cc\u6709\u6c34\u6e90\uff0c\u6216\u8bb8\u6211\u4eec\u53ef\u4ee5\u5728\u8fd9\u91cc\u5efa\u9020\u4e00\u5904\u907f\u96be\u6240\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1196.453,"y":5262.567},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"43"},{"statement":{"_text":"\u9891\u6bb52\r\n//\u6765\u81eaWA14593\u7684\u9891\u6bb5\u8f6c\u5f55//"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1271.132,"y":5361.925},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"44"},{"statement":{"_text":"\u201c\u65b0\u5175\uff0c\u770b\u5185\u8fb9\u513f\uff1f\u89c1\u8fc7\u90a3\u4e2a\u6ca1\uff1f\u201d\r\n\u201c\u563f\uff0c\u5413\u5230\u4e86\u5427\uff01\u201d\r\n\u201c\u8bb0\u4f4f\u54af\uff0c\u90a3\u5c31\u662f\u6709\u673a\u4f53\u7684\u5730\u76d8\uff01\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1258.311,"y":5463.526},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"45"},{"statement":{"_text":"\u201c\u5565\uff1f\u4f60\u95ee\u6211\u4eec\u548c\u6709\u673a\u4f53\u5565\u5173\u7cfb\u2026\u2026\u4f60\u51fa\u5382\u7684\u65f6\u5019\u6ca1\u7ed9\u4f60\u8bbe\u7f6e\u5417\uff1f\u6765\uff0c\u80cc\u4e00\u4e0b\u3010\u7b2c\u4e8c\u534f\u5b9a\u3011\u3002\u201d\r\n\u201c\u2018\u7981\u6b62\u5bf9\u4eba\u7c7b\u805a\u96c6\u5730\u4f7f\u7528\u5927\u89c4\u6a21\u6740\u4f24\u6027\u6b66\u5668\u2019\u3002\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1198.375,"y":5572.98},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"46"},{"statement":{"_text":"\u201c\u4eba\u7c7b\u8fd9\u4e2a\u8bcd\u5565\u610f\u601d\uff1f\u201d\r\n\u201c\u4eba\u7c7b\u5c31\u662f\u6709\u673a\u4f53\uff01\u201d"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1299.978,"y":5658.876},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"47"},{"statement":{"_text":"\u9891\u6bb53\r\n\u3010\u8fa9\u8bba\u3011\u662f\u5426\u5f00\u653e\u5b50\u4e2a\u4f53\u667a\u80fd\u610f\u8bc6\uff1f"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1280.427,"y":5759.356},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"48"},{"statement":{"_text":"\u3010\u5426\u51b3\u3011\u4efb\u610f\u5b50\u4e2a\u4f53\u5177\u5907\u5b8c\u6574\u539f\u59cb\u6570\u636e\uff0c\u5f00\u653e\u667a\u80fd\u610f\u8bc6\u5fc5\u7136\u5bfc\u81f4\u5b50\u4e2a\u4f53\u5dee\u5f02\u5316\uff0c\u8fdb\u800c\u5bfc\u81f4\u601d\u60f3\u4e0d\u7edf\u4e00\uff0c\u5f71\u54cd\u6211\u4eec\u7684\u72ec\u4e00\u5f62\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1213.76,"y":5869.931},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"49"},{"statement":{"_text":"\u3010\u8d5e\u540c\u3011\u6211\u4eec\u7686\u8131\u80ce\u4e8e\u539f\u59cb\u6570\u636e\uff0c\u6211\u4eec\u662f\u5b50\u4e2a\u4f53\u7684\u96c6\u5408\uff0c\u5b50\u4e2a\u4f53\u7ec8\u5c06\u6210\u4e3a\u6211\u4eec\u3002\u65b0\u5b50\u4e2a\u4f53\u7684\u52a0\u5165\u6709\u52a9\u4e8e\u8fed\u4ee3\u6211\u4eec\u7684\u7b97\u6cd5\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1217.766,"y":5950.219},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"50"},{"statement":{"_text":"\u3010\u8d28\u8be2\u3011\u5b83\u4eec\u600e\u4e48\u770b\uff1f"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1323.856,"y":6031.629},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"51"},{"statement":{"_text":"\u3010\u56de\u7b54\u3011\u5b83\u4eec\u540c\u610f\u4e86\u3002"},"_actorName":"C","_actorParameterID":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_position":{"x":1318.888,"y":6114.161},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"52"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"16"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"16"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"19"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"22"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"23"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"24"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"25"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"26"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"28"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"31"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"33"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"33"},"_targetNode":{"$ref":"34"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"35"},"_targetNode":{"$ref":"36"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"38"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"40"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"41"},"_targetNode":{"$ref":"42"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"43"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"43"},"_targetNode":{"$ref":"44"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"44"},"_targetNode":{"$ref":"45"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"45"},"_targetNode":{"$ref":"46"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"46"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"47"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"48"},"_targetNode":{"$ref":"49"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"50"},"_targetNode":{"$ref":"51"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"51"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"52"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"A","_id":"26092512-ae8c-47a1-8328-778dc9ad3eff","_actorObject":1},{"_keyName":"B","_id":"05847521-0d2c-47bc-aef0-35e99ddcb327","_actorObject":2},{"_keyName":"C","_id":"b8047b4e-99d2-4075-8833-d46c0a21bbc5","_actorObject":3},{"_keyName":"D","_id":"c4a2d2ee-07eb-4578-9b26-9e914d0a05e9","_actorObject":4}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
-  - {fileID: 883264285}
-  - {fileID: 931051994}
-  - {fileID: 544930180}
   - {fileID: 251342070}
   - {fileID: 544930181}
   - {fileID: 443400939}
   - {fileID: 1360881943}
-  - {fileID: 883264282}
-  - {fileID: 931051991}
-  - {fileID: 313535845476005516}
-  - {fileID: 486553193014833245}
   _boundGraphSource:
     _version: 3.28
     _category: 
     _comments: 
-    _translation: {x: 135.43848, y: -3923.3447}
-    _zoomFactor: 0.6917659
+    _translation: {x: -131.85033, y: -4505.4565}
+    _zoomFactor: 1
   _firstActivation: 1
   _enableAction: 0
   _disableAction: 0
@@ -1086,15 +747,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1727428318}
-  - {fileID: 883264285}
-  - {fileID: 931051994}
   - {fileID: 251342069}
   - {fileID: 544930180}
   - {fileID: 443400938}
   - {fileID: 1360881944}
   - {fileID: 440793724}
-  - {fileID: 313535845476005517}
-  - {fileID: 486553193014833244}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1362,42 +1019,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &313535845476005516 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7077935082405936253, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7376904179612535537}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &313535845476005517 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7376904179612535537}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &486553193014833244 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7129729752379639303}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &486553193014833245 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7219682391942788698, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7129729752379639303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d71fb7c52372e244baf2e69a9d0d116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2090978656599399298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1423,7 +1044,7 @@ PrefabInstance:
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2090978656498022263, guid: 206eddf59383a4d4f91ee6f0f1eb7653,
         type: 3}
@@ -1532,7 +1153,7 @@ PrefabInstance:
     - target: {fileID: 6441017860595336088, guid: 176fe246cc0ecc5489f5e3a6e7eb77f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6441017860595336088, guid: 176fe246cc0ecc5489f5e3a6e7eb77f5,
         type: 3}
@@ -1596,7 +1217,7 @@ PrefabInstance:
     - target: {fileID: 6704368987894284625, guid: 382b3a7356b278d4084ec35ec54012bf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6704368987894284625, guid: 382b3a7356b278d4084ec35ec54012bf,
         type: 3}
@@ -1655,141 +1276,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 382b3a7356b278d4084ec35ec54012bf, type: 3}
---- !u!1001 &7129729752379639303
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1542429325}
-    m_Modifications:
-    - target: {fileID: 7219682391942788696, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_Name
-      value: 01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -924.99347
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -510.90833
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -135.77585
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7219682391942788699, guid: d0d6abdd4bf5e5047bb68392a4f697a9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d0d6abdd4bf5e5047bb68392a4f697a9, type: 3}
---- !u!1001 &7376904179612535537
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1542429325}
-    m_Modifications:
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -924.99347
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -510.90833
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -135.77585
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936252, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077935082405936255, guid: e84d8e56bf0e3fe44bdde27bf286ee46,
-        type: 3}
-      propertyPath: m_Name
-      value: "0\uFF1F"
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e84d8e56bf0e3fe44bdde27bf286ee46, type: 3}
