@@ -34,12 +34,17 @@ public class Camera : MonoBehaviour
     private float shakeStartTime;
     private GameObject _canvasUI;
     private RectTransform _canvasRectTransform;
-        
+    private Player ps;
+    private bool _isdead = false;
+    public GameObject failedUI;
     public static UnityEvent Level1Turto = new UnityEvent();
     public GameObject turtoUI;
     
+    
 
-    void Start(){
+    void Start()
+    {
+        ps = Player.instance;
         _canvasUI = GameObject.Find("Canvas");
         _canvasRectTransform = _canvasUI.GetComponent<RectTransform>();
         Bomb.OnBombTriggered.AddListener(StartShake);
@@ -47,6 +52,7 @@ public class Camera : MonoBehaviour
         Cube.OnCubeGet.AddListener(StartPushIn);
         Ballet.OnBalletHit.AddListener(StartShake);
         Level1Turto.AddListener(StartLevel1);
+        
         Level1Turto.Invoke();
     }
 
@@ -59,6 +65,15 @@ public class Camera : MonoBehaviour
             float shakeX = Random.Range(-1f, 1f) * shakeIntensity * (1 - t);
             float shakeY = Random.Range(-1f, 1f) * shakeIntensity * (1 - t);
             transform.position += new Vector3(shakeX, shakeY, 0);
+        }
+        
+        
+        if (!_isdead && ps.HP.size <= 0.1f) //玩家血量归零
+        {
+            _isdead = true;
+            GameObject fail = Instantiate(failedUI);
+            RectTransform failUIRect = fail.GetComponent<RectTransform>();
+            failUIRect.SetParent(_canvasRectTransform);
         }
     }
 
