@@ -14,7 +14,7 @@ public class BackGround : MonoBehaviour
         _birthPos = transform.position;
         _bgInter[0] = 16;
         _bgInter[1] = 16;
-        _bgInter[2] = 93;
+        _bgInter[2] = 16;
     }
 
     // Update is called once per frame
