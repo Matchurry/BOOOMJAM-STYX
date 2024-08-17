@@ -10,17 +10,23 @@ public class ShooterIcon : MonoBehaviour
     public GameObject shooterPrefab;
     private Image rd;
     private Player ps;
+    private RectTransform rt;
+    private Vector2 tarpos = new Vector2(433, -405);
+    
     void Start()
     {
+        rt = GetComponent<RectTransform>();
         Cube.OnShooterDes.AddListener(HandleShooterDes);//订阅销毁事件
         ps = Player.instance;
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
+        rt.anchoredPosition = new Vector2(433, -607f);
     }
 
     
     void Update()
     {
+        rt.anchoredPosition = Vector2.Lerp(rt.anchoredPosition, tarpos, Time.deltaTime * 2.5f);
         rd.color = new Color(1-coolDown / 10f, 1-coolDown / 10f, 1-coolDown / 10f);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

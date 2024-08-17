@@ -15,14 +15,19 @@ public float coolDown = 1f;
     private SheldCube shedSc;
     private Image rd;
     private Player ps;
+    private RectTransform rt;
+    private Vector2 tarpos = new Vector2(-162, 135);
 
     private void Awake()
     {
+        rt = GetComponent<RectTransform>();
         SheldCube.OnSheldDes.AddListener(HandleSheldDes); //订阅销毁事件
         SheldCube.sheldCubePutUp.AddListener(RefreshCD);
         SheldCube.sheldCubePutDown.AddListener(PutDown);
         ps = Player.instance;
         rd = GetComponent<Image>();
+
+        rt.anchoredPosition = new Vector2(-162, -56.3f);
     }
 
     void Start()
@@ -32,6 +37,7 @@ public float coolDown = 1f;
     
     void Update()
     {
+        rt.anchoredPosition = Vector2.Lerp(rt.anchoredPosition, tarpos, Time.deltaTime * 2.5f);
         rd.color = new Color(1-coolDown / 10f, 1-coolDown / 10f, 1-coolDown / 10f);
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {

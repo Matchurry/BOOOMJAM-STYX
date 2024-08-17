@@ -10,17 +10,22 @@ public class SpeedUpIcon : MonoBehaviour
     public GameObject speedupPrefab;
     private Image rd;
     private Player ps;
+    private RectTransform rt;
+    private Vector2 tarpos = new Vector2(617, -405);
     void Start()
     {
+        rt = GetComponent<RectTransform>();
         Cube.OnSpeedDes.AddListener(HandleSpeedDes);//订阅销毁事件
         ps = Player.instance;
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
         StartCoroutine(RunSpeedUp());
+        rt.anchoredPosition = new Vector2(617, -607f);
     }
     
     void Update()
     {
+        rt.anchoredPosition = Vector2.Lerp(rt.anchoredPosition, tarpos, Time.deltaTime * 2.5f);
         rd.color = new Color(1-coolDown / 18f, 1-coolDown / 18f, 1-coolDown / 18f);
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
