@@ -146,5 +146,9 @@ public class Camera : MonoBehaviour
             //启动D4
             SceneManager.LoadSceneAsync(4);
         }
+        else if (ps.now_level == 3)
+        {
+            SceneManager.LoadSceneAsync(7);
+        }
     }
 }
