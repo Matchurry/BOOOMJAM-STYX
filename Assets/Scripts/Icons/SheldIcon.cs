@@ -25,6 +25,10 @@ public float coolDown = 1f;
         SheldCube.sheldCubePutUp.AddListener(RefreshCD);
         SheldCube.sheldCubePutDown.AddListener(PutDown);
         ps = Player.instance;
+        
+        if(!ps.isSheldSkill)
+            Destroy(gameObject);
+        
         rd = GetComponent<Image>();
 
         rt.anchoredPosition = new Vector2(-162, -56.3f);

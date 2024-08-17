@@ -48,6 +48,14 @@ public class Player : MonoBehaviour{
     // 用于平衡游戏速率
     public bool next_bg = false;
     public bool next_summon = false;
+    public bool isReading = false;
+    public bool isLazerAttcking = false;
+    public bool isShooterAnemy = false;
+    public bool isShooterSkill = false;
+    public bool isSpeedSkill = false;
+    public bool isSheldSkill = false;
+    public int now_level = -1;
+    public int timeLimitToWin = -1;
     
     private Vector3 movement;
     public int[,,] map = new int[1024,1024,2];
@@ -85,10 +93,11 @@ public class Player : MonoBehaviour{
         Bomb.OnBombTriggered.AddListener(GetBomb);
         Ballet.OnBalletHit.AddListener(GetBallet);
         lazerSign.lazerAttack.AddListener(OnLazerAttack);
-        StartCoroutine(RunSummon(1,1,1,35));
-        StartCoroutine(RunDelayedLoop());
         StartCoroutine(RunBackGroundSummon(level-1));
-        StartCoroutine(RunLazerAttack());
+        StartCoroutine(RunDelayedLoop());
+        StartCoroutine(RunSummon(1,1,1,35));
+        if(isLazerAttcking)
+            StartCoroutine(RunLazerAttack());
         animator = GetComponent<Animator>();
 
     }
@@ -101,7 +110,9 @@ public class Player : MonoBehaviour{
     /// <param name="PickupsPosibility">捡拾物生成的概率</param>
     /// <param name="FloatThingsPosibility">漂浮动画的生成概率</param>
     /// <returns></returns>
-    IEnumerator RunSummon(int EnemyPosibility, int PlayerCubePosibility, int PickupsPosibility, int FloatThingsPosibility){
+    IEnumerator RunSummon(int EnemyPosibility, int PlayerCubePosibility, int PickupsPosibility, int FloatThingsPosibility)
+    {
+        yield return new WaitUntil(() => !isReading);
         PlayerCubePosibility+=EnemyPosibility;
         PickupsPosibility+=PlayerCubePosibility;
         FloatThingsPosibility+=PickupsPosibility;
@@ -109,7 +120,7 @@ public class Player : MonoBehaviour{
         while(true)
         {
             bool _summoned = false;
-            for(int i=-10; i<=10; i++){
+            for(int i=-8; i<=8; i++){
                 var pos = UnityEngine.Random.Range(1,100+1);
                 yield return new WaitUntil(() => !is_resumed);
                 if(pos<=EnemyPosibility){
@@ -219,6 +230,7 @@ public class Player : MonoBehaviour{
 
     IEnumerator RunLazerAttack()
     {
+        yield return new WaitUntil(() => !isReading);
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(5f,10f)); // 10 20
@@ -354,7 +366,7 @@ public class Player : MonoBehaviour{
         bool isAttack = false;
         //这里是炸弹类型的随机 20%攻击型
         var pos = UnityEngine.Random.Range(1, 100 + 1);
-        if (pos <= 20)
+        if (pos <= 20 && isShooterAnemy)
         {
             isAttack = true; //攻击型
             bomb = Instantiate(rockAttackPrefab);

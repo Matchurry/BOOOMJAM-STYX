@@ -7,11 +7,13 @@ namespace UIs.Turto
 {
     public class Confirm : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
+        private Player ps;
         private Image _image;
         public static UnityEvent TurClick = new UnityEvent();
     
         void Start()
         {
+            ps = Player.instance;
             _image = GetComponent<Image>();
         }
     
@@ -37,6 +39,7 @@ namespace UIs.Turto
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            ps.isReading = false;   
             TurClick.Invoke();
         }
     }

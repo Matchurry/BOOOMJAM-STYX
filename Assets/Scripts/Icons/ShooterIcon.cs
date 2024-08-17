@@ -18,6 +18,10 @@ public class ShooterIcon : MonoBehaviour
         rt = GetComponent<RectTransform>();
         Cube.OnShooterDes.AddListener(HandleShooterDes);//订阅销毁事件
         ps = Player.instance;
+        
+        if(!ps.isShooterSkill)
+            Destroy(gameObject);
+        
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
         rt.anchoredPosition = new Vector2(433, -607f);

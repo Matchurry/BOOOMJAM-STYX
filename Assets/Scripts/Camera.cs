@@ -4,13 +4,14 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Camera : MonoBehaviour
 {
     /// <summary>
     /// 玩家物体
     /// </summary>
-    public Transform target;
+    public GameObject target;
     /// <summary>
     /// 摄像机与玩家的距离
     /// </summary>
@@ -39,6 +40,7 @@ public class Camera : MonoBehaviour
     public GameObject failedUI;
     public static UnityEvent Level1Turto = new UnityEvent();
     public GameObject turtoUI;
+    public static UnityEvent psDead = new UnityEvent();
     
     
 
@@ -53,9 +55,11 @@ public class Camera : MonoBehaviour
         Cube.OnCoreDes.AddListener(PlayerDead);
         Ballet.OnBalletHit.AddListener(StartShake);
         lazerSign.lazerAttack.AddListener(StartShake);
+        Timebar.playerWin.AddListener(NextLevel);
         Level1Turto.AddListener(StartLevel1);
         
-        Level1Turto.Invoke();
+        if(ps.isReading)
+            Level1Turto.Invoke();
     }
 
     void Update(){
@@ -72,13 +76,15 @@ public class Camera : MonoBehaviour
         
         if (!_isdead && ps.HP.size <= 0.1f) //玩家血量归零
         {
+            psDead.Invoke();
+            ps.is_resumed = true;
             PlayerDead();
         }
     }
 
     void LateUpdate(){
         //摄像机平滑跟踪
-        Vector3 targetPosition = target.position + Vector3.up * height;
+        Vector3 targetPosition = target.transform.position + Vector3.up * height;
         Vector3 desiredPosition = targetPosition + Vector3.back * distance;
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
@@ -121,5 +127,14 @@ public class Camera : MonoBehaviour
         GameObject turUI = Instantiate(turtoUI);
         RectTransform turUIRect = turUI.GetComponent<RectTransform>();
         turUIRect.SetParent(_canvasRectTransform);
+    }
+
+    private void NextLevel()
+    {
+        if (ps.now_level == 0)
+        {
+            //启动D2
+            SceneManager.LoadSceneAsync(2);
+        }
     }
 }

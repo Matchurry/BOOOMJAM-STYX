@@ -868,9 +868,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2124526681}
+    - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -879,6 +894,11 @@ PrefabInstance:
     - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: JumpScenes1, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920370192967983077, guid: 2c5919137882aff4c949f46a1a2c5c28,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: JumpScenes1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7635154823224430197, guid: 2c5919137882aff4c949f46a1a2c5c28,

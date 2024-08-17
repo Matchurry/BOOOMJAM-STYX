@@ -17,6 +17,10 @@ public class SpeedUpIcon : MonoBehaviour
         rt = GetComponent<RectTransform>();
         Cube.OnSpeedDes.AddListener(HandleSpeedDes);//订阅销毁事件
         ps = Player.instance;
+        
+        if(!ps.isSpeedSkill)
+            Destroy(gameObject);
+        
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
         StartCoroutine(RunSpeedUp());
