@@ -57,6 +57,7 @@ public class Player : MonoBehaviour{
     public int now_level = -1;
     public int timeLimitToWin = -1;
     public float playerHpLimit = 1f;
+    public int choseChange = -1;
     
     private Vector3 movement;
     public int[,,] map = new int[1024,1024,2];
