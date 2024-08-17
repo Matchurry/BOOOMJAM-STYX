@@ -5,7 +5,55 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/loading1.unity
+    guid: bb8a43b5760b9ab489cc02ab85c9fe14
+  - enabled: 1
+    path: Assets/Scenes/dialog1.unity
+    guid: 2269f7694e19a9b498f171fa96ab3618
+  - enabled: 1
+    path: Assets/Scenes/dialog2.unity
+    guid: 3aa09b39ff76143488a48d30ace16df9
+  - enabled: 1
+    path: Assets/Scenes/dialog3.unity
+    guid: ad2add95c8f9cff429a0a657c4cc1b48
+  - enabled: 1
+    path: Assets/Scenes/dialog4.unity
+    guid: 4aed536942b5a8546af45999b8808676
+  - enabled: 1
+    path: "Assets/Scenes/loading2  \u7B2C\u4E09\u5173\u540E.unity"
+    guid: 9eef238d2c88e4d42a7d4d0e72491cb9
+  - enabled: 1
+    path: "Assets/Scenes/loading3  \u7B2C\u56DB\u5173\u524D.unity"
+    guid: 22962cb41d04cf849bea4b4a75e68c0f
+  - enabled: 1
+    path: Assets/Scenes/dialog5.unity
+    guid: d4a27fc18ef96204c85cd8764e27fd01
+  - enabled: 1
+    path: "Assets/Scenes/loading4  \u7B2C\u56DB\u5173\u540E.unity"
+    guid: 835319e8e943579438f8c831d43984b1
+  - enabled: 1
+    path: "Assets/Scenes/loading5  \u7B2C\u4E94\u5173\u524D.unity"
+    guid: f289bc9b64de565489c04802b436d7f4
+  - enabled: 1
+    path: Assets/Scenes/dialog6.unity
+    guid: 0448b49e67e0591468563eb88f36a222
+  - enabled: 1
+    path: Assets/Scenes/dialog6-2.unity
+    guid: 3a7796699fd3a854ebffc72f86e6df64
+  - enabled: 1
+    path: "Assets/Scenes/loading6  \u7B2C\u4E94\u5173\u540E.unity"
+    guid: ed6bf5d06cb70fc4fb042c0654189be8
+  - enabled: 1
+    path: "Assets/Scenes/loading7  \u7B2C\u516D\u5173\u524D.unity"
+    guid: 7b6f13aa098b7b440bda48989a7c14be
+  - enabled: 1
+    path: Assets/Scenes/dialog7.unity
+    guid: be8a51745528e724bb34ffa4c3be60dc
+  - enabled: 1
+    path: Assets/Scenes/dialog8.unity
+    guid: 06fe1d1efd954334bacdeb3b254b2302
   m_configObjects: {}
