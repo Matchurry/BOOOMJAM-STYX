@@ -52,6 +52,7 @@ public class Camera : MonoBehaviour
         Cube.OnCubeGet.AddListener(StartPushIn);
         Cube.OnCoreDes.AddListener(PlayerDead);
         Ballet.OnBalletHit.AddListener(StartShake);
+        lazerSign.lazerAttack.AddListener(StartShake);
         Level1Turto.AddListener(StartLevel1);
         
         Level1Turto.Invoke();
