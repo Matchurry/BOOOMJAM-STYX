@@ -48,8 +48,8 @@ public class Pickups : MonoBehaviour{
             //触发效果
             switch(type){
                 case 1:
-                    if(ps.HP.size+0.1f>1f)
-                        ps.HP.size = 1f;
+                    if(ps.HP.size+0.1f>ps.playerHpLimit)
+                        ps.HP.size = ps.playerHpLimit;
                     else ps.HP.size += 0.1f;
                     //Debug.Log("Hp Recovered");
                     break;

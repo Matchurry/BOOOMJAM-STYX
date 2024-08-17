@@ -56,6 +56,7 @@ public class Player : MonoBehaviour{
     public bool isSheldSkill = false;
     public int now_level = -1;
     public int timeLimitToWin = -1;
+    public float playerHpLimit = 1f;
     
     private Vector3 movement;
     public int[,,] map = new int[1024,1024,2];
