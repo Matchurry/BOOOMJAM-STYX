@@ -19,6 +19,6 @@ public class JumpScenes15 : MonoBehaviour
 
     public void Jump()
     {
-        SceneManager.LoadScene(17);
+        SceneManager.LoadScene(13);
     }
 }
