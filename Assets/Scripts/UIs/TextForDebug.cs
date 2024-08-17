@@ -6,17 +6,29 @@ using UnityEngine;
 public class TextForDebug : MonoBehaviour{
     public TextMeshProUGUI tm;
     public Player ps;
+    private RectTransform rt;
 
     private Vector2 playerPos = new Vector2(956f, 388.5f);
     
-    void Start(){
+    void Start()
+    {
+        rt = GetComponent<RectTransform>();
     }
 
-    void Update() {
-
-        if (tm.name == "Score")
-            tm.text = "Score: "+ ps.Score.ToString();
+    void Update()
+    {
+        if (tm.name == "CubeInHand")
+            tm.text = ps.CubeInHand.ToString();
         else
-            tm.text = "CubeInHand: " + ps.CubeInHand.ToString();
+        {
+            tm.text = " / " + ps.CubeInHandLim.ToString();
+            if (ps.CubeInHand >= 10)
+                rt.anchoredPosition = new Vector2(41.74f, 0);
+            else
+                rt.anchoredPosition = new Vector3(20.2f, 0);
+        }
+            
+        
+        
     }
 }

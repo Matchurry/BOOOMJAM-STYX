@@ -48,7 +48,7 @@ public class SheldCube : MonoBehaviour
         }
         else{
             if(is_moving)
-                tarpos = ps.transform.position + Vector3.up*1.25f;
+                tarpos = ps.transform.position + Vector3.up*1.85f;
             transform.position = Vector3.Lerp(transform.position, tarpos, 0.15f);
         }
     }
@@ -76,7 +76,7 @@ public class SheldCube : MonoBehaviour
             //被抬起
             sheldCubePutUp.Invoke();
             ps.what_is_moving = 1;
-            tarpos = ps.transform.position + Vector3.up*1.25f;
+            tarpos = ps.transform.position + Vector3.up*1.85f;
             is_moving=true;
             ps.map[x,z,1]=0;
         }

@@ -65,7 +65,7 @@ public class Cube : MonoBehaviour{
             }
             else{
                 if(is_moving)
-                    tarpos = ps.transform.position + Vector3.up*1.25f;
+                    tarpos = ps.transform.position + Vector3.up*1.85f;
                 transform.position = Vector3.Lerp(transform.position, tarpos, 0.15f);
             }
         }
@@ -116,7 +116,7 @@ public class Cube : MonoBehaviour{
             //被抬起
             ps.what_is_moving = 0;
             ps.map[x,z,0]=0;
-            tarpos = ps.transform.position + Vector3.up*1.25f;
+            tarpos = ps.transform.position + Vector3.up*1.85f;
             is_moving=true;
         }
     }
