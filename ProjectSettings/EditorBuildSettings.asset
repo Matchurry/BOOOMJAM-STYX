@@ -49,11 +49,17 @@ EditorBuildSettings:
     guid: ed6bf5d06cb70fc4fb042c0654189be8
   - enabled: 1
     path: "Assets/Scenes/loading7  \u7B2C\u516D\u5173\u524D.unity"
-    guid: 7b6f13aa098b7b440bda48989a7c14be
+    guid: 8694f2268d4c50c4db5d4d9652f0efed
   - enabled: 1
     path: Assets/Scenes/dialog7.unity
     guid: be8a51745528e724bb34ffa4c3be60dc
   - enabled: 1
+    path: Assets/Scenes/dialog7-2.unity
+    guid: f90803ab286656449a29c0d4ca539b68
+  - enabled: 1
     path: Assets/Scenes/dialog8.unity
     guid: 06fe1d1efd954334bacdeb3b254b2302
+  - enabled: 1
+    path: "Assets/Scenes/loading8  \u81EA\u7531\u7EBF\u6700\u540E.unity"
+    guid: 7b6f13aa098b7b440bda48989a7c14be
   m_configObjects: {}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class JumpScenes13 : MonoBehaviour
+public class JumpScenes14 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,6 @@ public class JumpScenes13 : MonoBehaviour
 
     public void Jump()
     {
-        SceneManager.LoadScene(16);
+        SceneManager.LoadScene(15);
     }
 }
