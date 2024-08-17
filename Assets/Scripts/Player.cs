@@ -24,12 +24,15 @@ public class Player : MonoBehaviour{
     public GameObject pickupPointPrefab;
     public GameObject backGround1Prefab;
     public GameObject backGround2Prefab;
-    public GameObject backGround3Prefab;
+    public GameObject backGround3_1Prefab;
+    public GameObject backGround3_2Prefab;
+    public GameObject backGround3_3Prefab;
     public GameObject rock1Prefab;
     public GameObject rock2Prefab;
     public GameObject rockCubePrefab;
     private int[] bgpos = new int[3]; //地图场景常数数据 位置初始化 代表y向间距
     private GameObject[] bgPrefabs = new GameObject[3]; //地图场景预制体集合
+    private GameObject[] bg3Pregabs = new GameObject[3]; //第三关背景预制体集合
     private const float CubeYValue = 0.505f;
     public float speed = 3f;
     public float gameSpeed = 1f; //游戏速度 影响物品生成速度和场景移动速度
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour{
     public Animator animator;
     public Vector3 move;
 
+    public int _protectedCol = 999;
+    
     // 用于平衡游戏速率
     public bool next_bg = false;
     public bool next_summon = false;
@@ -68,7 +73,10 @@ public class Player : MonoBehaviour{
         level = 3;
         bgpos[0] = 8; bgPrefabs[0] = backGround1Prefab;
         bgpos[1] = 16; bgPrefabs[1] = backGround2Prefab;
-        bgpos[2] = 28; bgPrefabs[2] = backGround3Prefab;
+        bgpos[2] = 16;
+        bg3Pregabs[0] = backGround3_1Prefab;
+        bg3Pregabs[1] = backGround3_2Prefab;
+        bg3Pregabs[2] = backGround3_3Prefab;
     }
 
     void Start(){
@@ -77,7 +85,7 @@ public class Player : MonoBehaviour{
         Ballet.OnBalletHit.AddListener(GetBallet);
         StartCoroutine(RunSummon(1,1,1,35));
         StartCoroutine(RunDelayedLoop());
-        StartCoroutine(RunBackGroundSummon(level));
+        StartCoroutine(RunBackGroundSummon(level-1));
         animator = GetComponent<Animator>();
 
     }
@@ -154,27 +162,56 @@ public class Player : MonoBehaviour{
     /// <returns></returns>
     IEnumerator RunBackGroundSummon(int x)
     {
-        x--;
         //16.7
         //提前召唤一些加载
-        for (int i = 1; i <= 5; i++)
+        if (x != 2)
         {
-            GameObject bg1 = Instantiate(bgPrefabs[x]);
-            GameObject bg2 = Instantiate(bgPrefabs[x]);
-            bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50-16.7f*i);
-            bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50-16.7f*i);
-            bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+            for (int i = 1; i <= 5; i++)
+            {
+                GameObject bg1 = Instantiate(bgPrefabs[x]);
+                GameObject bg2 = Instantiate(bgPrefabs[x]);
+                bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50-16.7f*i);
+                bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50-16.7f*i);
+                bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+            }
+            while (true)
+            {
+                next_bg = false;
+                GameObject bg1 = Instantiate(bgPrefabs[x]);
+                GameObject bg2 = Instantiate(bgPrefabs[x]);
+                bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50);
+                bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50);
+                bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+                yield return new WaitUntil(() => next_bg);
+                yield return new WaitForSeconds(0.1f); //防止多生成
+            }
         }
-        while (true)
+        else
         {
-            next_bg = false;
-            GameObject bg1 = Instantiate(bgPrefabs[x]);
-            GameObject bg2 = Instantiate(bgPrefabs[x]);
-            bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50);
-            bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50);
-            bg2.transform.rotation = new Quaternion(0, 1, 0,0);
-            yield return new WaitUntil(() => next_bg);
+            for (int i = 1; i <= 5; i++)
+            {
+                GameObject bg1 = Instantiate(bg3Pregabs[(i-1)%3]);
+                GameObject bg2 = Instantiate(bg3Pregabs[(i-1)%3]);
+                bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50-16.7f*i);
+                bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50-16.7f*i);
+                bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+            }
+            int a = 0;
+            while (true)
+            {
+                if (a == 3) a = 0;
+                next_bg = false;
+                GameObject bg1 = Instantiate(bg3Pregabs[a]);
+                GameObject bg2 = Instantiate(bg3Pregabs[a]);
+                bg1.transform.position = new Vector3(bgpos[x], 0.3f, 50);
+                bg2.transform.position = new Vector3(-bgpos[x], 0.3f, 50);
+                bg2.transform.rotation = new Quaternion(0, 1, 0,0);
+                a++;
+                yield return new WaitUntil(() => next_bg);
+                yield return new WaitForSeconds(0.1f); //防止多生成
+            }
         }
+
     }
     
     void Update(){
