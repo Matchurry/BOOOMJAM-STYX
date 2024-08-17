@@ -150,5 +150,9 @@ public class Camera : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(7);
         }
+        else if (ps.now_level == 4)
+        {
+            SceneManager.LoadSceneAsync(8);
+        }
     }
 }
