@@ -31,6 +31,7 @@ public class Player : MonoBehaviour{
     public GameObject rock2Prefab;
     public GameObject rockCubePrefab;
     public GameObject rockAttackPrefab;
+    public GameObject lazerWarnSign;
     private int[] bgpos = new int[3]; //地图场景常数数据 位置初始化 代表y向间距
     private GameObject[] bgPrefabs = new GameObject[3]; //地图场景预制体集合
     private GameObject[] bg3Pregabs = new GameObject[3]; //第三关背景预制体集合
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour{
     public int what_is_moving = -1; //-1未指定 0方块 1装置
     public Animator animator;
     public Vector3 move;
-
+    public int lazerAttcking = 999;
     public int _protectedCol = 999;
     
     // 用于平衡游戏速率
@@ -71,7 +72,6 @@ public class Player : MonoBehaviour{
 
     void Awake(){
         instance = this;
-        level = 3;
         bgpos[0] = 8; bgPrefabs[0] = backGround1Prefab;
         bgpos[1] = 16; bgPrefabs[1] = backGround2Prefab;
         bgpos[2] = 16;
@@ -84,9 +84,11 @@ public class Player : MonoBehaviour{
         Application.targetFrameRate = 90;
         Bomb.OnBombTriggered.AddListener(GetBomb);
         Ballet.OnBalletHit.AddListener(GetBallet);
+        lazerSign.lazerAttack.AddListener(OnLazerAttack);
         StartCoroutine(RunSummon(1,1,1,35));
         StartCoroutine(RunDelayedLoop());
         StartCoroutine(RunBackGroundSummon(level-1));
+        StartCoroutine(RunLazerAttack());
         animator = GetComponent<Animator>();
 
     }
@@ -212,7 +214,19 @@ public class Player : MonoBehaviour{
                 yield return new WaitForSeconds(0.1f); //防止多生成
             }
         }
+        
+    }
 
+    IEnumerator RunLazerAttack()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(5f,10f)); // 10 20
+            // 发动攻击
+            GameObject laz = Instantiate(lazerWarnSign);
+            lazerSign sc = laz.GetComponent<lazerSign>();
+            sc.tarcol = Random.Range(-5, 5);
+        }
     }
     
     void Update(){
@@ -261,7 +275,7 @@ public class Player : MonoBehaviour{
 
         if (map[pos[0],pos[1],0]!=1){
             speed = 5f;
-            HP.size -= 0.0005f;
+            HP.size -= 0.005f;
             var rd = GetComponent<Renderer>();
             rd.material.color=new Color(0.9811f,0.3656f,0.3878f);
         }
@@ -512,6 +526,14 @@ public class Player : MonoBehaviour{
         else return false;
     }
 
+    private void OnLazerAttack()
+    {
+        if (pos[0]-512 == lazerAttcking)
+        {
+            HP.size -= 0.2f;
+        }
+    }
+    
     void UpdateAnimator()
     {
         animator.SetFloat("speed", move.magnitude);
