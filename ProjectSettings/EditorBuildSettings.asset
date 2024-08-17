@@ -48,7 +48,7 @@ EditorBuildSettings:
     path: "Assets/Scenes/loading6  \u7B2C\u4E94\u5173\u540E.unity"
     guid: ed6bf5d06cb70fc4fb042c0654189be8
   - enabled: 1
-    path: "Assets/Scenes/loading7  \u7B2C\u516D\u5173\u524D.unity"
+    path: "Assets/Scenes/loading8  \u81EA\u7531\u7EBF\u6700\u540E.unity"
     guid: 7b6f13aa098b7b440bda48989a7c14be
   - enabled: 1
     path: Assets/Scenes/dialog7.unity
@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 6113fe52e27e8b341aa8dab1ee5d339b
+  - enabled: 1
+    path: Assets/Scenes/Star.unity
+    guid: 6835750af959cb94f9757f70c7a81abf
   m_configObjects: {}
