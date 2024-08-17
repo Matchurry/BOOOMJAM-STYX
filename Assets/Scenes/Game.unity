@@ -404,6 +404,7 @@ MonoBehaviour:
     type: 3}
   rockCubePrefab: {fileID: 1096555379283574823, guid: 2c8a16f365d216c42a2f9cf85c1ac5bc,
     type: 3}
+  rockAttackPrefab: {fileID: 0}
   speed: 3
   gameSpeed: 1
   is_resumed: 0
@@ -1343,6 +1344,12 @@ PrefabInstance:
       propertyPath: HP
       value: 
       objectReference: {fileID: 1665936108}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
+      propertyPath: rockAttackPrefab
+      value: 
+      objectReference: {fileID: 298659138526916211, guid: ebf7e963a2208d9499788d1bc8c7d715,
+        type: 3}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
       propertyPath: backGround3_1Prefab

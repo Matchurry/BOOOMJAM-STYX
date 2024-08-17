@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 298659138526916210}
   - component: {fileID: 4562427965506895035}
+  - component: {fileID: -982746695028515801}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -298,6 +299,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.45}
   m_Center: {x: 0, y: 0, z: 0.1}
+--- !u!114 &-982746695028515801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298659138526916211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04092f34545de6943a4475655f383f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: 0000000000000000
+  type: -1
+  warnSignPrefab: {fileID: 1310172362336954188, guid: b25d92129a7d4e4409493c011869f3c7,
+    type: 3}
+  balletPrefab: {fileID: 7158958647815440409, guid: 7f0a6f171788aa7499b254f77dbfd8ac,
+    type: 3}
 --- !u!1 &298659138645614062
 GameObject:
   m_ObjectHideFlags: 0

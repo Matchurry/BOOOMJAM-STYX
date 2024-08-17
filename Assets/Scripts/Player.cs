@@ -30,6 +30,7 @@ public class Player : MonoBehaviour{
     public GameObject rock1Prefab;
     public GameObject rock2Prefab;
     public GameObject rockCubePrefab;
+    public GameObject rockAttackPrefab;
     private int[] bgpos = new int[3]; //地图场景常数数据 位置初始化 代表y向间距
     private GameObject[] bgPrefabs = new GameObject[3]; //地图场景预制体集合
     private GameObject[] bg3Pregabs = new GameObject[3]; //第三关背景预制体集合
@@ -335,29 +336,43 @@ public class Player : MonoBehaviour{
     /// </summary>
     private void SummonBomb(int i)
     {
-        var pos = UnityEngine.Random.Range(1, 3 + 1);
         GameObject bomb = null;
-        switch (pos)
+        bool isAttack = false;
+        //这里是炸弹类型的随机 20%攻击型
+        var pos = UnityEngine.Random.Range(1, 100 + 1);
+        if (pos <= 20)
         {
-            case 1:
-                bomb = Instantiate(rock1Prefab);
-                break;
-            case 2:
-                bomb = Instantiate(rock2Prefab);
-                break;
-            case 3:
-                bomb = Instantiate(rockCubePrefab);
-                break;
+            isAttack = true; //攻击型
+            bomb = Instantiate(rockAttackPrefab);
         }
-        Bomb bbSc = bomb.GetComponent<Bomb>();
-        bomb.transform.position = new Vector3(i,CubeYValue,45f);
-        bomb.transform.Rotate(Vector3.forward, Random.Range(0,360));
-        //这里是炸弹类型的随机 30%攻击型吧?
-        pos = UnityEngine.Random.Range(1, 100 + 1);
-        if (pos <= 30)
-            bbSc.type = 2; //攻击型
         else
-            bbSc.type = 1; //冲撞型
+        {
+           pos = UnityEngine.Random.Range(1, 3 + 1);
+               switch (pos)
+               {
+                   case 1:
+                       bomb = Instantiate(rock1Prefab);
+                       break;
+                   case 2:
+                       bomb = Instantiate(rock2Prefab);
+                       break;
+                   case 3:
+                       bomb = Instantiate(rockCubePrefab);
+                       break;
+               } 
+        }
+        
+        Bomb bbSc = bomb.GetComponent<Bomb>();
+        if (isAttack)
+            bbSc.type = 2;
+        else
+        {
+            bbSc.type = 1;
+            bomb.transform.Rotate(Vector3.forward, Random.Range(0,360));
+        }
+        bomb.transform.position = new Vector3(i,CubeYValue,45f);
+        
+        
     }
 
     private void SummonPickups(int i)

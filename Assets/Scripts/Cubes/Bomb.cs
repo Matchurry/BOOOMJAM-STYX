@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Bomb : MonoBehaviour{
     public int[] pos = new int[2];
     private const float CubeYValue = 0.505f;
-    public int type = -1; //0普通障碍物 1攻击型 -1未初始化
+    public int type = -1; //1普通障碍物 2攻击型 -1未初始化
     private Player ps;
     public static UnityEvent<int, int> OnBombTriggered = new UnityEvent<int, int>();
     private Renderer rd;
@@ -71,6 +71,9 @@ public class Bomb : MonoBehaviour{
            if(pos[1] >= ps.pos[1]+20) //在玩家太前面不攻击
                continue;
            //发动攻击 
+           Vector3 dir = transform.position -
+                         new Vector3(ps.transform.position.x, transform.position.y, ps.transform.position.z);
+           transform.rotation = Quaternion.LookRotation(dir);
            GameObject warn = Instantiate(warnSignPrefab);
            warn.transform.position = new Vector3(ps.pos[0]-512, 10.00f, ps.pos[1]-512);
            GameObject ba = Instantiate(balletPrefab);
