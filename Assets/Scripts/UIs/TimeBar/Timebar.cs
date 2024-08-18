@@ -34,6 +34,7 @@ public class Timebar : MonoBehaviour
             if ((Time.time - _startTime) >= ps.timeLimitToWin)
             {
                 playerWin.Invoke();
+                Destroy(gameObject);
             }
         }
         

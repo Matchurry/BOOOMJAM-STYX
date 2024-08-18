@@ -41,6 +41,7 @@ public class Camera : MonoBehaviour
     public static UnityEvent Level1Turto = new UnityEvent();
     public GameObject turtoUI;
     public static UnityEvent psDead = new UnityEvent();
+    public GameObject winUI;
     
     
 
@@ -55,7 +56,7 @@ public class Camera : MonoBehaviour
         Cube.OnCoreDes.AddListener(PlayerDead);
         Ballet.OnBalletHit.AddListener(StartShake);
         lazerSign.lazerAttack.AddListener(StartShake);
-        Timebar.playerWin.AddListener(NextLevel);
+        Timebar.playerWin.AddListener(WinUI);
         Level1Turto.AddListener(StartLevel1);
         
         if(ps.isReading)
@@ -129,6 +130,14 @@ public class Camera : MonoBehaviour
         turUIRect.SetParent(_canvasRectTransform);
     }
 
+    private void WinUI()
+    {
+        GameObject turUI = Instantiate(winUI);
+        RectTransform turUIRect = turUI.GetComponent<RectTransform>();
+        turUIRect.SetParent(_canvasRectTransform);
+        turUIRect.anchoredPosition = new Vector2(0, 0);
+    }
+    
     private void NextLevel()
     {
         if (ps.now_level == 0)

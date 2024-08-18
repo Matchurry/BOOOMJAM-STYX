@@ -1449,6 +1449,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
+      propertyPath: timeLimitToWin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
       propertyPath: rockAttackPrefab
       value: 
       objectReference: {fileID: 298659138526916211, guid: ebf7e963a2208d9499788d1bc8c7d715,
@@ -2289,6 +2294,7 @@ MonoBehaviour:
   failedUI: {fileID: 2315269753746727306, guid: 76e6da156eaeb2d40b6fb146ac922646,
     type: 3}
   turtoUI: {fileID: 215459445733579857, guid: c94304252018bb8439a34c3173e7706f, type: 3}
+  winUI: {fileID: 2491332528358964686, guid: 300d3aa65891f7f429059f6ee239af02, type: 3}
 --- !u!1 &2054887140
 GameObject:
   m_ObjectHideFlags: 0
