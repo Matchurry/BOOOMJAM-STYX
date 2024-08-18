@@ -193,9 +193,9 @@ public class Camera : MonoBehaviour
         {
             //分支
             if (ps.choseChange == 0)
-                SceneManager.LoadSceneAsync(14);
-            else
                 SceneManager.LoadSceneAsync(20);
+            else
+                SceneManager.LoadSceneAsync(14);
         }
         else if (ps.now_level == 6)
         {
