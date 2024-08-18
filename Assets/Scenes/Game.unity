@@ -2477,6 +2477,8 @@ MonoBehaviour:
     type: 3}
   turtoUI: {fileID: 215459445733579857, guid: c94304252018bb8439a34c3173e7706f, type: 3}
   winUI: {fileID: 2491332528358964686, guid: 300d3aa65891f7f429059f6ee239af02, type: 3}
+  skiTurUI: {fileID: 5559198044350367129, guid: 93d64fa8e795c984f9b3ab3f7d017ab4,
+    type: 3}
 --- !u!1 &2054887140
 GameObject:
   m_ObjectHideFlags: 0

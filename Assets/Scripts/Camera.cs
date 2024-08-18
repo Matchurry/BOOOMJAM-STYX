@@ -39,9 +39,11 @@ public class Camera : MonoBehaviour
     private bool _isdead = false;
     public GameObject failedUI;
     public static UnityEvent Level1Turto = new UnityEvent();
+    public static UnityEvent SkillTurto = new UnityEvent();
     public GameObject turtoUI;
     public static UnityEvent psDead = new UnityEvent();
     public GameObject winUI;
+    public GameObject skiTurUI;
 
     private AudioController audioController;
 
@@ -59,11 +61,14 @@ public class Camera : MonoBehaviour
         Timebar.playerWin.AddListener(WinUI);
         ContinueBt.nextLevel.AddListener(NextLevel);
         Level1Turto.AddListener(StartLevel1);
+        SkillTurto.AddListener(Skillt);
         audioController = FindObjectOfType<AudioController>();
         audioController.PlaySoundLoop("surrounding");
 
         if (ps.isReading)
             Level1Turto.Invoke();
+        else
+            SkillTurto.Invoke();
     }
 
     void Update(){
@@ -134,6 +139,14 @@ public class Camera : MonoBehaviour
         GameObject turUI = Instantiate(turtoUI);
         RectTransform turUIRect = turUI.GetComponent<RectTransform>();
         turUIRect.SetParent(_canvasRectTransform);
+    }
+
+    private void Skillt()
+    {
+        GameObject turUI = Instantiate(skiTurUI);
+        RectTransform turUIRect = turUI.GetComponent<RectTransform>();
+        turUIRect.SetParent(_canvasRectTransform);
+        turUIRect.anchoredPosition = new Vector2(0, 0);
     }
 
     private void WinUI()

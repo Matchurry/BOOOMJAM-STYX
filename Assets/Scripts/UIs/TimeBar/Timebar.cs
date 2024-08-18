@@ -37,6 +37,12 @@ public class Timebar : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            playerWin.Invoke();
+            Destroy(gameObject);
+        }
         
     }
 
