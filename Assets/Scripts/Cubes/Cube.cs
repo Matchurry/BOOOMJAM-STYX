@@ -39,7 +39,9 @@ public class Cube : MonoBehaviour{
 
     public static UnityEvent OnShooterDes = new UnityEvent();
     public static UnityEvent OnSpeedDes = new UnityEvent();
+
     
+
     void Start(){
         
         while(status==-1){;}
@@ -55,6 +57,7 @@ public class Cube : MonoBehaviour{
             _veryFirst = true;
             _birthPos = transform.position;
         }
+        
     }
 
     void Update(){
@@ -160,7 +163,8 @@ public class Cube : MonoBehaviour{
     /// </summary>
     private void CubeHpsMinus(){
         HPs--;
-        if(HPs==HPsLimit-1 && type!=3 && type!=4 && type!=5)
+        
+        if (HPs==HPsLimit-1 && type!=3 && type!=4 && type!=5)
             SwitchToType(1);
         if(HPs<=0){
             ps.map[pos[0],pos[1],0]=0;

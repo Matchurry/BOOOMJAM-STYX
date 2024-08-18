@@ -12,6 +12,8 @@ public class SpeedUpIcon : MonoBehaviour
     private Player ps;
     private RectTransform rt;
     private Vector2 tarpos = new Vector2(617, -405);
+
+    private AudioController audioController;
     void Start()
     {
         rt = GetComponent<RectTransform>();
@@ -25,6 +27,7 @@ public class SpeedUpIcon : MonoBehaviour
         StartCoroutine(CoolDown());
         StartCoroutine(RunSpeedUp());
         rt.anchoredPosition = new Vector2(617, -607f);
+        audioController = FindObjectOfType<AudioController>();
     }
     
     void Update()
@@ -35,6 +38,7 @@ public class SpeedUpIcon : MonoBehaviour
         {
             if (coolDown < 0.1f && !is_using && !ps.IsCubeOn && ps.CubeInHand<ps.CubeInHandLim)
             {
+                audioController.PlaySound("skill");
                 ps.IsCubeOn = true;
                 is_using = true;
                 //生成新的加速方块

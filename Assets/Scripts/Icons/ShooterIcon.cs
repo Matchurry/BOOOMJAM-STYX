@@ -12,7 +12,8 @@ public class ShooterIcon : MonoBehaviour
     private Player ps;
     private RectTransform rt;
     private Vector2 tarpos = new Vector2(433, -405);
-    
+
+    private AudioController audioController;
     void Start()
     {
         rt = GetComponent<RectTransform>();
@@ -25,6 +26,7 @@ public class ShooterIcon : MonoBehaviour
         rd = GetComponent<Image>();
         StartCoroutine(CoolDown());
         rt.anchoredPosition = new Vector2(433, -607f);
+        audioController = FindObjectOfType<AudioController>();
     }
 
     
@@ -39,6 +41,7 @@ public class ShooterIcon : MonoBehaviour
         {
             if (coolDown < 0.1f && !is_using && !ps.IsCubeOn && ps.CubeInHand<ps.CubeInHandLim)
             {
+                audioController.PlaySound("skill");
                 ps.IsCubeOn = true;
                 is_using = true;
                 coolDown = 5f;

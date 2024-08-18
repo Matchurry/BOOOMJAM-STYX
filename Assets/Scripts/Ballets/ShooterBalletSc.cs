@@ -10,6 +10,7 @@ public class ShooterBalletSc : MonoBehaviour
     private Vector3 tarpos = new Vector3();
     private GameObject bombWithSmallestValue = null;
     private Player ps;
+    private AudioController audioController;
     void Start()
     {
         //索敌 被召唤后遍历所有的障碍物
@@ -36,6 +37,8 @@ public class ShooterBalletSc : MonoBehaviour
             Debug.Log("没有找到带有 Bomb 脚本的 GameObject");
             Destroy(gameObject);
         }
+        audioController = FindObjectOfType<AudioController>();
+        audioController.PlaySound("fire");
     }
     
     void Update()
@@ -67,7 +70,7 @@ public class ShooterBalletSc : MonoBehaviour
         {
             Debug.Log(ex.ToString());
         }
-        
+        audioController.PlaySound("fire_hit");
         Destroy(gameObject);
     }
 }
