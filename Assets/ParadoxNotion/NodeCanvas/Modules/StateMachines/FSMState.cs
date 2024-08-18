@@ -43,9 +43,9 @@ namespace NodeCanvas.StateMachines
         }
 
         //just a default orange color
-        public override void OnCreate(Graph assignedGraph) {
-            base.customColor = new Color(1, 0.42f, 0.32f);
-        }
+        //public override void OnCreate(Graph assignedGraph) {
+        //    base.customColor = new Color(1, 0.42f, 0.32f);
+        //}
 
         ///<summary>Declares that the state has finished</summary>
         public void Finish() { Finish(Status.Success); }
