@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Star.unity
     guid: 6835750af959cb94f9757f70c7a81abf
+  - enabled: 1
+    path: Assets/Scenes/Course.unity
+    guid: 7d69ae099b2f1934ab72a59442598c32
   m_configObjects: {}

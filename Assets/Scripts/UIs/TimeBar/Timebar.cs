@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Timebar : MonoBehaviour
 {
-    private float _startTime;
+    private float _startTime = 99999f;
     private RectTransform _rt;
     private Vector2 tarpos = new Vector2(0, 463.28f);
     private Player ps;

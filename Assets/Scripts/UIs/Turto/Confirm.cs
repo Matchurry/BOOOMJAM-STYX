@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UIs.Turto
@@ -39,8 +41,16 @@ namespace UIs.Turto
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            ps.isReading = false;   
-            TurClick.Invoke();
+            try
+            {
+                ps.isReading = false;
+                TurClick.Invoke();
+            }
+            catch (NullReferenceException)
+            {
+                TurClick.Invoke();
+                SceneManager.LoadScene(17);
+            }
         }
     }
 }
