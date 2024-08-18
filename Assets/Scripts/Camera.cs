@@ -195,11 +195,11 @@ public class Camera : MonoBehaviour
             if (ps.choseChange == 0)
                 SceneManager.LoadSceneAsync(14);
             else
-                SceneManager.LoadSceneAsync(15);
+                SceneManager.LoadSceneAsync(20);
         }
         else if (ps.now_level == 6)
         {
-            SceneManager.LoadScene(16);
+            SceneManager.LoadScene(15);
         }
     }
 }
