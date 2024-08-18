@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5091523652232097553}
   - component: {fileID: 5091523652232097552}
+  - component: {fileID: 2990891063779683485}
   m_Layer: 0
   m_Name: "BGMfor\u5267\u60C5"
   m_TagString: Untagged
@@ -44,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 404da0df2afaf2140b1728811b4b216c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.837
+  m_Volume: 0.663
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -128,3 +129,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2990891063779683485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5091523652232097559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35dedafa2db2e4468cd553841c94322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

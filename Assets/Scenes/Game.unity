@@ -1433,10 +1433,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
+      propertyPath: isSheldSkill
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
       propertyPath: lazerWarnSign
       value: 
       objectReference: {fileID: 7932000232977374797, guid: 67fb1eaf6a4bb774eae084833aea9c83,
         type: 3}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
+      propertyPath: isShooterSkill
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
       propertyPath: rockAttackPrefab
@@ -1961,7 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27423c995fadba47bdfa1fee1aa0778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 1
+  coolDown: 10
   is_using: 0
   sheldPrefab: {fileID: 7773093249081032810, guid: d2f2f4963ca55494da9cb158c6b75d91,
     type: 3}

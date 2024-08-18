@@ -95,13 +95,19 @@ public class Cube : MonoBehaviour{
             Destroy(gameObject);
         }
 
-        if (type == 3 && Input.GetKeyDown(KeyCode.Space))
+        if (ps.isShooterSkill && type == 3 && Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject bt = Instantiate(shooterBalletPrefab);
-            ShooterBalletSc sc = bt.GetComponent<ShooterBalletSc>();
-            //召唤后给予初始位置即可 索敌在其脚本中
-            bt.transform.position = transform.position;
-            sc.pos = pos;
+            GameObject sht = GameObject.Find("ShooterIcon");
+            ShooterIcon shtSc = sht.GetComponent<ShooterIcon>();
+            if (shtSc.coolDown <= 0.1f)
+            {
+                shtSc.coolDown = 5f;
+                GameObject bt = Instantiate(shooterBalletPrefab);
+                ShooterBalletSc sc = bt.GetComponent<ShooterBalletSc>();
+                //召唤后给予初始位置即可 索敌在其脚本中
+                bt.transform.position = transform.position;
+                sc.pos = pos;
+            }
         }
 
         if (_veryFirst && _birthPos.z - transform.position.z >= 1)

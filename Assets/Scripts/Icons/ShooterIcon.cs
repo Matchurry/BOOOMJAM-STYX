@@ -31,14 +31,17 @@ public class ShooterIcon : MonoBehaviour
     void Update()
     {
         rt.anchoredPosition = Vector2.Lerp(rt.anchoredPosition, tarpos, Time.deltaTime * 2.5f);
-        rd.color = new Color(1-coolDown / 10f, 1-coolDown / 10f, 1-coolDown / 10f);
+        if(is_using)
+            rd.color = new Color(1-coolDown / 5.1f, 1-coolDown / 5.1f, 1-coolDown / 5.1f);
+        else
+            rd.color = new Color(1-coolDown / 10.1f, 1-coolDown / 10.1f, 1-coolDown / 10.1f);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (coolDown < 0.1f && !is_using && !ps.IsCubeOn && ps.CubeInHand<ps.CubeInHandLim)
             {
                 ps.IsCubeOn = true;
                 is_using = true;
-                coolDown = 10f;
+                coolDown = 5f;
                 //生成新的炮塔
                 GameObject shotCube = Instantiate(shooterPrefab);
                 shotCube.transform.position = new Vector3(ps.pos[0] - 512, 10f, ps.pos[1] - 512);
@@ -65,7 +68,7 @@ public class ShooterIcon : MonoBehaviour
     {
         while (true)
         {
-            if (!is_using && coolDown >= 0.1f)
+            if (coolDown >= 0.1f)
             {
                 yield return new WaitForSeconds(0.1f);
                 coolDown -= 0.1f;

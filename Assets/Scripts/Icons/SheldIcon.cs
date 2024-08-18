@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class SheldIcon : MonoBehaviour
 {
-public float coolDown = 1f;
+    public float coolDown = 1f;
     public bool is_using = false;
     public GameObject sheldPrefab;
     public static UnityEvent sheldRefresh = new UnityEvent();
