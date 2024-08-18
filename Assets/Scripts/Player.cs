@@ -80,6 +80,8 @@ public class Player : MonoBehaviour{
 
     public int level = 1;
 
+    private AudioController audioController;
+
     void Awake(){
         instance = this;
         bgpos[0] = 8; bgPrefabs[0] = backGround1Prefab;
@@ -101,6 +103,8 @@ public class Player : MonoBehaviour{
         if(isLazerAttcking)
             StartCoroutine(RunLazerAttack());
         animator = GetComponent<Animator>();
+        audioController = FindObjectOfType<AudioController>();
+        
 
     }
     /// <summary>
@@ -273,7 +277,8 @@ public class Player : MonoBehaviour{
             int z = TransToPos(AimPosNow().z);
             OnCubePutOn.Invoke(x,z);
             IsCubeOn = true;
-            
+            audioController.PlaySound("take_up");
+
         }
 
         //放下Cube
@@ -282,6 +287,8 @@ public class Player : MonoBehaviour{
             int z = TransToPos(AimPosNow().z);
             OnCubePutDown.Invoke(x,z);
             IsCubeOn=false;
+            audioController.PlaySound("take_down");
+
         }
 
         UpdateAnimator();
@@ -521,6 +528,7 @@ public class Player : MonoBehaviour{
     /// </summary>
     private void GetBomb(int x,int z){
         if(pos[0]==x && pos[1]==z){
+            audioController.PlaySound("hitted");
             HP.size -= 0.2f;
         }
     }
@@ -531,6 +539,7 @@ public class Player : MonoBehaviour{
     {
         if (math.abs(pos[0] - x) + math.abs(pos[1] - z) <= 1)
         {
+            audioController.PlaySound("hitted2");
             HP.size -= 0.2f;
         }
     }
@@ -544,6 +553,7 @@ public class Player : MonoBehaviour{
     {
         if (pos[0]-512 == lazerAttcking)
         {
+            audioController.PlaySound("hitted2");
             HP.size -= 0.2f;
         }
     }

@@ -18,6 +18,8 @@ public class SheldIcon : MonoBehaviour
     private RectTransform rt;
     private Vector2 tarpos = new Vector2(-162, 135);
 
+    private AudioController audioController;
+
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
@@ -35,6 +37,7 @@ public class SheldIcon : MonoBehaviour
         if(!ps.isSheldSkill)
             Destroy(gameObject);
         StartCoroutine(CoolDown());
+        audioController = FindObjectOfType<AudioController>();
     }
     
     void Update()
@@ -45,6 +48,7 @@ public class SheldIcon : MonoBehaviour
         {
             if (coolDown < 0.1f && !is_using && !ps.IsCubeOn)
             {
+                audioController.PlaySound("skill");
                 ps.IsCubeOn = true;
                 is_using = true;
                 GameObject sheldCube = Instantiate(sheldPrefab);
@@ -55,6 +59,7 @@ public class SheldIcon : MonoBehaviour
                 shedSc.is_moving = true;
                 //等待销毁事件
             }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.P))
