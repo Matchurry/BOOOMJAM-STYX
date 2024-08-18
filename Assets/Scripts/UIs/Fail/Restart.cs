@@ -50,7 +50,7 @@ public class Restart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 sc.isShooterAnemy = false; //远程敌人
                 sc.isLazerAttcking = false; //激光敌人
                 sc.isShooterSkill = false; //技能1
-                sc.isSheldSkill = false; //技能2
+                sc.isSpeedSkill = false; //技能2
                 sc.isSheldSkill = false; //技能3
                 sc.CubeInHandLim = 9; //方块上限
                 sc.timeLimitToWin = 60; //坚持时间
@@ -65,7 +65,7 @@ public class Restart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 sc.isShooterAnemy = false; //远程敌人
                 sc.isLazerAttcking = false; //激光敌人
                 sc.isShooterSkill = false; //技能1
-                sc.isSheldSkill = false; //技能2
+                sc.isSpeedSkill = false; //技能2
                 sc.isSheldSkill = false; //技能3
                 sc.CubeInHandLim = 11; //方块上限
                 sc.timeLimitToWin = 180; //坚持时间
@@ -80,7 +80,7 @@ public class Restart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 sc.isShooterAnemy = true; //远程敌人
                 sc.isLazerAttcking = false; //激光敌人
                 sc.isShooterSkill = true; //技能1
-                sc.isSheldSkill = false; //技能2
+                sc.isSpeedSkill = false; //技能2
                 sc.isSheldSkill = false; //技能3
                 sc.CubeInHandLim = 12; //方块上限
                 sc.playerHpLimit = 0.9f; //玩家血量上限

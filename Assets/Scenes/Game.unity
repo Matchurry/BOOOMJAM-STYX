@@ -1443,10 +1443,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
+      propertyPath: isSpeedSkill
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
       propertyPath: lazerWarnSign
       value: 
       objectReference: {fileID: 7932000232977374797, guid: 67fb1eaf6a4bb774eae084833aea9c83,
         type: 3}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
+      propertyPath: isShooterAnemy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
       propertyPath: isShooterSkill
@@ -1456,6 +1466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: timeLimitToWin
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
+        type: 3}
+      propertyPath: isLazerAttcking
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
@@ -1678,7 +1693,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2514,7 +2529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.57254905}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
