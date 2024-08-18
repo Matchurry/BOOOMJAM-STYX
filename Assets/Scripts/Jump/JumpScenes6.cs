@@ -36,5 +36,6 @@ public class JumpScenes6 : MonoBehaviour
             sc.playerHpLimit = 0.9f; //玩家血量上限
             sc.timeLimitToWin = 60*4; //坚持时间
         };
+        Destroy(gameObject);
     }
 }

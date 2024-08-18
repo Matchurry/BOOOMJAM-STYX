@@ -260,10 +260,10 @@ public class Player : MonoBehaviour{
 
         if (horizontalInput==0) movement.x=0; 
         if(verticalInput==0) movement.z=0;
-        var tarpos = transform.position + movement * (speed * Time.deltaTime);
+        var tarpos = transform.position + movement * (speed * Time.deltaTime * 3f); //追加系数防止动画出格
         if((map[TransToPos(tarpos.x),TransToPos(tarpos.z),0]==1 || map[pos[0],pos[1],0]!=1)
            && (map[TransToPos(tarpos.x),TransToPos(tarpos.z),1]!=1))
-            transform.position=tarpos;
+            transform.position=tarpos - movement * (speed * Time.deltaTime * 2f); //再减回去
 
         //抬起Cube
         if (!isReading && Input.GetKeyDown(KeyCode.Mouse0) && !IsCubeOn && Can_PutUp()){

@@ -1455,7 +1455,7 @@ PrefabInstance:
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}
       propertyPath: timeLimitToWin
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7490534037806953176, guid: bc70b06428b5a974697cd3050fd18450,
         type: 3}

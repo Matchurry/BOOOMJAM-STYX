@@ -141,5 +141,6 @@ public class Restart : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             }
         };
         RestartClick.Invoke();
+        Destroy(gameObject);
     }
 }

@@ -37,5 +37,6 @@ public class JumpScenes13 : MonoBehaviour
             sc.timeLimitToWin = 60 * 3; //坚持时间
             sc.choseChange = 1;
         };
+        Destroy(gameObject);
     }
 }

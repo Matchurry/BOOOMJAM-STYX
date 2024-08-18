@@ -35,6 +35,7 @@ public class JumpScenes1 : MonoBehaviour
             sc.CubeInHandLim = 9; //方块上限
             sc.timeLimitToWin = 60; //坚持时间
         };
+        Destroy(gameObject);
     }
     
 }

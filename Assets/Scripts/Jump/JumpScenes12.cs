@@ -65,5 +65,6 @@ public class JumpScenes12 : MonoBehaviour
                 sc.choseChange = 1;
             };
         }
+        Destroy(gameObject);
     }
 }
