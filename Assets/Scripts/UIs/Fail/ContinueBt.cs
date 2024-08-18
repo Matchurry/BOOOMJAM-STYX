@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class BackToMain : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+public class ContinueBt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     private Image _image;
-    public static UnityEvent BackToMainClick = new UnityEvent();
+    public static UnityEvent nextLevel = new UnityEvent();
     void Start()
     {
         _image = GetComponent<Image>();
@@ -20,6 +20,7 @@ public class BackToMain : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         
     }
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         _image.color = new Color(0,0,0);
@@ -37,7 +38,6 @@ public class BackToMain : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        BackToMainClick.Invoke();
-        SceneManager.LoadScene(17);
+        nextLevel.Invoke();
     }
 }

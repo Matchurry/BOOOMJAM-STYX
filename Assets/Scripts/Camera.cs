@@ -57,6 +57,7 @@ public class Camera : MonoBehaviour
         Ballet.OnBalletHit.AddListener(StartShake);
         lazerSign.lazerAttack.AddListener(StartShake);
         Timebar.playerWin.AddListener(WinUI);
+        ContinueBt.nextLevel.AddListener(NextLevel);
         Level1Turto.AddListener(StartLevel1);
         
         if(ps.isReading)
