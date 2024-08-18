@@ -64,7 +64,8 @@ public class SpeedUpIcon : MonoBehaviour
                 //要不要也触发一个渲染效果的改变？
                 coolDown = 15f + 3f;
                 StartCoroutine(RunResume());
-                
+                audioController.PlaySound("timestop");
+
             }
         }
     }

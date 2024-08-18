@@ -1651,6 +1651,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 186be8bf180fbcb42b638560bdbf57e8, type: 3}
   - name: surrounding
     clip: {fileID: 8300000, guid: 9cc9f4e7cd75abb478493e6c69a4f205, type: 3}
+  - name: timestop
+    clip: {fileID: 8300000, guid: 1b9ffd9a01ba34b4d990b5476cbe3791, type: 3}
+  - name: sheldhitted
+    clip: {fileID: 8300000, guid: 1b9ffd9a01ba34b4d990b5476cbe3791, type: 3}
 --- !u!4 &1613576897
 Transform:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class Cube : MonoBehaviour{
     public static UnityEvent OnShooterDes = new UnityEvent();
     public static UnityEvent OnSpeedDes = new UnityEvent();
 
-    
+    private AudioController audioController;
 
     void Start(){
         
@@ -57,7 +57,7 @@ public class Cube : MonoBehaviour{
             _veryFirst = true;
             _birthPos = transform.position;
         }
-        
+        audioController = FindObjectOfType<AudioController>();
     }
 
     void Update(){
@@ -163,7 +163,7 @@ public class Cube : MonoBehaviour{
     /// </summary>
     private void CubeHpsMinus(){
         HPs--;
-        
+        audioController.PlaySound("hitted");
         if (HPs==HPsLimit-1 && type!=3 && type!=4 && type!=5)
             SwitchToType(1);
         if(HPs<=0){

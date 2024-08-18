@@ -278,7 +278,7 @@ public class Player : MonoBehaviour{
             OnCubePutOn.Invoke(x,z);
             IsCubeOn = true;
             audioController.PlaySound("take_up");
-
+            animator.SetBool("holding", true);
         }
 
         //放下Cube
@@ -288,7 +288,7 @@ public class Player : MonoBehaviour{
             OnCubePutDown.Invoke(x,z);
             IsCubeOn=false;
             audioController.PlaySound("take_down");
-
+            animator.SetBool("holding", false);
         }
 
         UpdateAnimator();
@@ -528,7 +528,7 @@ public class Player : MonoBehaviour{
     /// </summary>
     private void GetBomb(int x,int z){
         if(pos[0]==x && pos[1]==z){
-            audioController.PlaySound("hitted");
+            audioController.PlaySound("hitted2");
             HP.size -= 0.2f;
         }
     }

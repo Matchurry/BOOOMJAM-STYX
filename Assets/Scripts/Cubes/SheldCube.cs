@@ -18,8 +18,9 @@ public class SheldCube : MonoBehaviour
     public static UnityEvent sheldCubePutUp = new UnityEvent();
     public static UnityEvent<int, int> OnSheldDes = new UnityEvent<int, int>();
     public static UnityEvent OnSheldTri = Cube.OnSheldTri;
-    
-    
+    private AudioController audioController;
+
+
     void Start()
     {
         ps = Player.instance;
@@ -29,6 +30,7 @@ public class SheldCube : MonoBehaviour
         GameObject she = Instantiate(sheld); //生成护盾特效
         she.transform.position = transform.position;
         sheldSc = she.GetComponent<Sheld>();
+        audioController = FindObjectOfType<AudioController>();
     }
     
     void Update()
@@ -104,6 +106,7 @@ public class SheldCube : MonoBehaviour
                 if (ps._protectedCol == x)
                 {
                     OnSheldTri.Invoke();
+                    audioController.PlaySound("sheldhitted");
                     return;
                 }
                 OnSheldDes.Invoke(pos[0],pos[1]); //触发护盾装置消失事件
