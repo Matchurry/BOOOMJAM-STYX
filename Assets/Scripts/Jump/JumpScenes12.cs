@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class JumpScenes12 : MonoBehaviour
 {
-    [SerializeField] public Blackboard bb;
+    [SerializeField] private Blackboard bb;
     void Start()
     {
         
@@ -21,6 +21,7 @@ public class JumpScenes12 : MonoBehaviour
     public void Jump()
     {
         //SceneManager.LoadScene(14);
+        bb = FindObjectOfType<Blackboard>();
         var ca = bb.GetVariable<float>("change").value;
         if ((int)ca == 0)
         { 

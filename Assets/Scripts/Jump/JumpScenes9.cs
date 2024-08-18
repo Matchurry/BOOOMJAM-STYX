@@ -6,7 +6,7 @@ using Blackboard = NodeCanvas.Framework.Blackboard;
 
 public class JumpScenes9 : MonoBehaviour
 {
-    [SerializeField] public Blackboard bb;
+    [SerializeField] private Blackboard bb;
     void Start()
     {
         
@@ -21,10 +21,11 @@ public class JumpScenes9 : MonoBehaviour
     public void Jump()
     {
         //SceneManager.LoadScene(10);
-        
+        bb = FindObjectOfType<Blackboard>();
         var ca = bb.GetVariable<float>("change").value;
         if ((int)ca == 0)
         { 
+            Debug.Log("no");
             // 否
             SceneManager.LoadSceneAsync(16).completed += (operation) =>
             {
@@ -47,6 +48,7 @@ public class JumpScenes9 : MonoBehaviour
         }
         else
         {
+            Debug.Log("yes");
             // 是
             SceneManager.LoadSceneAsync(16).completed += (operation) =>
             {
