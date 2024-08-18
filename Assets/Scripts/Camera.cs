@@ -101,6 +101,8 @@ public class Camera : MonoBehaviour
 
     private void PlayerDead()
     {
+        ps.is_resumed = true;
+        ps.isReading = true;
         _isdead = true;
         GameObject fail = Instantiate(failedUI);
         RectTransform failUIRect = fail.GetComponent<RectTransform>();
@@ -133,6 +135,8 @@ public class Camera : MonoBehaviour
 
     private void WinUI()
     {
+        ps.isReading = true;
+        ps.is_resumed = true;
         GameObject turUI = Instantiate(winUI);
         RectTransform turUIRect = turUI.GetComponent<RectTransform>();
         turUIRect.SetParent(_canvasRectTransform);

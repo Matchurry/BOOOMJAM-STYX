@@ -266,7 +266,7 @@ public class Player : MonoBehaviour{
             transform.position=tarpos;
 
         //抬起Cube
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !IsCubeOn && Can_PutUp()){
+        if (!isReading && Input.GetKeyDown(KeyCode.Mouse0) && !IsCubeOn && Can_PutUp()){
             //PutCube();
             startTime = Time.time;
             int x = TransToPos(AimPosNow().x);
