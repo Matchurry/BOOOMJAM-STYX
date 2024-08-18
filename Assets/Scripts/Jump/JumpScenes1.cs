@@ -30,7 +30,7 @@ public class JumpScenes1 : MonoBehaviour
             sc.isShooterAnemy = false; //远程敌人
             sc.isLazerAttcking = false; //激光敌人
             sc.isShooterSkill = false; //技能1
-            sc.isSheldSkill = false; //技能2
+            sc.isSpeedSkill = false; //技能2
             sc.isSheldSkill = false; //技能3
             sc.CubeInHandLim = 9; //方块上限
             sc.timeLimitToWin = 60; //坚持时间
