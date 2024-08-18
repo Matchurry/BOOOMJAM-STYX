@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Star.unity
-    guid: 6835750af959cb94f9757f70c7a81abf
-  - enabled: 1
     path: Assets/Scenes/loading1.unity
     guid: bb8a43b5760b9ab489cc02ab85c9fe14
   - enabled: 1
@@ -62,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 6113fe52e27e8b341aa8dab1ee5d339b
+  - enabled: 1
+    path: Assets/Scenes/Star.unity
+    guid: 6835750af959cb94f9757f70c7a81abf
   m_configObjects: {}
